@@ -1,0 +1,18 @@
+mixin navLink(link,name)
+    li
+        a(href=link).nav-link=name
+
+header.page-header__log
+        a.page-header-logo.toxin-logo
+        ul.nav
+            +navLink('#','Home')
+            +navLink('#','About us')
+            li.page-header-services
+                 ul.page-header-sevices-list 
+                    +navLink('#','SPA')
+                    +navLink('#','S')
+                    +navLink('#','M')
+            +navLink('#','Career')
+            +navLink('#','News')
+            +navLink('#','Documentation')
+        a.page-header-username `${username}`
