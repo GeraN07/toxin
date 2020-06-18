@@ -1,0 +1,16 @@
+include ../components/text-field/text-field
+include ../components/dropdown/dropdown
+include ../components/date-dropdown/date-dropdown
+doctype html
+html(lang="en")
+  head
+    title= UI-kit-pages
+  body
+    +text-field("email","text", "Email")
+    +text-field("textfield","text", "This is pretty awesome")
+    +dropdown({type:'guests'})
+    +dropdown({type:'rooms'})
+    +date-dropdown(options)
+
+    
+    

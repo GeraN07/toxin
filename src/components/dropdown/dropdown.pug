@@ -1,0 +1,38 @@
+mixin dropdown(options)
+
+    -let dropdownTypeClass = "iqdropdown"
+     -dropdownSizeClass = (options.type == "guests") ? "iqdropdown_guests" : false
+          if dropdownSizeClass == "iqdropdown_guests"
+            div.custom.iqdropdown 
+              p.iqdropdown-selection 
+              .iqdropdown-menu
+                .iqdropdown-menu-option(data-id="adult" )
+                  .iqdropdown__wrapper
+                    p.iqdropdown-item Взрослые
+                .iqdropdown-menu-option(data-id="child")
+                  .iqdropdown__wrapper
+                    p.iqdropdown-item Дети
+                .iqdropdown-menu-option(data-id="infant")
+                  .iqdropdown__wrapper
+                    p.iqdropdown-item Младенцы
+                .iqdropdown__footer
+                  span.iqdropdown__erase-button Очистить
+                  span.iqdropdown__apply-button Применить
+          else 
+            div.custom-message.iqdropdown
+              p.iqdropdown-selection 
+              .iqdropdown-menu
+                .iqdropdown-menu-option(data-id="bedroom")
+                  .iqdropdown__wrapper
+                    p.iqdropdown-item Спальни
+                .iqdropdown-menu-option(data-id="bed")
+                  .iqdropdown__wrapper
+                    p.iqdropdown-item Кровати
+                .iqdropdown-menu-option(data-id="bathroom")
+                  .iqdropdown__wrapper
+                    p.iqdropdown-item Ванные комнаты
+                
+                
+
+                    
+          

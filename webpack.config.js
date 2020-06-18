@@ -12,7 +12,7 @@ const PATHS = {
   dist: path.join(__dirname, 'dist/'),
   assets: 'assets/'
 }
-
+const webpack = require('webpack');
 const PAGES_DIR = `${PATHS.src}/pages/`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 const isDev = process.env.NODE_ENV === 'development'
@@ -57,7 +57,7 @@ if (extra){
 module.exports = {
     context: path.resolve(__dirname,'src'),
     mode:'development',
-  entry:'../src/index.js',
+  entry:['../src/index.scss','../src/index.js'],
   output: {
     filename:filename('js'),
     path:path.resolve(__dirname, 'dist')
@@ -94,9 +94,12 @@ module.exports = {
   new MiniCssExtractPlugin({
     filename:filename('css')
   }),
-
-  
-  
+  new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery",
+    "window.jQuery": "jquery",
+    "window.$": "jquery"
+    })
   ],
   module: {
     rules:[

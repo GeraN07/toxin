@@ -1,12 +1,10 @@
+//Jquery
+var jquery = require("../node_modules/jquery/dist/jquery.js");
+window.$ = window.jQuery = jquery;
 import * as $ from 'jquery'
-import Post from '@models/post'
-// import json from './assets/json.json'
-// import xml  from './assets/i_1cen_6.xml'
-import csv from '@/assets/TemplateimportOU.csv'
-import WebpackLogo from '@/assets/webpack-logo'
-import './index.scss'
-const post = new Post('Webpack Post Title', WebpackLogo)
-$('pre').addClass('code').html(post.toString())
-// console.log('JSON:', json)
-// console.log('XML:',xml)
-console.log('CSV', csv)
+require("../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.js")
+require("../node_modules/air-datepicker/dist/js/datepicker.min.js")
+//Pages
+require("./pages/ui-kit.pug");
+require("./pages/ui-kit.js");
+

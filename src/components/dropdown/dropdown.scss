@@ -1,0 +1,210 @@
+@import "../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.css";
+
+.iqdropdown {
+  background: #ffffff;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  width: 320px;
+  height: 44px;
+
+  &_small {
+    width: 266px;
+  }
+
+  &:hover,
+  &:focus {
+    border: 1px solid black;
+  }
+
+  &__footer {
+    padding-left: 14px;
+    padding-right: 6px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+    margin-bottom: 12px;
+  }
+
+  &__erase-button {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: rgba(31, 32, 65, 0.5);
+    cursor: pointer;
+  }
+
+  &__apply-button {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.iqdropdown .iqdropdown-selection {
+  font-family:black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: black;
+}
+
+.iqdropdown.menu-open {
+  border: 1px solid black;
+}
+
+/* .iqdropdown .iqdropdown-item-controls button.button-decrement {
+  width: 30px;
+  height: 30px;
+  font-family: $montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(31, 32, 65, 0.5);
+  border-radius: 180px;
+  padding: 0 0 0 0;
+}
+.iqdropdown .iqdropdown-item-controls button.button-increment {
+  width: 30px;
+  height: 30px;
+  font-family: $montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(31, 32, 65, 0.5);
+  border-radius: 180px;
+  padding: 0 0 0 0;
+}
+ */
+.iqdropdown-item {
+  font-family: black;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  //text-align: center;
+  text-transform: uppercase;
+  color: black;
+}
+
+/* .counter {
+  height: 15px;
+  width: 32px;
+} */
+
+.iqdropdown .iqdropdown-item-controls .counter {
+  border-bottom: none;
+  border-top: none;
+  padding: 0 0 0 0;
+}
+
+.iqdropdown .iqdropdown-menu-option {
+  height: 30px;
+  padding: 0 7px 0 15px;
+
+  &:first-child {
+    padding-top: 11px;
+  }
+
+  &:nth-child(n + 2) {
+    margin-top: 12px;
+  }
+
+  &:nth-child(n + 3) {
+    margin-top: 7px;
+  }
+}
+
+.iqdropdown .iqdropdown-item-controls {
+  height: 30px;
+  width: 92px;
+  justify-content: space-between;
+  margin-right: -2px;
+  margin-top: -1px;
+}
+
+.iqdropdown .iqdropdown-item-controls button {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  padding: 0px;
+}
+
+.iqdropdown .iqdropdown-item-controls button.button-decrement,
+.iqdropdown .iqdropdown-item-controls button.button-increment {
+  border-radius: 100%;
+}
+
+.iqdropdown .iqdropdown-item-controls .counter {
+  font-family: black;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: black;
+  align-self: center;
+}
+
+.iqdropdown .icon-decrement {
+  font-family: black;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  &::after {
+    background: white;
+    content: "-";
+    top: -4px;
+    left: -1px;
+    color: rgba(31, 32, 65, 0.5);
+  }
+}
+
+.iqdropdown .icon-increment {
+  font-family: black;
+  font-style: normal;
+
+  &::after {
+    content: "+";
+    top: -3px;
+    left: 0px;
+  }
+
+  &::before {
+    background: white;
+  }
+}
+
+.iqdropdown .icon-decrement.icon-increment::before {
+  background: white;
+}
+
+.iqdropdown .iqdropdown-menu {
+  top: 44px;
+  box-shadow: none;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
