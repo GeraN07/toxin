@@ -5,6 +5,6 @@ $('#start_one').datepicker({
       $("#end_one").val(fd.split("-")[1]);
     },
   });
-  $( '#end_one' ).click(function() {
+$( '#end_one' ).click(function() {
     $('#start_one').focus()
   })

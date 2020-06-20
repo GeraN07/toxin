@@ -18,18 +18,66 @@ $(document).ready(() => {
       return true;
     },
     setSelectionText: (itemCount,totalItems,textPlural,selectionText) => {
+      let arr = []
       if(totalItems == 0){
-        return textPlural = 'Сколько гостей';
+        return textPlural = "Сколько гостей"
+      }
+      if(itemCount.adult == 1){
+        x =itemCount.adult + " " +'гость';
+        if(itemCount.adult > 0){
+          arr.push(x)
+          }
+      }
+       else if(itemCount.adult < 5){
+         x =itemCount.adult + " " +'гостя';
+         if(itemCount.adult > 0){
+         arr.push(x)
+         }
        }
-       if(totalItems == 1){
-        return textPlural =totalItems + " " +'гость';
+       else if(itemCount.adult > 4){
+         x =itemCount.adult + " " +"гостей";
+         if(itemCount.adult > 0){
+          arr.push(x)
+          }
        }
-       if(totalItems < 5){
-        return selectionText =totalItems + " " +'гостя';
+       if(itemCount.child == 1){
+        y =itemCount.child + " " +'ребенок';
+        if(itemCount.child > 0){
+          arr.push(y)
+          }
+      }
+       else if(itemCount.child < 5){
+         y =itemCount.child + " " +'ребенка';
+         if(itemCount.child > 0){
+          arr.push(y)
+          }
        }
-       else{
-        return selectionText =totalItems + " " +"гостей";
+       else if(itemCount.child > 4){
+         y =itemCount.child + " " +'детей';
+         if(itemCount.child > 0){
+          arr.push(y)
+          }
        }
+       if( itemCount.infant == 1){
+        z =itemCount.infant + " " +'младенец';
+        if(itemCount.infant > 0){
+         arr.push(z)
+         }
+        }
+       else if(itemCount.infant < 5){
+        z =itemCount.infant + " " +'младенца';
+        if(itemCount.infant > 0){
+          arr.push(z)
+          }
+      }
+      else if(itemCount.infant > 4){
+         z =itemCount.infant + " " +'младенцев';
+         if(itemCount.infant > 0){
+          arr.push(z)
+          }
+      }
+      arr = arr.join(', ')
+      return textPlural = arr
       },
   });
 
@@ -47,7 +95,9 @@ $(document).ready(() => {
         // .map(key => itemCount[key])
         // .join(",");
         // return items
-        
+        if(totalItems == 0){
+          return textPlural = "Сколько комнат"
+        }
          
          if(itemCount.bedroom <5){
            x = itemCount.bedroom +" "+ "Спальни"
