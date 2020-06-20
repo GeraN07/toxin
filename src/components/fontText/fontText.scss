@@ -1,0 +1,138 @@
+@import "../src/assets/fonts/Quicksand-Bold.ttf";
+@import "../src/assets/fonts/Quicksand-Regular.ttf";
+@import "../src/assets/fonts/Montserrat-Bold.ttf";
+@import "../src/assets/fonts/Montserrat-Regular.ttf";
+@font-face{
+font-family: Quicksand-Bold;
+src:url('../src/assets/fonts/Quicksand-Bold.ttf')  format('truetype');
+font-weight: bold;
+}
+@font-face{
+font-family: Quicksand-Regular;
+src:url('../src/assets/fonts/Quicksand-Regular.ttf')  format('truetype');
+font-weight: normal;
+}
+
+@font-face{
+font-family: Montserrat-Bold;
+src:url('../src/assets/fonts/Montserrat-Bold.ttf')  format('truetype');
+font-weight: bold;
+}
+@font-face{
+font-family: Montserrat-Regular;
+src:url('../src/assets/fonts/Montserrat-Regular.ttf')  format('truetype');
+font-weight: normal;
+}
+.fontText{
+width: 403px;
+height: 321px;
+margin-right: 191px;
+margin-top: 105px;
+}
+.text-block{
+margin-top:50px;
+margin-bottom:50px;
+display: flex;
+flex-direction: row;
+}
+.fontText h1{
+    font-family: Quicksand-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0;
+}
+.fontText h2{
+    font-family: Quicksand-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    margin: 0;
+}
+.fontText h3{
+    font-family: Montserrat-Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+text-transform: uppercase;
+margin: 0;
+}
+.body-fontText{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+    
+    
+    /* Dark 75% */
+    
+    color: $DShade75;
+    margin: 0;
+}
+.fontText-h1-demo{
+    font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+text-transform: uppercase;
+text-align: right;
+
+/* Dark 25% */
+margin-right: 30px;
+
+color: $DShade25;
+}
+.fontText-h2-demo{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 23px;
+    text-transform: uppercase;
+    /* identical to box height */
+    margin-right: 30px;
+    text-align: right;
+    
+    /* Dark 25% */
+    color: $DShade25;
+}
+.fontText-h3-demo{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    margin-right: 30px;
+
+    text-align: right;
+    text-transform: uppercase;
+    
+    /* Dark 25% */
+    
+    color: $DShade25;
+}
+.fontText-body-demo{
+font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+margin-right: 30px;
+text-align: right;
+
+/* Dark 25% */
+
+color: $DShade25;
+padding-top:0px;
+}

@@ -2,3 +2,9 @@
 @import "../components/dropdown/dropdown.scss";
 @import "../components/date-dropdown/date-dropdown.scss";
 @import "../components/range-slider/range-slider.scss";
+@import "../components/colors/colors.scss";
+@import "../components/fontText/fontText.scss";
+.color-type{
+display: flex;
+justify-content: space-around;
+}
