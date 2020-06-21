@@ -24,16 +24,19 @@ src:url('../src/assets/fonts/Montserrat-Regular.ttf')  format('truetype');
 font-weight: normal;
 }
 .fontText{
-width: 403px;
-height: 321px;
-margin-right: 191px;
-margin-top: 105px;
+display: flex;
+flex-direction: column;
+grid-column-start: 4;
+grid-column-end: 4;
+grid-row-start: 2;
+grid-row-end: 2;
 }
 .text-block{
-margin-top:50px;
+
 margin-bottom:50px;
 display: flex;
 flex-direction: row;
+
 }
 .fontText h1{
     font-family: Quicksand-Bold;
@@ -42,6 +45,8 @@ flex-direction: row;
     font-size: 24px;
     line-height: 30px;
     margin: 0;
+    padding-left: 3px;
+    
 }
 .fontText h2{
     font-family: Quicksand-Bold;
@@ -50,6 +55,7 @@ flex-direction: row;
     font-size: 19px;
     line-height: 24px;
     margin: 0;
+    
 }
 .fontText h3{
     font-family: Montserrat-Bold;
@@ -61,6 +67,7 @@ line-height: 15px;
 
 text-transform: uppercase;
 margin: 0;
+
 }
 .body-fontText{
     font-family: Montserrat-Regular;
@@ -74,7 +81,9 @@ margin: 0;
     /* Dark 75% */
     
     color: $DShade75;
-    margin: 0;
+   padding-right: 25px;
+   margin-bottom: 20px;
+  
 }
 .fontText-h1-demo{
     font-family: Montserrat-Regular;
@@ -87,9 +96,12 @@ text-transform: uppercase;
 text-align: right;
 
 /* Dark 25% */
-margin-right: 30px;
+
 
 color: $DShade25;
+padding-right: 25px;
+padding-left: 10px;
+
 }
 .fontText-h2-demo{
     font-family: Montserrat-Regular;
@@ -99,11 +111,13 @@ color: $DShade25;
     line-height: 23px;
     text-transform: uppercase;
     /* identical to box height */
-    margin-right: 30px;
+ 
     text-align: right;
     
     /* Dark 25% */
     color: $DShade25;
+    padding-right: 30px;
+    padding-left: 10px;
 }
 .fontText-h3-demo{
     font-family: Montserrat-Regular;
@@ -112,7 +126,7 @@ color: $DShade25;
     font-size: 12px;
     line-height: 15px;
     /* identical to box height */
-    margin-right: 30px;
+    
 
     text-align: right;
     text-transform: uppercase;
@@ -120,6 +134,10 @@ color: $DShade25;
     /* Dark 25% */
     
     color: $DShade25;
+    padding-left: 20px;
+    padding-right: 30px;
+    
+    
 }
 .fontText-body-demo{
 font-family: Montserrat-Regular;
@@ -128,11 +146,16 @@ font-weight: normal;
 font-size: 14px;
 line-height: 24px;
 /* identical to box height, or 171% */
-margin-right: 30px;
+
 text-align: right;
 
 /* Dark 25% */
-
 color: $DShade25;
-padding-top:0px;
+padding-right: 30px;
+
+
 }
+.text-block_prelast{
+    margin-bottom: 46px;
+}
+
