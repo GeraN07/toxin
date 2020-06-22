@@ -1,6 +1,6 @@
 @import "../components/big-footer/big-footer.scss";
 @import "../components/dropdown/dropdown.scss";
-@import "../components/date-dropdown/date-dropdown.scss";
+@import "../components/double-date-dropdown/double-date-dropdown.scss";
 @import "../components/range-slider/range-slider.scss";
 @import "../components/colors/colors.scss";
 @import "../components/fontText/fontText.scss";
@@ -11,4 +11,6 @@
     background: url("./assets/Group.svg");
     background-repeat: no-repeat;
     background-position: 30px 30px;
+    max-height: 900px;
+    border-bottom: 1px solid black;
 }

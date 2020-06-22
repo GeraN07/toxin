@@ -1,0 +1,9 @@
+mixin  masked-text-field(h3,p,placeholder)
+    h3.masked-text-field=h3
+    p.masked-text-field=p
+        .masked-text-field
+            input.masked-text-field(
+                type="text"
+                name="field-name"
+                placeholder=placeholder
+                data-mask="00.00.0000")

@@ -1,6 +1,7 @@
-mixin text-field(name, type, placeholder, pattern)
+mixin text-field(h3,p,name, type, placeholder)
+  h3.text-field-title=h3
+  p.text-field-p=p
   input.text-field(
-    name=name
-    type=type
-    placeholder=placeholder
-    pattern=pattern)
+      name=name
+      type=type
+      placeholder=placeholder)

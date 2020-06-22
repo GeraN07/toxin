@@ -1,4 +1,6 @@
-mixin dropdown(options)
+mixin dropdown(options,h3,p)
+    h3.h3-dropdown=h3
+    p.p-dropdown=p
 
     -let dropdownTypeClass = "iqdropdown"
      -dropdownSizeClass = (options.type == "guests") ? "iqdropdown_guests" : false
@@ -18,7 +20,8 @@ mixin dropdown(options)
                 .iqdropdown__footer
                   span.iqdropdown__erase-button Очистить
                   span.iqdropdown__apply-button Применить
-          else 
+     -dropdownSizeClass = (options.type == "rooms") ? "iqdropdown_rooms" : false                  
+          if dropdownSizeClass == "iqdropdown_rooms"
             div.custom-message.iqdropdown
               p.iqdropdown-selection 
               .iqdropdown-menu
@@ -31,7 +34,11 @@ mixin dropdown(options)
                 .iqdropdown-menu-option(data-id="bathroom")
                   .iqdropdown__wrapper
                     p.iqdropdown-item Ванные комнаты
-                
+     -dropdownSizeClass = (options.type == "empty") ? "iqdropdown_empty" : false
+          if dropdownSizeClass == "iqdropdown_empty"
+              div.empty.iqdropdown           
+                p.iqdropdown-selection 
+                  .iqdropdown-menu 
                 
 
                     

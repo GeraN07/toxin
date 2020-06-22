@@ -1,1 +1,5 @@
-+text-field(subsciption-text-field, email)
+mixin subscription-text-field
+    .subscription-text-field
+        form(action="", method="get")
+            +text-field("subsciption text field",none,"email","text","Email")
+            <input type="submit" value=""></input>

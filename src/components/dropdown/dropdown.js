@@ -132,4 +132,9 @@ $(document).ready(() => {
         return textPlural = x + "," + " " + y + "," + " " + z
   }
   });
+  $(".empty").iqDropdown({
+    setSelectionText: (textPlural,selectionText)=>{
+    return textPlural = "Сколько гостей"
+  }
+})
 });

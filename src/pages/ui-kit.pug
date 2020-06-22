@@ -1,9 +1,17 @@
 include ../components/text-field/text-field
 include ../components/dropdown/dropdown
-include ../components/date-dropdown/date-dropdown
+include ../components/double-date-dropdown/double-date-dropdown
+include ../components/filter-date-dropdown/filter-date-dropdown
 include ../components/range-slider/range-slider
 include ../components/colors/colors
 include ../components/fontText/fontText
+include ../components/masked-text-field/masked-text-field
+include ../components/subscription-text-field/subscription-text-field
+include ../components/checkbox-buttons/checkbox-buttons
+include ../components/radio/radio
+include ../components/toggle/toggle
+include ../components/rate-button/rate-button
+
 doctype html
 html(lang="en")
   head
@@ -11,13 +19,25 @@ html(lang="en")
   body
     //- +text-field("email","text", "Email")
     //- +text-field("textfield","text", "This is pretty awesome")
-    //- +dropdown({type:'guests'})
+    //- 
     //- +dropdown({type:'rooms'})
     //- +date-dropdown(options)
     //- +range-slider
-    main.color-type
+    main
+    section.color-type
       +colors(options)
       +fontText(options)
-
+    section.form-elements
+        +text-field("text-field","default","email","text", "Email")
+        +text-field("text-field","Hover / Focus","email","text", "Email")
+        +dropdown({type:'empty'},"Dropdown","Default")
+        +masked-text-field("masked text field","Default","ДД.ММ.ГГГГ")
+        +double-date-dropdown("date Dropdown","date Dropdown","ДД.ММ.ГГГГ","19.08.2019")
+        +filter-date-dropdown("filter date dropdown","19 Авг - 23 Авг")
+        +subscription-text-field
+        +checkbox-buttons
+        +radio
+        +toggle
+        +rate-button
     
     

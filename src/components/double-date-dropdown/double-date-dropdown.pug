@@ -1,0 +1,14 @@
+mixin double-date-dropdown(h3n1,h3n2,placeholder,value)
+     .one
+        h3.double-date-dropdown=h3n1
+        input.datepicker-here(
+            type="text"
+            placeholder=placeholder
+            id="start_one"
+            data-range="true"
+            data-multiple-dates-separator=" - ")
+        h3.double-date-dropdown=h3n2
+        input.dates( 
+            type='text'
+            value=value
+             id='end_one')
