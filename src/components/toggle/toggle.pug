@@ -1,3 +1,4 @@
-mixin toggle
-        input(type="checkbox" name="special"  id="get")
-        label(for="get") Получать спецпредложения
+mixin toggle(h3,checked,id)
+        h3.toggle-title=h3
+        input(type="checkbox" name="special"  id=id checked=checked)
+        label(for=id) Получать спецпредложения
