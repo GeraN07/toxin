@@ -1,5 +1,6 @@
-mixin checkbox-buttons
+mixin checkbox-buttons(h3)
     .checkbox-buttons
+        h3.checkbox-buttons-title=h3
         input(type="checkbox" id="smoke")
         label(for = "smoke") Можно курить
         input(type="checkbox" id="pet" checked)
