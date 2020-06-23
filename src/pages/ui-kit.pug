@@ -10,6 +10,7 @@ include ../components/subscription-text-field/subscription-text-field
 include ../components/checkbox-buttons/checkbox-buttons
 include ../components/radio/radio
 include ../components/toggle/toggle
+include ../components/like-button/like-button
 include ../components/rate-button/rate-button
 
 doctype html
@@ -22,7 +23,6 @@ html(lang="en")
     //- 
     //- +dropdown({type:'rooms'})
     //- +date-dropdown(options)
-    //- +range-slider
     main
     section.color-type
       +colors(options)
@@ -35,9 +35,14 @@ html(lang="en")
         +double-date-dropdown("date Dropdown","date Dropdown","ДД.ММ.ГГГГ","19.08.2019")
         +filter-date-dropdown("filter date dropdown","19 Авг - 23 Авг")
         +subscription-text-field
-        +checkbox-buttons
-        +radio
-        +toggle
-        +rate-button
-    
+        +checkbox-buttons("Checkbox Buttons")
+        +radio("Radio Buttons")
+        +toggle("Toggle","checked","get1")
+        +toggle(" ",none,"get2")
+        +like-button("like button","like__btn1 animated","2")
+        +like-button("","like__btn2 animated liked","12")
+        +rate-button("rating1","rate button")
+        +rate-button("rating2")
+        +range-slider("Range Slider")
+
     
