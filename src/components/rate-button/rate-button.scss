@@ -3,3 +3,28 @@
 .rating2{
 cursor: pointer;
 }
+.rate-button-title{
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    
+    text-transform: uppercase;
+    
+    /* Dark 100% */
+    margin: 0;
+    padding: 0;
+    color: #1F2041;
+    margin-bottom: 16px;
+}
+.rating .material-icons{
+    color: #BC9CFF;
+}
+.rate-button-block{
+display: flex;
+}
+.rate-button{
+    margin-right: 20px;
+}
