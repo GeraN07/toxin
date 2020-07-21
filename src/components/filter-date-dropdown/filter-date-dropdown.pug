@@ -1,10 +1,11 @@
-mixin filter-date-dropdown(h3,value)
-     .two
-        h3.filte-date-dropdown=h3
-        input.datepicker-here(
-            type="text"
-            placeholder=placeholder
-            value=value
-            data-range="true"
-            data-multiple-dates-separator=" - "
-            id="date-range")
+mixin filter-date-dropdown(h3)
+    .filter-date-dropdown-block
+        .filter-date-dropdown-header
+            h3.filte-date-dropdown-title=h3
+        input.datepicker-here.filte-date-dropdown(
+                type="text"
+                placeholder=placeholder
+                data-range="true"
+                data-multiple-dates-separator=" - "
+                id="date_range"
+                )

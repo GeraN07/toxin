@@ -1,1 +1,33 @@
 @import "../node_modules/air-datepicker/dist/css/datepicker.min.css";
+.filter-date-dropdown-block{
+    margin-bottom: 41px;
+}
+.filte-date-dropdown-title{
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    margin-bottom:5px;
+}
+.datepicker-here.filte-date-dropdown{
+width: 266px;
+height: 44px;
+font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+
+
+/* Dark 75% */
+
+color: rgba(31, 32, 65, 0.75);
+
+margin: 0;
+}
