@@ -1,0 +1,97 @@
+.pagination-title{
+font-family: Montserrat-Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+text-transform: uppercase;
+
+/* Dark 100% */
+
+color: #1F2041;
+margin: 0;
+padding: 0;
+margin-bottom: 14px;
+}
+.pagination-list{
+list-style: none;
+display: flex;
+padding: 0;
+margin: 0;
+padding-top: 3px;
+margin-bottom: 8px;
+}
+.pagination-item{
+    width: 40px;
+    height: 40px;
+
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    align-items: center;
+    text-align: center;
+    padding-top: 12px;
+    /* Dark 50% */
+
+
+    color: rgba(31, 32, 65, 0.5);
+    
+  
+}
+.pagination-item:hover{
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    border-radius: 22px;
+    opacity: 0.5;
+    color: #FFFFFF;
+
+}
+.current-page{
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    border-radius: 22px;
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+.pagination-navigation{
+    width: 40px;
+    height: 40px;
+   
+    color: #FFFFFF;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    border-radius: 22px;
+    text-align: center;
+    padding: 8px;
+}
+.skip-item:hover{
+background: none;
+color: rgba(31, 32, 65, 0.5);
+opacity: 1;
+}
+.pagination-data{
+    font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 24px;
+/* identical to box height, or 171% */
+
+
+/* Dark 75% */
+
+color: rgba(31, 32, 65, 0.75);
+margin-left:5px;
+padding: 0;
+}
+.pagination{
+    width: 241px;
+height: 106px;
+}
