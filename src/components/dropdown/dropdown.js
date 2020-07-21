@@ -1,5 +1,6 @@
 $(document).ready(() => {
   $(".no-config").iqDropdown();
+  
 
   $(".custom").iqDropdown({
     beforeDecrement: function(id, itemCount) {
@@ -22,56 +23,56 @@ $(document).ready(() => {
       if(totalItems == 0){
         return textPlural = "Сколько гостей"
       }
-      if(itemCount.adult == 1){
-        x =itemCount.adult + " " +'гость';
+      if(itemCount.adult + itemCount.child == 1){
+       let x = itemCount.adult +itemCount.child+ " " +'гость';
         if(itemCount.adult > 0){
           arr.push(x)
           }
       }
-       else if(itemCount.adult < 5){
-         x =itemCount.adult + " " +'гостя';
+       else if(itemCount.adult + itemCount.child < 5 ){
+        let x =itemCount.adult + itemCount.child + " " +'гостя';
          if(itemCount.adult > 0){
          arr.push(x)
          }
        }
-       else if(itemCount.adult > 4){
-         x =itemCount.adult + " " +"гостей";
+       else if(itemCount.adult + itemCount.child > 4){
+        let x =itemCount.adult + itemCount.child + " " +"гостей";
          if(itemCount.adult > 0){
           arr.push(x)
           }
        }
-       if(itemCount.child == 1){
-        y =itemCount.child + " " +'ребенок';
-        if(itemCount.child > 0){
-          arr.push(y)
-          }
-      }
-       else if(itemCount.child < 5){
-         y =itemCount.child + " " +'ребенка';
-         if(itemCount.child > 0){
-          arr.push(y)
-          }
-       }
-       else if(itemCount.child > 4){
-         y =itemCount.child + " " +'детей';
-         if(itemCount.child > 0){
-          arr.push(y)
-          }
-       }
+      //  if(itemCount.child == 1){
+      // let  y =itemCount.child + " " +'ребенок';
+      //   if(itemCount.child > 0){
+      //     arr.push(y)
+      //     }
+      // }
+      //  else if(itemCount.child < 5){
+      //   let y =itemCount.child + " " +'ребенка';
+      //    if(itemCount.child > 0){
+      //     arr.push(y)
+      //     }
+      //  }
+      //  else if(itemCount.child > 4){
+      //   let y =itemCount.child + " " +'детей';
+      //    if(itemCount.child > 0){
+      //     arr.push(y)
+      //     }
+      //  }
        if( itemCount.infant == 1){
-        z =itemCount.infant + " " +'младенец';
+       let z =itemCount.infant + " " +'младенец';
         if(itemCount.infant > 0){
          arr.push(z)
          }
         }
        else if(itemCount.infant < 5){
-        z =itemCount.infant + " " +'младенца';
+       let z =itemCount.infant + " " +'младенца';
         if(itemCount.infant > 0){
           arr.push(z)
           }
       }
       else if(itemCount.infant > 4){
-         z =itemCount.infant + " " +'младенцев';
+        let z =itemCount.infant + " " +'младенцев';
          if(itemCount.infant > 0){
           arr.push(z)
           }

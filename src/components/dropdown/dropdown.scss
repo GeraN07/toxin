@@ -1,14 +1,44 @@
 @import "../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.css";
-
+.dropdown-block{
+  margin-bottom: 20px;
+  width: 320px;
+}
+.dropdown-header{
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown-tile{
+  font-family: Montserrat-Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  margin-bottom:5px;
+}
+.dropdown-p{
+  font-family: Montserrat-Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+  
+  text-align: right;
+  text-transform: uppercase;
+  margin: 0;
+}
 .iqdropdown {
   background: #ffffff;
-  border: 1px solid black;
+  border: 1px solid rgba(31, 32, 65, 0.25);
   box-sizing: border-box;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-radius: 4px;
   width: 320px;
   height: 44px;
-
+  
   &_small {
     width: 266px;
   }
@@ -28,7 +58,7 @@
   }
 
   &__erase-button {
-    font-family: Montserrat;
+    font-family: Montserrat-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -39,7 +69,7 @@
   }
 
   &__apply-button {
-    font-family: Montserrat;
+    font-family: Montserrat-Bold;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
@@ -51,7 +81,7 @@
 }
 
 .iqdropdown .iqdropdown-selection {
-  font-family:black;
+  font-family:Montserrat-Regular;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -59,10 +89,39 @@
   color: black;
 }
 
+.iqdropdown .iqdropdown-selection::after{
+  content: "expand_more"; 
+  font-family: "MaterialIcons-Regular";
+  font-size: 24px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.5);
+  background-image: none;
+  right:8px;
+  top:auto;
+  width: 10px;
+  height: 10px;
+}
+.iqdropdown.menu-open .iqdropdown-selection::after{
+  background-image: none;
+  content: "expand_more"; 
+  font-family: "MaterialIcons-Regular";
+  font-size: 24px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.5);
+  transform: rotate(-180deg);
+  right:-6px;
+  top:15px;
+  width: 10px;
+  height: 10px;
+
+
+}
 .iqdropdown.menu-open {
   border: 1px solid black;
 }
-
+.iqdropdown .iqdropdown-menu{
+  // height: 120px;
+}
 /* .iqdropdown .iqdropdown-item-controls button.button-decrement {
   width: 30px;
   height: 30px;
@@ -95,7 +154,7 @@
 }
  */
 .iqdropdown-item {
-  font-family: black;
+  font-family: Montserrat-Bold;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
@@ -207,4 +266,14 @@
   box-sizing: border-box;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+}
+// .iqdropdown.menu-open,
+// .iqdropdown.default{
+// width: 266px;
+// }
+.custom-message.iqdropdown{
+  width: 266px;
+}
+.dropdown-block.minwidth{
+width:266px;
 }
