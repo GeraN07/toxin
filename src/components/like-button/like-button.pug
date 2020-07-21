@@ -1,6 +1,7 @@
 mixin like-button(h3,className,num)
-    h3.like-button=h3
+    .like-button
         button.b(class=className)
-            <i class="like__icon fa fa-heart"></i>
-            span.like__number=num
+            i.material-icons.nolike favorite_border
+            i.material-icons.like favorite
+            span.like__number=num 
         

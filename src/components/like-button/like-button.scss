@@ -1,34 +1,86 @@
-.like__btn1,
-.like__btn2 {
+
+.like-button-title{
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    
+    text-transform: uppercase;
+    
+    /* Dark 100% */
+    margin: 0;
+    padding: 0;
+    color: #1F2041;
+    margin-bottom: 15px;
+}
+.like__btn1.animated,
+.like__btn2.animated {
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+/* identical to box height */
+
+    text-align: center;
     border: none;
-    background-color: #e74c3c;
+    background-color: inherit;
     color: white;
     cursor: pointer;
-    padding: 0.8rem;
-    border-radius: 0.4rem;
-    max-width: 200px;
+    width: 40px;
+    height: 20px;
     transition: all ease 0.3s;
     display: flex;
+    flex-direction: row;
     align-items: center;
-
+    border-radius: 10px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    color:rgba(31, 32, 65, 0.25);
     &:hover {
-        background-color: rgba(#e74c3c, 0.8);
+        border: 1px solid #BC9CFF;
+        color: #BC9CFF;
     }
 
-    &.liked {
-        background-color: #d4cfcf;
+        &.liked {
+        background-color: inherit;
+        border: 1px solid#BC9CFF;
         cursor: pointer;
-    }
+        color: #BC9CFF;
+        }
+        &.liked .like{
+        display: block;
+        }
+        &.liked .nolike{
+        display: none;
+        }
+    
 }
+.animated .material-icons{
+    font-size: 10px;
+    line-height: 9px;
+}
+.like{
+    display: none;
+    position: relative;
+    right: 4px;
+    bottom: 0px;
+    }
+.nolike{
+     display: block;
+     position: relative;
+     right: 4px;
+     bottom: 0px;
+    }
+
+
 
 // .like__icon {
 //     font-size: 1.2rem;
 //     margin-right: 0.3rem;
 // }
 
-.like__number {
-    font-size: 0.8rem;
-}
 
 // Container styling
 .container {
@@ -37,4 +89,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.like-button-block{
+display: flex;
+margin-bottom: 39px;
+}
+.like-button{
+margin-right:10px ;
 }
