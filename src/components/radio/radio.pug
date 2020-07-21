@@ -1,7 +1,12 @@
 mixin radio(h3)
     .radio
         h3.radio-title=h3
-        input(type="radio" name="sex" value="man" id="man")
-        label(for="man") Мужчина
-        input(type="radio" name="sex" value="woman" id="woman")
-        label(for="woman") Женщина
+        .radio-block
+            .radio-button
+                input.radio-input(type="radio" name="sex" value="man" id="man")
+                label.radio-label(for="man") 
+                    p.radio-label-text Мужчина
+            .radio-button
+                input.radio-input(type="radio" name="sex" value="woman" id="woman")
+                label.radio-label(for="woman") 
+                    p.radio-label-text Женщина
