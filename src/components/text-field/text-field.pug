@@ -1,7 +1,10 @@
-mixin text-field(h3,p,name, type, placeholder)
-  h3.text-field-title=h3
-  p.text-field-p=p
-  input.text-field(
-      name=name
-      type=type
-      placeholder=placeholder)
+mixin text-field(h3,p,name, type, placeholder,value,addClass)
+  .text-field-block
+    .text-field-header(class=addClass)
+        h3.text-field-title=h3
+        //- p.text-field-p=p
+    input.text-field(
+            name=name
+            type=type
+            placeholder=placeholder
+            value=value)
