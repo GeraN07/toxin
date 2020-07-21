@@ -1,0 +1,135 @@
+.booking-card{
+    max-width: 380px;
+    max-height: 511px;
+    background: #FFFFFF;
+    padding: 30px;
+    padding-top: 40px;
+}
+.booking-card__header{
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 20px;
+ flex-direction: row;
+}
+.booking-card__title{
+    margin: 0;
+    padding: 0;
+    font-family: Quicksand-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+
+/* Dark 100% */
+
+color: #1F2041;
+}
+.booking-card__number{
+    font-size: 14px;
+    line-height: 17px;
+    
+}
+.booking-card__lux{
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+/* identical to box height */
+
+    text-transform: uppercase;
+
+/* Primary Color */
+
+    color: #BC9CFF;
+}
+.booking-card__day{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    /* or 150% */
+    
+    
+    color: rgba(31, 32, 65, 0.5)
+}
+.booking-card__dayprice{
+    margin: 0;
+    padding: 0;
+
+    font-family: Montserrat-Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 18px;
+/* or 129% */
+
+color: rgba(31, 32, 65, 0.5);
+align-self: flex-end;
+}
+.booking-card .double-date-dropdown-block{
+margin-bottom: 20px;
+}
+.price-line{
+display: flex;
+justify-content: space-between;
+margin-bottom: 16px;
+}
+.booking-card__text{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    /* or 129% */
+    
+    
+    /* Dark 75% */
+    
+    color: rgba(31, 32, 65, 0.75);
+    padding: 0;
+    margin: 0;
+}
+.booking-card__total-text{
+    font-family: OpenSans-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    /* identical to box height */
+    
+    
+    /* Dark 100% */
+    
+    color: #1F2041;
+    padding: 0;
+    margin: 0;
+    
+}
+.booking-card__total-sum{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.booking-card .button-purpule-large{
+    margin-bottom: 0;
+}
+.booking-card__doted-block{
+    content: " ";
+    border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
+    min-width: 182px;
+    margin-bottom: 5px;
+}
+.booking-card__total-price{
+    font-family: Quicksand-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    /* identical to box height */
+    
+    
+    /* Dark 100% */
+    
+    color: #1F2041;
+}

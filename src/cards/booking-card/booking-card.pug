@@ -1,0 +1,22 @@
+mixin booking-card
+    .booking-card
+        .booking-card__header
+            h1.booking-card__title  
+                <span class="booking-card__number">№ </span> 888 <span class="booking-card__lux">люкс</span>
+            p.booking-card__dayprice  9 990₽ <span class="booking-card__day">в сутки</span>
+        +double-date-dropdown("Прибытие","Выезд","ДД.ММ.ГГГГ","ДД.ММ.ГГГГ")
+        +dropdown({type:'guests'},"гости")
+        .booking-card__first-sum.price-line
+            p.booking-card__text 9 990₽ х 4 суток
+            p.booking-card__text 39 960₽
+        .booking-card__service-charge.price-line
+            p.booking-card__text Сбор за услуги: скидка 2 179₽ 
+            p.booking-card__text 0₽
+        .booking-card__additional-sum.price-line
+            p.booking-card__text Сбор за дополнительные<br> услуги 
+            p.booking-card__text 300₽
+        .booking-card__total-sum.price-line
+            p.booking-card__total-text Итого
+            .booking-card__doted-block
+            p.booking-card__total-text.booking-card__total-price 38 081₽
+        +button-purpule-large("забронировать")
