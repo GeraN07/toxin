@@ -6,6 +6,24 @@
 @import "../components/fontText/fontText.scss";
 @import "../components/like-button/like-button.scss";
 @import "../components/rate-button/rate-button.scss";
+@import "../components/expandable-checkbox-list/expandable-checkbox-list.scss";
+@import "../components/text-field/text-field.scss";
+@import "../components/masked-text-field/masked-text-field.scss";
+@import "../components/filter-date-dropdown/filter-date-dropdown.scss";
+@import "../components/subscription-text-field/subscription-text-field.scss";
+@import "../components/checkbox-buttons/checkbox-buttons.scss";
+@import "../components/radio/radio.scss";
+@import "../components/toggle/toggle.scss";
+@import "../components/buttons/buttons.scss";
+@import "../components/pagination/pagination.scss";
+@import "../components/rich-checkbox-buttons/rich-checkbox-buttons.scss";
+@import "../components/bullet-list/bullet-list.scss";
+@import "../components/features/features.scss";
+@import "../components/feedback/feedback.scss";
+@import "../cards/filter-main-card/filter-main-card.scss";
+@import "../cards/booking-card/booking-card.scss";
+@import "../cards/datepicker-card/datepicker-card.scss";
+@import "../cards/registration-card/registration-card.scss";
 
 .color-type{
     display: grid;
@@ -16,4 +34,83 @@
     background-position: 30px 30px;
     max-height: 900px;
     border-bottom: 1px solid black;
+}
+    .form-elements{
+    display: grid;
+    grid-template-columns: 141px 320px 126px 320px 72px 320px 141px;
+    grid-template-rows:140px 636px 100px 265px 40.5px 281.5px 100.5px 158px 131px;
+    max-height: 1853px;
+    background: url("./assets/Group.svg");
+    background-repeat: no-repeat;
+    background-position: 30px 30px;
+}
+    .form-elements .block-1{
+    grid-row-start:2;
+    grid-row-end:2;
+    grid-column-start:2;
+    grid-column-end:2;
+    }
+.form-elements .block-2{
+    grid-row-start:2;
+    grid-row-end:2;
+    grid-column-start:4;
+    grid-column-end:4;
+    }
+.form-elements .block-3{
+    grid-row-start:2;
+    grid-row-end:2;
+    grid-column-start:6;
+    grid-column-end:6;
+    }
+.form-elements .block-4{
+    grid-row-start:4;
+    grid-row-end:4;
+    grid-column-start:2;
+    grid-column-end:2;
+    }
+.form-elements .block-5{
+    grid-row-start:4;
+    grid-row-end:4;
+    grid-column-start:4;
+    grid-column-end:4;
+    }
+.form-elements .block-6{
+    grid-row-start:4;
+    grid-row-end:4;
+    grid-column-start:6;
+    grid-column-end:6;
+    }
+.form-elements .block-7{
+    grid-row-start:6;
+    grid-row-end:6;
+    grid-column-start:2;
+    grid-column-end:2;
+    }
+.form-elements .block-8{
+    grid-row-start:6;
+    grid-row-end:6;
+    grid-column-start:4;
+    grid-column-end:4;
+    }
+.form-elements .block-9{
+    grid-row-start:6;
+    grid-row-end:6;
+    grid-column-start:6;
+    grid-column-end:6;
+    }
+.form-elements .block-10{
+    grid-row-start:8;
+    grid-row-end:8;
+    grid-column-start:2;
+    grid-column-end:2;
+    }
+.form-elements .block-11{
+    grid-row-start:8;
+    grid-row-end:8;
+    grid-column-start:4;
+    grid-column-end:7;
+    }
+.cards{
+    max-height: 1440px;
+    background: #E5E5E5;
 }

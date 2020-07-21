@@ -1,1 +1,36 @@
+@font-face{
+font-family: Opensans-Bold;
+src:url('../src/assets/fonts/OpenSans-Bold.ttf')  format('truetype');
+font-weight: bold;
+    }
+
+@font-face{
+font-family: MaterialIcons-Regular;
+src:url('../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf')  format('truetype');
+font-weight: regular;
+    }
+@font-face{
+font-family: Montserrat-Bold;
+src:url('../src/assets/fonts/Montserrat-Bold.ttf')  format('truetype');
+font-weight: bold;
+}
+
+@font-face{
+font-family: Montserrat-Regular;
+src:url('../src/assets/fonts/Montserrat-Regular.ttf')  format('truetype');
+font-weight: normal;
+}
+
+@font-face{
+font-family: Quicksand-Bold;
+src:url('../src/assets/fonts/Quicksand-Bold.ttf')  format('truetype');
+font-weight: bold;
+}
+
+@font-face{
+font-family: Quicksand-Regular;
+src:url('../src/assets/fonts/Quicksand-Regular.ttf')  format('truetype');
+font-weight: normal;
+}
 @import "./pages/ui-kit.scss";
+@import '~material-design-icons/iconfont/material-icons.css';
