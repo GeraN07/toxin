@@ -1,28 +1,3 @@
-@import "../src/assets/fonts/Quicksand-Bold.ttf";
-@import "../src/assets/fonts/Quicksand-Regular.ttf";
-@import "../src/assets/fonts/Montserrat-Bold.ttf";
-@import "../src/assets/fonts/Montserrat-Regular.ttf";
-@font-face{
-font-family: Quicksand-Bold;
-src:url('../src/assets/fonts/Quicksand-Bold.ttf')  format('truetype');
-font-weight: bold;
-}
-@font-face{
-font-family: Quicksand-Regular;
-src:url('../src/assets/fonts/Quicksand-Regular.ttf')  format('truetype');
-font-weight: normal;
-}
-
-@font-face{
-font-family: Montserrat-Bold;
-src:url('../src/assets/fonts/Montserrat-Bold.ttf')  format('truetype');
-font-weight: bold;
-}
-@font-face{
-font-family: Montserrat-Regular;
-src:url('../src/assets/fonts/Montserrat-Regular.ttf')  format('truetype');
-font-weight: normal;
-}
 .fontText{
 display: flex;
 flex-direction: column;
