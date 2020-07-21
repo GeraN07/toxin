@@ -1,5 +1,6 @@
 mixin subscription-text-field
-    .subscription-text-field
+    .subscription-text-field-block
         form(action="", method="get")
-            +text-field("subsciption text field",none,"email","text","Email")
-            <input type="submit" value=""></input>
+            .subscription-text-field
+                +text-field("subscription text field",none,"email","text","Email")
+                button.sub-button(type="submit" value="") arrow_forward
