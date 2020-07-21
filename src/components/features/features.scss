@@ -1,0 +1,48 @@
+.feature{
+display: flex;
+padding-bottom: 18px;
+border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+margin-bottom: 22px;
+max-width: 280px;
+}
+.feature-title{
+    font-family: Montserrat-Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 24px;
+/* or 171% */
+margin: 0;
+padding: 0;
+
+/* Dark 75% */
+
+color: rgba(31, 32, 65, 0.75);
+}
+.feature-text{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    /* or 171% */
+    margin: 0;
+    padding: 0;
+    
+    /* Dark 75% */
+    
+    color: rgba(31, 32, 65, 0.75);
+}
+.feature-icon{
+    // width: 48px;
+    // height: 48px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 41px;
+
+color: #BC9CFF;
+margin-right: 10px;
+align-self:center;
+}
