@@ -1,0 +1,119 @@
+.datepicker{
+width: 320px;
+height: 369px;
+border-radius: 4px;
+}
+.datepicker--day-name{
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    /* Primary Color */
+    
+    color: #BC9CFF;
+    text-transform: capitalize;
+}
+.datepicker--cell-day{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    /* Dark 50% */
+    
+    color: rgba(31, 32, 65, 0.5);
+}
+.datepicker--cell.datepicker--cell-day.-current-{
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+border-radius: 22px;
+height: 40px;
+width: 40px;
+}
+.datepicker--cell.datepicker--cell-day{
+    height: 40px;
+width: 40px;
+}
+.datepicker--day-name{
+width: 40px;
+height: 40px;
+}
+.datepicker--nav{
+border-bottom: none;
+margin-top: 15px;
+margin-bottom: 26px;
+padding: 0;
+}
+.datepicker--nav-title{
+    font-family: OpenSans-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    /* identical to box height */
+    
+    text-align: center;
+    
+    /* Dark 100% */
+    
+    color: #1F2041;
+}
+.datepicker--nav-title i{
+    font-family: Quicksand-Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 19px;
+line-height: 24px;
+/* identical to box height */
+
+text-align: center;
+
+/* Dark 100% */
+
+color: #1F2041;
+}
+.datepicker--content{
+    padding: 20px;
+    padding-top: 0;
+}
+.datepicker--days-names{
+    margin: 0;
+}
+.datepicker--buttons{
+border-top: none;
+padding: 0;
+display: flex;
+justify-content: space-between;
+padding: 20px;
+padding-top: 0;
+padding-bottom: 0;
+}
+.datepicker--button{
+height: 15px;
+width: auto;
+font-family: Montserrat-Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+text-transform: uppercase
+}
