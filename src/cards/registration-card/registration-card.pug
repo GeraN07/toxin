@@ -1,0 +1,13 @@
+mixin registration-card
+    .registration-card
+        h1.registration-card-title Регистрация аккаунта
+        +text-field("","default","email","text", "Имя","","default")
+        +text-field("","default","email","text", "Фамилия","","default")
+        +radio
+        +masked-text-field("дата рождения","","ДД.ММ.ГГГГ")
+        +text-field("данные для входа в сервис","default","email","text", "Email","","default")
+        +text-field("","default","Пароль","text", "Пароль","","default")
+        +toggle
+        +button-purpule-large("перейти к оплате")
+        p Уже есть аккаунт на Toxin
+        +button-white("войти")
