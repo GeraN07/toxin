@@ -1,0 +1,11 @@
+mixin feedback(name,date,text,path)
+    .feedback
+        .feedback-header
+            img.profile-image(src=path, alt="")
+            .feedback-header-text
+                h4.profile-name=name
+                p.comment-date=date
+        .feedback-footer
+            +like-button("","like__btn2 animated liked feedback_btn","12")
+            p.feedback-text=text
+            
