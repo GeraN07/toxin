@@ -1,1 +1,44 @@
 @import "../node_modules/air-datepicker/dist/css/datepicker.min.css";
+.double-date-dropdown-h3n1,
+.double-date-dropdown-h3n2{
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    margin-bottom: 5.4px;
+}
+input.datepicker-here,
+input.dates{
+    width: 150px;
+    height: 44px;
+    background: #FFFFFF;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-left: 15px;
+    
+    font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* or 129% */
+
+
+/* Dark 75% */
+
+color: rgba(31, 32, 65, 0.75);
+}
+
+.double-date-dropdown-block{
+display: flex;
+justify-content: space-between;
+margin-bottom: 40px;
+width: 320px;
+height: 65px;
+}
