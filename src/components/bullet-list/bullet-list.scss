@@ -1,0 +1,43 @@
+.bullet-list-title{
+   
+
+    font-family: Montserrat-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    
+    text-transform: uppercase;
+    
+    /* Dark 100% */
+    
+    color: #1F2041;
+    padding: 0;
+    margin-bottom: 13px;
+    margin-top: 14px;
+}
+.bullet-list{
+padding: 0;
+list-style-image:url("./components/bullet-list/Ellipse.svg");
+margin: 0;
+margin-left: 18px;
+}
+.bullet-list-text{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+    
+    
+    /* Dark 75% */
+    
+    color: rgba(31, 32, 65, 0.75);
+    margin:0;
+    padding: 0;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    max-width: 240px;
+}
