@@ -1,9 +1,15 @@
 mixin checkbox-buttons(h3)
     .checkbox-buttons
         h3.checkbox-buttons-title=h3
-        input(type="checkbox" id="smoke")
-        label(for = "smoke") Можно курить
-        input(type="checkbox" id="pet" checked)
-        label(for = "pet") Можно с питомцами
-        input(type="checkbox" id="invite" checked)
-        label(for = "invite") Можно пригласить гостей (до 10 человек)
+        .checkbox-block
+            input.checkbox-input(type="checkbox" id="smoke")
+            label.checkbox-label(for = "smoke") 
+                    p.checkbox-text Можно курить
+        .checkbox-block
+            input.checkbox-input(type="checkbox" id="pet" checked)
+            label.checkbox-label(for = "pet") 
+                    p.checkbox-text Можно с питомцами
+        .checkbox-block
+            input.checkbox-input(type="checkbox" id="invite" checked)
+            label.checkbox-label(for = "invite")
+                    p.checkbox-text Можно пригласить гостей (до 10 человек)

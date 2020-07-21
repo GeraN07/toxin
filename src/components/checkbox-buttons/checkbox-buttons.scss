@@ -1,0 +1,56 @@
+.checkbox-buttons-title{
+    font-family: Montserrat-Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+
+text-transform: uppercase;
+margin: 0;
+margin-bottom: 16px;
+}
+.checkbox-buttons{
+width: 222px;
+height: 129.12px;
+margin-bottom: 41px;
+margin-top: 3px;
+}
+.checkbox-text {
+margin: 0;
+padding: 0;
+padding-bottom: 3px;
+padding-top: 2px;
+}
+.checkbox-input{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+.checkbox-input+label::before{
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid rgba(31, 32, 65, 0.5);
+    content:"";
+    min-width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    
+  }
+  .checkbox-input:not(:disabled):checked+label::before{
+    border: 1px solid #BC9CFF;
+    background-image: url("./components/rich-checkbox-buttons/Vector.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+  }
+  .checkbox-label{
+    display: flex;
+    flex-direction: row;
+    max-width: 266px;
+  }
+  .checkbox-block{
+    display: flex;
+    margin-bottom: 10px;
+  }
