@@ -32,5 +32,14 @@ font-family: Quicksand-Regular;
 src:url('../src/assets/fonts/Quicksand-Regular.ttf')  format('truetype');
 font-weight: normal;
 }
+@font-face{
+    font-family: Font-Awesome-5-Brands;
+    src:url('../src/assets/fonts/fa-brands-400.ttf')  format('truetype');
+    font-weigh:normal;
+}
 @import "./pages/ui-kit.scss";
+@import "./pages/landing-page.scss";
+@import "./pages/rooms-catalog.scss";
+@import "./pages/room-details.scss";
+@import "./pages/registration-signin-page.scss";
 @import '~material-design-icons/iconfont/material-icons.css';
