@@ -14,11 +14,21 @@
 
     position: absolute;
     right: 0px;
-    top: 20px;
+    bottom: 0px;
     background-color: inherit;
     
 
    border: none;
     padding: 10px;
-    
+}
+.big-footer__copyright{
+    font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+
+/* Dark 75% */
+
+color: rgba(31, 32, 65, 0.75);
 }
