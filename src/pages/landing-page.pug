@@ -1,0 +1,21 @@
+//- include ../models/form-elements
+//- include ../models/cards
+//- include ../models/headers-footers
+
+include ../components/header-main/header-main
+include ../components/big-footer/big-footer
+include ../cards/filter-main-card/filter-main-card
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body.landing-page
+        +page-header(false)
+        main
+            .filter-image
+                +filter-main-card
+                p.filter-image__text Лучшие номера для вашей работы, отдыха и просто вдохновения
+        +big-footer

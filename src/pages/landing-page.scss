@@ -1,0 +1,44 @@
+.landing-page .page-header__block--log,
+.landing-page .page-header__block--notlog{
+max-width: 1440px;
+margin-left: auto;
+margin-right: auto;
+}
+.filter-image{
+height: 830px;
+background-image: url('.../../assets/image3.jpg');
+background-repeat: no-repeat;
+position: relative;
+background-size:cover;
+background-position:center;
+}
+.filter-image .filter-main{
+    position: absolute;
+    top: 70px;
+    left: 140px;
+}
+.filter-image__text{
+    position: absolute;
+    bottom: 18px;
+    right: 134px;
+    width: 297px;
+    height: 48px;
+
+    font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 24px;
+/* or 171% */
+
+text-align: right;
+
+/* Dark 75% */
+
+color: rgba(31, 32, 65, 0.75);
+}
+.landing-page .big-footer__block{
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}

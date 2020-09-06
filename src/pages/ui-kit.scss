@@ -1,116 +1,206 @@
-@import "../components/big-footer/big-footer.scss";
-@import "../components/dropdown/dropdown.scss";
-@import "../components/double-date-dropdown/double-date-dropdown.scss";
-@import "../components/range-slider/range-slider.scss";
-@import "../components/colors/colors.scss";
-@import "../components/fontText/fontText.scss";
-@import "../components/like-button/like-button.scss";
-@import "../components/rate-button/rate-button.scss";
-@import "../components/expandable-checkbox-list/expandable-checkbox-list.scss";
-@import "../components/text-field/text-field.scss";
-@import "../components/masked-text-field/masked-text-field.scss";
-@import "../components/filter-date-dropdown/filter-date-dropdown.scss";
-@import "../components/subscription-text-field/subscription-text-field.scss";
-@import "../components/checkbox-buttons/checkbox-buttons.scss";
-@import "../components/radio/radio.scss";
-@import "../components/toggle/toggle.scss";
-@import "../components/buttons/buttons.scss";
-@import "../components/pagination/pagination.scss";
-@import "../components/rich-checkbox-buttons/rich-checkbox-buttons.scss";
-@import "../components/bullet-list/bullet-list.scss";
-@import "../components/features/features.scss";
-@import "../components/feedback/feedback.scss";
-@import "../cards/filter-main-card/filter-main-card.scss";
-@import "../cards/booking-card/booking-card.scss";
-@import "../cards/datepicker-card/datepicker-card.scss";
-@import "../cards/registration-card/registration-card.scss";
+@import "../models/color-type.scss";
+@import "../models/form-elements.scss";
+@import "../models/cards.scss";
+@import "../models/headers-footers.scss";
+// @import "../components/big-footer/big-footer.scss";
+// @import "../components/dropdown/dropdown.scss";
+// @import "../components/double-date-dropdown/double-date-dropdown.scss";
+// @import "../components/range-slider/range-slider.scss";
+// @import "../components/colors/colors.scss";
+// @import "../components/fontText/fontText.scss";
+// @import "../components/like-button/like-button.scss";
+// @import "../components/rate-button/rate-button.scss";
+// @import "../components/expandable-checkbox-list/expandable-checkbox-list.scss";
+// @import "../components/text-field/text-field.scss";
+// @import "../components/masked-text-field/masked-text-field.scss";
+// @import "../components/filter-date-dropdown/filter-date-dropdown.scss";
+// @import "../components/subscription-text-field/subscription-text-field.scss";
+// @import "../components/checkbox-buttons/checkbox-buttons.scss";
+// @import "../components/radio/radio.scss";
+// @import "../components/toggle/toggle.scss";
+// @import "../components/buttons/buttons.scss";
+// @import "../components/pagination/pagination.scss";
+// @import "../components/rich-checkbox-buttons/rich-checkbox-buttons.scss";
+// @import "../components/bullet-list/bullet-list.scss";
+// @import "../components/features/features.scss";
+// @import "../components/feedback/feedback.scss";
+// @import "../components/toxin-logo/toxin-logo.scss";
+// @import "../components/header-notlog/header-main--notlog.scss";
+// @import "../components/header-log/header-main--log.scss";
+// @import "../components/big-footer/big-footer.scss";
+// @import "../components/small-footer/small-footer.scss";
+// @import "../cards/filter-main-card/filter-main-card.scss";
+// @import "../cards/booking-card/booking-card.scss";
+// @import "../cards/datepicker-card/datepicker-card.scss";
+// @import "../cards/registration-card/registration-card.scss";
+// @import "../cards/login-card/login-card.scss";
+// @import "../cards/item-card/item-card.scss";
+// .color-type{
+//     display: grid;
+//     grid-template-rows: 145px 321px 289px 145px;
+//     grid-template-columns:150px 270px 427px 403px 191px; 
+//     background: url("./assets/Group.svg");
+//     background-repeat: no-repeat;
+//     background-position: 30px 30px;
+//     max-height: 900px;
+//     border-bottom: 1px solid black;
+// }
+//     .form-elements{
+//     display: grid;
+//     grid-template-columns: 141px 320px 126px 320px 72px 320px 141px;
+//     grid-template-rows:140px 636px 100px 265px 40.5px 281.5px 100.5px 158px 131px;
+//     max-height: 1853px;
+//     background: url("./assets/Group.svg");
+//     background-repeat: no-repeat;
+//     background-position: 30px 30px;
+// }
+//     .form-elements .block-1{
+//     grid-row-start:2;
+//     grid-row-end:2;
+//     grid-column-start:2;
+//     grid-column-end:2;
+//     }
+// .form-elements .block-2{
+//     grid-row-start:2;
+//     grid-row-end:2;
+//     grid-column-start:4;
+//     grid-column-end:4;
+//     }
+// .form-elements .block-3{
+//     grid-row-start:2;
+//     grid-row-end:2;
+//     grid-column-start:6;
+//     grid-column-end:6;
+//     }
+// .form-elements .block-4{
+//     grid-row-start:4;
+//     grid-row-end:4;
+//     grid-column-start:2;
+//     grid-column-end:2;
+//     }
+// .form-elements .block-5{
+//     grid-row-start:4;
+//     grid-row-end:4;
+//     grid-column-start:4;
+//     grid-column-end:4;
+//     }
+// .form-elements .block-6{
+//     grid-row-start:4;
+//     grid-row-end:4;
+//     grid-column-start:6;
+//     grid-column-end:6;
+//     }
+// .form-elements .block-7{
+//     grid-row-start:6;
+//     grid-row-end:6;
+//     grid-column-start:2;
+//     grid-column-end:2;
+//     }
+// .form-elements .block-8{
+//     grid-row-start:6;
+//     grid-row-end:6;
+//     grid-column-start:4;
+//     grid-column-end:4;
+//     }
+// .form-elements .block-9{
+//     grid-row-start:6;
+//     grid-row-end:6;
+//     grid-column-start:6;
+//     grid-column-end:6;
+//     }
+// .form-elements .block-10{
+//     grid-row-start:8;
+//     grid-row-end:8;
+//     grid-column-start:2;
+//     grid-column-end:2;
+//     }
+// .form-elements .block-11{
+//     grid-row-start:8;
+//     grid-row-end:8;
+//     grid-column-start:4;
+//     grid-column-end:7;
+//     }
+// .cards{
+//     max-height: 1440px;
+//     background-color: #E5E5E5;
+//     display: grid;
+//     grid-template-columns: 140px 380px 40px 380px 40px 320px 140px;
+//     grid-template-rows: 150px 374px 40px 97px 40px 509px 140px;
+//     background-image: url("./assets/Group.svg");
+//     background-repeat: no-repeat;
+//     background-position: 30px 30px;
+    
+// }
+// .cards .block-1{
+//     grid-column-start:2;
+//     grid-column-end:2;
+//     grid-row-start: 2;
+//     grid-row-end: 2;
+//     }
+// .cards .block-2{
+//     grid-column-start:4;
+//     grid-column-end:4;
+//     grid-row-start: 2;
+//     grid-row-end:4;
+//     }
+// .cards .block-3{
+//     grid-column-start:6;
+//     grid-column-end:6;
+//     grid-row-start: 2;
+//     grid-row-end:2;
+//     }
+// .cards .block-4{
+//     grid-column-start:2;
+//     grid-column-end:2;
+//     grid-row-start:4;
+//     grid-row-end:6;
+//     }
+// .cards .block-5{
+//     grid-column-start:4;
+//     grid-column-end:4;
+//     grid-row-start:6;
+//     grid-row-end:6;
+//     }
+// .cards .block-6{
+//     grid-column-start:6;
+//     grid-column-end:6;
+//     grid-row-start:4;
+//     grid-row-end:6;
+//     }
+// .headers-footers{
+//     background-color:#E5E5E5;
+//     display: grid;
+//     grid-template-columns:auto;
+//     grid-template-rows: 140px 70px 40px 70px 40px 443px 40px 768px 140px;
+//     background-image: url("./assets/Group.svg");
+//     background-repeat: no-repeat;
+//     background-position: 30px 30px;
+// }
+// .headers-footers .page-header--notlog{
+//     grid-column-start:1;
+//     grid-column-end: 1;
+//     grid-row-start:2;
+//     grid-row-end:2;
 
-.color-type{
-    display: grid;
-    grid-template-rows: 145px 321px 289px 145px;
-    grid-template-columns:150px 270px 427px 403px 191px; 
-    background: url("./assets/Group.svg");
-    background-repeat: no-repeat;
-    background-position: 30px 30px;
-    max-height: 900px;
-    border-bottom: 1px solid black;
-}
-    .form-elements{
-    display: grid;
-    grid-template-columns: 141px 320px 126px 320px 72px 320px 141px;
-    grid-template-rows:140px 636px 100px 265px 40.5px 281.5px 100.5px 158px 131px;
-    max-height: 1853px;
-    background: url("./assets/Group.svg");
-    background-repeat: no-repeat;
-    background-position: 30px 30px;
-}
-    .form-elements .block-1{
-    grid-row-start:2;
-    grid-row-end:2;
-    grid-column-start:2;
-    grid-column-end:2;
-    }
-.form-elements .block-2{
-    grid-row-start:2;
-    grid-row-end:2;
-    grid-column-start:4;
-    grid-column-end:4;
-    }
-.form-elements .block-3{
-    grid-row-start:2;
-    grid-row-end:2;
-    grid-column-start:6;
-    grid-column-end:6;
-    }
-.form-elements .block-4{
-    grid-row-start:4;
-    grid-row-end:4;
-    grid-column-start:2;
-    grid-column-end:2;
-    }
-.form-elements .block-5{
-    grid-row-start:4;
-    grid-row-end:4;
-    grid-column-start:4;
-    grid-column-end:4;
-    }
-.form-elements .block-6{
-    grid-row-start:4;
-    grid-row-end:4;
-    grid-column-start:6;
-    grid-column-end:6;
-    }
-.form-elements .block-7{
-    grid-row-start:6;
-    grid-row-end:6;
-    grid-column-start:2;
-    grid-column-end:2;
-    }
-.form-elements .block-8{
-    grid-row-start:6;
-    grid-row-end:6;
-    grid-column-start:4;
-    grid-column-end:4;
-    }
-.form-elements .block-9{
-    grid-row-start:6;
-    grid-row-end:6;
-    grid-column-start:6;
-    grid-column-end:6;
-    }
-.form-elements .block-10{
-    grid-row-start:8;
-    grid-row-end:8;
-    grid-column-start:2;
-    grid-column-end:2;
-    }
-.form-elements .block-11{
-    grid-row-start:8;
-    grid-row-end:8;
-    grid-column-start:4;
-    grid-column-end:7;
-    }
-.cards{
-    max-height: 1440px;
-    background: #E5E5E5;
-}
+// }
+// .headers-footers .page-header--log{
+//     grid-column-start:1;
+//     grid-column-end: 1;
+//     grid-row-start:4;
+//     grid-row-end:4;
+
+// }
+// .headers-footers .big-footer{
+//     grid-column-start:1;
+//     grid-column-end: 1;
+//     grid-row-start:6;
+//     grid-row-end:6;
+
+// }
+// .headers-footers .small-footer{
+//     grid-column-start:1;
+//     grid-column-end: 1;
+//     grid-row-start:8;
+//     grid-row-end:8;
+
+// }

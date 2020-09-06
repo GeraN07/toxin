@@ -1,0 +1,185 @@
+.rooms-catalog__main{
+    margin-top: 30px;
+    width: 100%;
+}
+.rooms-catalog__main-wrapper{
+    display: grid;
+    grid-template-columns: 266px 60px 834px;
+    max-width: 1160px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.rooms-catalog__filter-block{
+grid-column-start:1;
+grid-column-end: 1;
+display: grid;
+grid-template-rows:65px 19px 63.5px 30px 72px 30px 129px 31px 145px 30.4px 64px 15.5px 44px;
+}
+.rooms-catalog  .page-header__block--log,
+.rooms-catalog  .page-header__block--notlog{
+margin-left: auto;
+margin-right: auto;
+}
+.rooms-catalog__filter-block{
+    width: 266px;
+}
+.rooms-catalog .dropdown-block,
+.rooms-catalog .custom.iqdropdown{
+    max-width: 266px;
+
+}
+.rooms-catalog .filter-date-dropdown{
+grid-row-start:1;
+grid-row-end: 1;
+}
+.rooms-catalog .dropdown-guests{
+grid-row-start:3;
+grid-row-end: 3;
+}
+.rooms-catalog .range-slider{
+grid-row-start:5;
+grid-row-end:5;
+}
+.rooms-catalog .checkbox-buttons{
+    grid-row-start:7;
+    grid-row-end:7;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.rooms-catalog .range-slider-header{
+margin-top: 0;
+}
+.rich-checkbox__block{
+    grid-row-start:9;
+    grid-row-end:9;
+}
+.rooms-catalog .rich-checkbox-buttons-title{
+margin-top: 0;
+}
+.rooms-catalog .dropdown-rooms{
+    grid-row-start:11;
+    grid-row-end: 11;
+    }
+.rooms-catalog .expandable-checkbox-list-block{
+    grid-row-start:13;
+    grid-row-end:13;
+}
+.rooms-catalog__catalog-block{
+grid-column-start: 3;
+grid-column-end: 3;
+display: grid;
+grid-template-rows: 30px 20.5px 257.5px 20px 257.5px 20px 257.5px 20px 257.5px;
+grid-template-columns: 270px 12px 270px 12px 270px;
+}
+.catalog-block__title{
+    font-family: opensans-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+    
+    
+    /* Dark 100% */
+    
+    color: #1F2041;
+
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    margin: 0;
+}
+.rooms-catalog .item-card:nth-child(2){
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+.rooms-catalog .item-card:nth-child(3){
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+.rooms-catalog .item-card:nth-child(4){
+    grid-column-start:5;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    
+}
+.rooms-catalog .item-card:nth-child(5){
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start: 5;
+    grid-row-end: 5;
+}
+.rooms-catalog .item-card:nth-child(6){
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 5;
+}
+.rooms-catalog .item-card:nth-child(7){
+    grid-column-start:5;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 5;
+}
+.rooms-catalog .item-card:nth-child(8){
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start: 7;
+    grid-row-end: 7;
+}
+.rooms-catalog .item-card:nth-child(9){
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 7;
+}
+.rooms-catalog .item-card:nth-child(10){
+    grid-column-start:5;
+    grid-column-end: 5;
+    grid-row-start: 7;
+    grid-row-end: 7;
+}
+.rooms-catalog .item-card:nth-child(11){
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start: 9;
+    grid-row-end: 9;
+}
+.rooms-catalog .item-card:nth-child(12){
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 9;
+    grid-row-end: 9;
+}
+.rooms-catalog .item-card:nth-child(13){
+    grid-column-start:5;
+    grid-column-end: 5;
+    grid-row-start: 9;
+    grid-row-end: 9;
+}
+.rooms-catalog .rooms-catalog__pagination-block{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-rows:40.5px 75px 70px;
+    grid-template-columns:290px 241px 290px;
+}
+.rooms-catalog__pagination-block .pagination{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    height: 75px;
+}
+.rooms-catalog__pagination-block .pagination .pagination-title{
+    margin: 0;
+}
+.rooms-catalog__pagination-block .pagination .pagination-list{
+    padding: 0;
+}

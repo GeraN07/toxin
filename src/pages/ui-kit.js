@@ -6,3 +6,4 @@ require("../components/like-button/like-button.js");
 require("../components/rate-button/rate-button.js");
 require("../components/expandable-checkbox-list/expandable-checkbox-list.js");
 require("../cards/datepicker-card/datepicker-card.js");
+require("../cards/item-card/item-card.js");
