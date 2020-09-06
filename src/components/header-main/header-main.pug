@@ -1,0 +1,58 @@
+include ../toxin-logo/toxin-logo
+include ../buttons/buttons
+
+mixin navLink(link,name,special)
+    li(class=special)
+        a(href=link).nav-link
+            p.navLink-text=name
+mixin page-header(isLog)
+    if isLog==true
+        header.page-header--log
+                .page-header__block--log
+                    a.page-header--logo 
+                        +toxin-logo
+                    ul.page-header--nav
+                        +navLink('#','О нас','page-header--current')
+                        li.page-header--services
+                                a(href="#").nav-link 
+                                    p.services-text Услуги
+                                    ul.page-header-sevices-list 
+                                        +navLink('#','SPA')
+                                        +navLink('#','PSA')
+                                        +navLink('#','ASP')
+                        +navLink('#','Вакансии')
+                        +navLink('#','Новости')
+                        li.page-header--agree
+                                a(href="#").nav-link
+                                    p.agree-text Соглашения
+                                    ul.page-header-sevices-list 
+                                        +navLink('#','SPA')
+                                        +navLink('#','PSA')
+                                        +navLink('#','ASP')
+                        +navLink('#','Юлий Цезарь','page-header__username')
+    if isLog==false
+        header.page-header--notlog
+                .page-header__block--notlog
+                    a.page-header--logo 
+                        +toxin-logo
+                    ul.page-header--nav
+                        +navLink('#','О нас','page-header--current')
+                        li.page-header--services
+                                a(href="#").nav-link 
+                                    p.services-text Услуги
+                                    ul.page-header-sevices-list 
+                                        +navLink('#','SPA')
+                                        +navLink('#','PSA')
+                                        +navLink('#','ASP')
+                        +navLink('#','Вакансии')
+                        +navLink('#','Новости')
+                        li.page-header--agree
+                                a(href="#").nav-link
+                                    p.agree-text Соглашения
+                                    ul.page-header-sevices-list 
+                                        +navLink('#','SPA')
+                                        +navLink('#','PSA')
+                                        +navLink('#','ASP')
+                    .page-header__button-block        
+                        +button-white("войти")
+                        +button-purpule("зарегистрироваться")
