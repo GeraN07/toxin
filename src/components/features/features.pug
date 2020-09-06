@@ -1,11 +1,15 @@
-mixin features
+mixin features(icon,title,text)
     .feature
-        i.material-icons.feature-icon  insert_emoticon
+        i.material-icons.feature-icon=icon  
         .features-text
-            h4.feature-title Комфорт
-            p.feature-text Шумопоглощающие стены
-    .feature
-        i.material-icons.feature-icon  location_city
-        .features-text
-            h4.feature-title Удобство
-            p.feature-text Окно в каждой из спален
+            h4.feature-title=title
+            p.feature-text=text
+   
+   
+   
+    //- .feature
+    //-     i.material-icons.feature-icon  location_city
+    //-     .features-text
+    //-         h4.feature-title Удобство
+    //-         p.feature-text Окно в каждой из спален
+//- insert_emoticon
