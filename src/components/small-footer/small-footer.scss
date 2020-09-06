@@ -1,0 +1,48 @@
+.small-footer{
+    width: 768px;
+    height: 367px;
+    background-color:#FFFFFF;
+    position: relative;
+    left: 336px;
+    padding-top: 119px;
+    padding-bottom: 120px;
+}
+.small-footer .toxin-logo{
+    margin-left: 331px;
+    margin-right: 331px;
+}
+.small-footer__copyright{
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    
+    /* Dark 75% */
+    
+    color: rgba(31, 32, 65, 0.75);
+    margin-top: 18px;
+    margin-bottom: 25px;
+}
+.small-footer .social-link--list{
+    
+font-family: Font-Awesome-5-Brands;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 23px;
+/* identical to box height */
+
+display: flex;
+
+
+/* Primary Gradient */
+
+color:  #BC9CFF;
+margin-left: 328px;
+margin-right: 328px;
+
+list-style: none;
+padding: 0;
+}
