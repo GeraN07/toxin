@@ -17,6 +17,3 @@ $('#date_range').datepicker({
 //     timeFormat: 'hh:ii',
 //     firstDay: 1
 // };
-var dr = $('#date_range').datepicker().data('datepicker');
-
-dr.selectDate(new Date(2019, 07, 19));
