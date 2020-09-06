@@ -1,23 +1,24 @@
-mixin expandable-checkbox-list
+mixin expandable-checkbox-list(buttonsName,activeClass,disabled)
     .expandable-checkbox-list-block
-        <button type="button" class="collapsible">expandable checkbox list</button>
-            .content
-                .checkbox-block
-                    input.checkbox(type="checkbox" id="break")
-                    label.checkbox-label(for = "break") Завтрак
-                .checkbox-block
-                    input.checkbox(type="checkbox" id="table")
-                    label.checkbox-label(for = "table") Письменный стол
-                .checkbox-block
-                    input.checkbox(type="checkbox" id="chair")
-                    label.checkbox-label(for = "chair") Стул для кормления
-                .checkbox-block
-                    input.checkbox(type="checkbox" id="bed")
-                    label.checkbox-label(for = "bed") Кроватка
-                .checkbox-block
-                    input.checkbox(type="checkbox" id="tv")
-                    label.checkbox-label(for = "tv") Телевизор
-                .checkbox-block
-                    input.checkbox(type="checkbox" id="shower")
-                    label.checkbox-label(for = "shower") Шампунь
+            button.collapsible(class=activeClass) #{buttonsName}
+            if disabled != true
+                .content
+                    .checkbox-block
+                        input.checkbox(type="checkbox" id="break")
+                        label.checkbox-label(for = "break") Завтрак
+                    .checkbox-block
+                        input.checkbox(type="checkbox" id="table")
+                        label.checkbox-label(for = "table") Письменный стол
+                    .checkbox-block
+                        input.checkbox(type="checkbox" id="chair")
+                        label.checkbox-label(for = "chair") Стул для кормления
+                    .checkbox-block
+                        input.checkbox(type="checkbox" id="bed")
+                        label.checkbox-label(for = "bed") Кроватка
+                    .checkbox-block
+                        input.checkbox(type="checkbox" id="tv")
+                        label.checkbox-label(for = "tv") Телевизор
+                    .checkbox-block
+                        input.checkbox(type="checkbox" id="shower")
+                        label.checkbox-label(for = "shower") Шампунь
             
