@@ -1,40 +1,53 @@
-footer.page-footer
-    .page-footer-top
-        ul.page-footer-section-1
-            li 
-                a.footer-logo.toxin-logo
-            li 
-                p.footer-text Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
-        ul.page-footer-section-2
-            li 
-                h3 navigation
-            li navLink('#','About Us')
-            li +navLink('#','News')
-            li navLink('#','Support')
-            li navLink('#','Products')
-        ul.page-footer-section-3
-            li 
-                h3 about us
-            li navLink('#','Who we are')
-            li navLink('#','Our team')
-            li navLink('#','Careers')
-            li navLink('#','Investors')
-        ul.page-footer-section-4
-            li 
-                h3 support
-            li navLink('#','Documentation')
-            li navLink('#','Community')
-            li navLink('#','Get in Touch')
-        ul.page-footer-section-5
-            li 
-                h3 Subscribe to our newsletter
-            li 
-                p Receive our latest news and   
-                promotions in your inbox!
-            li 
-                <input type="email" placeholder="Your email address">
-    .page-footer-bottom
-        p Copyright © 2018 Toxin UI Kit. All rights reserved.
-        a.twitter
-        a.facebook
-        a.instagram
+include ../subscription-text-field/subscription-text-field
+include ../text-field/text-field
+include ../toxin-logo/toxin-logo
+
+mixin big-footer
+    footer.big-footer
+        .big-footer__block
+            .big-footer-top
+                .big-footer-top__wrapper
+                    ul.big-footer-section-1
+                        li 
+                            a.footer-logo 
+                                +toxin-logo
+                        li 
+                            p.big-footer__text Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+                    ul.big-footer-section-2
+                        li 
+                            h3.big-footer__list-title навигация
+                        +navLink('#','О нас')
+                        +navLink('#','Новости')
+                        +navLink('#','Служба поддержки')
+                        +navLink('#','Услуги')
+                    ul.big-footer-section-3
+                        li 
+                            h3.big-footer__list-title о нас
+                        +navLink('#','О сервисе')
+                        +navLink('#','Наша команда')
+                        +navLink('#','Вакансии')
+                        +navLink('#','Инвесторы')
+                    ul.big-footer-section-4
+                        li 
+                            h3.big-footer__list-title Служба поддержки
+                        +navLink('#','Соглашения')
+                        +navLink('#','Сообщества')
+                        +navLink('#','Связь с нами')
+                    ul.big-footer-section-5
+                        li 
+                            h3.big-footer__list-title.get Подписка
+                        li 
+                            p.big-footer__text.get  Получайте специальные предложения и новости сервиса
+                        li 
+                            +subscription-text-field
+            .big-footer-bottom
+                .big-footer-bottom__wrapper
+                    p.big-footer__copyright Copyright © 2018 Toxin отель. Все права зачищены.
+                    .big-footer__social-link
+                        ul.social-link--list
+                            li.social-link__social-item
+                                a.twitter 
+                            li.social-link__social-item
+                                a.facebook 
+                            li.social-link__social-item
+                                a.instagram 
