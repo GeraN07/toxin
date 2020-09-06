@@ -20,7 +20,7 @@ mixin dropdown(options,h3,p,openClass,widthClass)
                     .iqdropdown__wrapper
                       p.iqdropdown-item Младенцы
                   .iqdropdown__footer
-                    span.iqdropdown__erase-button Очистить
+                    span.iqdropdown__erase-button.button-hidden Очистить
                     span.iqdropdown__apply-button Применить
     -dropdownSizeClass = (options.type == "rooms") ? "iqdropdown_rooms" : false                  
             if dropdownSizeClass == "iqdropdown_rooms"
