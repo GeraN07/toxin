@@ -1,8 +1,12 @@
+include ../../components/text-field/text-field
+include ../../components/buttons/buttons
+
 mixin login-card
     .login-card
-        h1 Войти
-        +text-field
-        +text-field
+        h1.login-card__login-text Войти
+        +text-field("","default","email","text", "Email","")
+        +text-field("","default","password","text", "Пароль","")
         +button-purpule-large("Войти")
-        p Нет аккаунта на Toxin 
-        +button-white("Создать")
+        .login-card__footer
+            p.login-card__no-account-text Нет аккаунта на Toxin? 
+            +button-white("Создать")

@@ -1,7 +1,8 @@
 .datepicker{
 width: 320px;
-height: 369px;
+min-height: 349px;
 border-radius: 4px;
+z-index: 100;
 }
 .datepicker--day-name{
     font-family: Montserrat-Bold;
@@ -164,5 +165,5 @@ line-height: 15px;
 max-width: 84px;
 text-transform: uppercase;
 color: #BC9CFF;
-
+margin-bottom: 20px;
 }

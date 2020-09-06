@@ -1,0 +1,45 @@
+.login-card{
+height: 358px;
+width: 380px;
+border-radius: 4px;
+padding: 30px;
+background: #ffffff;
+}
+.login-card__footer{
+display: flex;
+justify-content: space-between;
+}
+.login-card__login-text{
+    font-family: Opensans-Bold;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 30px;
+/* identical to box height */
+
+
+/* Dark 100% */
+
+color: #1F2041;
+margin: 0;
+margin-top: 10px;
+margin-bottom: 15px;
+}
+.login-card .text-field-block{
+    margin-bottom: 5px;
+}
+.login-card .button-purpule-large{
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.login-card__no-account-text {
+    font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+/* identical to box height, or 129% */
+
+color: #000000;
+margin-top: 13px;
+}

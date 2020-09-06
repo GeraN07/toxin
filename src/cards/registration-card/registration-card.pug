@@ -1,13 +1,20 @@
+include ../../components/text-field/text-field
+include ../../components/radio/radio
+include ../../components/masked-text-field/masked-text-field
+include ../../components/toggle/toggle
+include ../../components/buttons/buttons
+
 mixin registration-card
     .registration-card
         h1.registration-card-title Регистрация аккаунта
-        +text-field("","default","email","text", "Имя","","default")
-        +text-field("","default","email","text", "Фамилия","","default")
+        +text-field("","default","email","text", "Имя","")
+        +text-field("","default","email","text", "Фамилия","")
         +radio
         +masked-text-field("дата рождения","","ДД.ММ.ГГГГ")
-        +text-field("данные для входа в сервис","default","email","text", "Email","","default")
-        +text-field("","default","Пароль","text", "Пароль","","default")
+        +text-field("данные для входа в сервис","default","email","text", "Email","","")
+        +text-field("","default","Пароль","text", "Пароль","","")
         +toggle
         +button-purpule-large("перейти к оплате")
-        p Уже есть аккаунт на Toxin
-        +button-white("войти")
+        .registration-card__footer
+            p.registration-card__already-text Уже есть аккаунт на Toxin
+            +button-white("войти")
