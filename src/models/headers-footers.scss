@@ -1,0 +1,43 @@
+@import "../components/toxin-logo/toxin-logo.scss";
+@import "../components/header-main/header-main.scss";
+@import "../components/big-footer/big-footer.scss";
+@import "../components/small-footer/small-footer.scss";
+@import "../components/big-footer/big-footer.scss";
+
+.headers-footers{
+    background-color:#E5E5E5;
+    display: grid;
+    grid-template-columns:auto;
+    grid-template-rows: 140px 70px 40px 70px 40px 443px 40px 768px 140px;
+    background-image: url("./assets/Group.svg");
+    background-repeat: no-repeat;
+    background-position: 30px 30px;
+}
+.headers-footers .page-header--notlog{
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start:2;
+    grid-row-end:2;
+
+}
+.headers-footers .page-header--log{
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start:4;
+    grid-row-end:4;
+
+}
+.headers-footers .big-footer{
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start:6;
+    grid-row-end:6;
+
+}
+.headers-footers .small-footer{
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start:8;
+    grid-row-end:8;
+
+}

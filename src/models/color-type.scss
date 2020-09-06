@@ -1,0 +1,12 @@
+@import "../components/colors/colors.scss";
+@import "../components/fontText/fontText.scss";
+.color-type{
+    display: grid;
+    grid-template-rows: 145px 321px 289px 145px;
+    grid-template-columns:150px 270px 427px 403px 191px; 
+    background: url("./assets/Group.svg");
+    background-repeat: no-repeat;
+    background-position: 30px 30px;
+    max-height: 900px;
+    border-bottom: 1px solid black;
+}

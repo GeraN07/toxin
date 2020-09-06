@@ -1,0 +1,22 @@
+include ../cards/filter-main-card/filter-main-card
+include ../cards/booking-card/booking-card
+include ../cards/datepicker-card/datepicker-card
+include ../cards/registration-card/registration-card
+include ../cards/login-card/login-card
+include ../cards/item-card/item-card
+
+mixin cards
+    section.cards
+      .block-1
+        +filter-main-card
+      .block-2
+        +booking-card
+      .block-3
+        +datepicker-card
+      .block-4
+        +registration-card
+      .block-5
+        +login-card
+      .block-6
+        +item-card('rating5',888,' люкс','9 990₽ ','145 ',"../src/assets/rooms-preview/room1.jpg")
+        +item-card('rating4',840,'','9 900₽ ','65 ',"../src/assets/rooms-preview/room2.jpg")
