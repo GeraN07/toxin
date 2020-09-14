@@ -34,6 +34,9 @@ line-height: 18px;
 
 color: rgba(31, 32, 65, 0.75);
 }
+.date-2{
+    margin-left: 20px;
+}
 
 .double-date-dropdown-block{
 display: flex;
@@ -41,4 +44,37 @@ justify-content: space-between;
 margin-bottom: 40px;
 width: 320px;
 height: 65px;
+}
+.date-1::after,
+.date-2::after{
+    content: "expand_more";
+    font-family: "MaterialIcons-Regular";
+    font-size: 24px;
+    line-height: 24px;
+    color: rgba(31, 32, 65, 0.5);
+    background-image: none;
+    position: relative;
+    bottom: 34px;
+    left:116px;
+    // transform: rotate(-180deg);
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+.date-1.datepicker-activated::after,
+.date-2.datepicker-activated::after{
+    background-image: none;
+    content: "expand_more";
+    font-family: "MaterialIcons-Regular";
+    font-size: 24px;
+    line-height: 24px;
+    color: rgba(31, 32, 65, 0.5);
+    position: relative;
+    bottom: 20px;
+    left:130px;
+    width: 10px;
+    height: 10px;
+    display: block;
+    transform: rotate(-180deg);
+    display: inline-block;
 }
