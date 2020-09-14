@@ -38,6 +38,7 @@
     border-radius: 10px;
     border: 1px solid rgba(31, 32, 65, 0.25);
     color:rgba(31, 32, 65, 0.25);
+    padding: 0;
     &:hover {
         border: 1px solid #BC9CFF;
         color: #BC9CFF;
@@ -64,14 +65,18 @@
 .like{
     display: none;
     position: relative;
-    right: 4px;
-    bottom: 0px;
+    margin: 4px;
+    margin-right: 5px;
+    width: 10px;
+    height: 9px;
     }
 .nolike{
      display: block;
      position: relative;
-     right: 4px;
-     bottom: 0px;
+     margin: 4px;
+     margin-right: 5px;
+     width: 10px;
+    height: 9px;
     }
 
 
@@ -96,4 +101,8 @@ margin-bottom: 39px;
 }
 .like-button{
 margin-right:10px ;
+}
+.like__number{
+    width: 9.93px;
+height: 13px;
 }
