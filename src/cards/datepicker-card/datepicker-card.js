@@ -823,6 +823,9 @@
             if (onShow) {
                 this._bindVisionEvents(onShow)
             }
+            $('.datepicker--button[data-action|="submit"]').click(function(){
+                $(document).find('.datepicker-activated').removeClass("datepicker-activated")
+            })
         },
 
         hide: function () {
