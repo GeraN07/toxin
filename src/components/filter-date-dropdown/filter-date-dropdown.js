@@ -17,3 +17,15 @@ $('#date_range').datepicker({
 //     timeFormat: 'hh:ii',
 //     firstDay: 1
 // };
+$(".filte-date-dropdown").click(function() {
+  $(this).parent().toggleClass("datepicker-activated")
+});
+$(document).mouseup(function (e){
+  var block = $(".filter-date-dropdown-block");
+  var block1 = $(".datepickers-container");
+  if (!block.is(e.target) 
+      && block.has(e.target).length === 0 && !block1.is(e.target) && block1.has(e.target).length === 0 ) {
+      block.removeClass('datepicker-activated');;
+  }
+});
+// $(".filte-date-dropdown").click().parent().addClass("datepicker-activated")
