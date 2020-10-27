@@ -91,7 +91,48 @@ margin-bottom: 16px;
     color: rgba(31, 32, 65, 0.75);
     padding: 0;
     margin: 0;
+    position: relative;
 }
+.booking-card__text.text-info::after{
+content: "i";
+font-family: Montserrat-Regular;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height, or 117% */
+position: absolute;
+top: 0px;
+left: 220px;
+color: rgba(31, 32, 65, 0.25);
+width: 20px;
+height: 20px;
+border: 1px solid rgba(31, 32, 65, 0.25);
+border-radius: 25px;
+padding: 8px;
+padding-top: 2px;
+padding-bottom: 4px;
+}
+.booking-card__text.text-info:first-child::after{
+    content: "i";
+    font-family: Montserrat-Regular;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height, or 117% */
+    position: absolute;
+    top: -2px;
+    left: 220px;
+    color: rgba(31, 32, 65, 0.25);
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 25px;
+    padding: 8px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    }
 .booking-card__total-text{
     font-family: OpenSans-Bold;
     font-style: normal;
