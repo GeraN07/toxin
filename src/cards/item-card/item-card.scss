@@ -176,13 +176,22 @@ margin-bottom: 1px;
        }
        .controls-pre{
         transform: rotate(90deg);
-        left:0px;
-        padding: 10px;
+        left: -17%;
+        top:0px;
+        padding: 0;
+        padding-left: 18.5%;
+       
+        position: absolute;
+        width: 50%;
        }
        .controls-next{
         transform: rotate(-90deg);
-        right: 0px;
-        padding: 10px;
+        right: -17%;
+        position: absolute;
+        width: 50%;
+        top:0px;
+        padding: 0;
+        padding-left: 25%;
        }
        .item-card__navigation-buttons{
            width: 270px;
@@ -220,4 +229,71 @@ margin-bottom: 1px;
     }
     .current-slide{
         background-color: #ffffff;
+    }
+    @media (min-width: 850px) and (max-width: 1000){
+        .item-card img{
+            height: 152px;
+        }
+        .item-card,
+        .item-card img,
+        .item-card__footer,
+        .item-card__navigation-buttons,
+        .item-card .slide{
+            width: 270px;
+        }
+    }
+    @media (min-width: 560px) and (max-width: 659px) {
+        .item-card img{
+            height: 152px;
+        }
+        .item-card,
+        .item-card img,
+        .item-card__footer,
+        .item-card__navigation-buttons,
+        .item-card .slide{
+            width: 270px;
+        }
+    }
+    @media(min-width: 660px) and (max-width: 850px) {
+        .item-card img{
+            height: 160px;
+        }
+        .item-card,
+        .item-card img,
+        .item-card__footer,
+        .item-card__navigation-buttons,
+        .item-card .slide{
+            width: 320px;
+        }
+    }
+    @media(max-width: 559px) {
+        .image-slider{
+            height: 100%;
+            max-height: 300px;
+            width: 100%;
+        }
+        .item-card{
+            height: 100%;
+        }
+        .item-card .slides{
+            height: inherit;
+        }
+        .item-card img{
+            max-height: 300px;
+            width: 100%;
+        }
+        .item-card,
+        .item-card__footer,
+        .item-card__navigation-buttons,
+        .item-card .slide{
+            width: 100%;
+        }
+        .item-card__navigation-buttons{
+            bottom: 60%;
+            top: auto;
+        }
+        .item-card__pagination-buttons{
+            bottom: 130px;
+            top: auto;
+        }
     }
