@@ -78,3 +78,13 @@ height: 65px;
     transform: rotate(-180deg);
     display: inline-block;
 }
+@media (max-width: 379px) {
+    .landing-page .date-1::after, .landing-page .date-2::after {
+        left: 285px;
+        right: auto;
+    }
+    .landing-page  .datepicker-activated.date-1::after,
+    .landing-page  .datepicker-activated.date-2::after{
+       left: 300px;
+    }
+    }

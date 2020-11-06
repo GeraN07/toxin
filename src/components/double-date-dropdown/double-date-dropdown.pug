@@ -3,6 +3,7 @@ mixin double-date-dropdown(h3n1,h3n2,placeholder,value)
         .date-1    
             h3.double-date-dropdown-h3n1=h3n1
             input.datepicker-here.first-date(
+                readonly
                 data-date-format="dd.mm.yyyy"
                 type="text"
                 placeholder=placeholder
@@ -12,6 +13,7 @@ mixin double-date-dropdown(h3n1,h3n2,placeholder,value)
         .date-2
             h3.double-date-dropdown-h3n2=h3n2
             input.dates.second-date( 
+                readonly
                 type='text'
                 value=value
                 placeholder=placeholder
