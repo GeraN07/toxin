@@ -1,6 +1,7 @@
 mixin expandable-checkbox-list(buttonsName,activeClass,disabled)
     .expandable-checkbox-list-block
-            button.collapsible(class=activeClass) #{buttonsName}
+            .button-wrapper(class=activeClass)
+                button.collapsible #{buttonsName}
             if disabled != true
                 .content
                     .checkbox-block

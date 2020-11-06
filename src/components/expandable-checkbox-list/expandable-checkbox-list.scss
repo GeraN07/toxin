@@ -1,6 +1,8 @@
 /* Style the button that is used to open and close the collapsible content */
 .expandable-checkbox-list-block{
 margin-bottom: 20px;
+position: relative;
+width: 266px;
 }
 .collapsible {
   width: 266px;
@@ -8,7 +10,7 @@ height: 44px;
     background-color: inherit;
     color: #444;
     cursor: pointer;
-    width: 100%;
+    width: 266px;
     border: none;
     text-align: left;
     outline: none;
@@ -22,8 +24,9 @@ height: 44px;
     
     padding: 0;
     text-transform: uppercase;
-
+    overflow: auto;
   }
+ 
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 
@@ -31,11 +34,15 @@ height: 44px;
   /* Style the collapsible content. Note: hidden by default */
   .content {
     
-    display: none;
+    // display: none;
+    visibility: hidden;
     overflow: hidden;
     background-color:inherit;
     border: none;
     margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+    height: 0px;
   }
   .checkbox{
     position: absolute;
@@ -71,6 +78,62 @@ height: 44px;
     margin-bottom: 10px;
     max-height: 20px;
   }
-  .expandable-checkbox-list-block .active ~ .content{
-    display: block;
+  .button-wrapper.active ~ .content{
+    // display: block;
+    visibility: visible;
+    transition-delay: 0.1s;
+    opacity: 1;
+    height: auto;
   }
+  
+  .button-wrapper{
+    width: 266px;
+  }
+  .button-wrapper::after{
+    text-transform: none;
+    content: "expand_more"; 
+    font-family: "MaterialIcons-Regular";
+    font-size: 24px;
+    line-height: 24px;
+    color: rgba(31, 32, 65, 0.5);
+    background-image: none;
+    position: absolute;
+    right: 23px;
+    top: 11px;
+    width: 10px;
+    height: 10px;
+   
+    
+  }
+  .button-wrapper.active::after{
+    text-transform: none;
+    content: "expand_more"; 
+    font-family: "MaterialIcons-Regular";
+    font-size: 24px;
+    line-height: 24px;
+    color: rgba(31, 32, 65, 0.5);
+    background-image: none;
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    transform: rotate(-180deg);
+  }
+  // .collapsible-icon::after{
+  //   text-transform: none;
+  //   content: "expand_more"; 
+  //   font-family: "MaterialIcons-Regular";
+  //   font-size: 24px;
+  //   line-height: 24px;
+  //   color: rgba(31, 32, 65, 0.5);
+  //   background-image: none;
+  //   position: relative;
+  //   left:auto;
+  //   top:22px;
+  //   width: 10px;
+  //   height: 10px;
+  //   transform: rotate(-180deg);
+  //   display: inline-block;
+  // }
