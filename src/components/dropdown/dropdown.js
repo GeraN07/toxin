@@ -244,13 +244,7 @@ $(document).ready(() => {
   });
   $(".custom-message").iqDropdown({
     minItems: 0,
-    onChange: function(id, count, totalItems) {
-      console.log(id, count, totalItems);
-    },
     setSelectionText: (itemCount,totalItems,id,Count,textPlural,selectionText) => {
-      console.log(itemCount.bedroom);
-      console.log(itemCount.bed);
-      console.log(itemCount.bathroom);
       let fastarr= []
         if(totalItems == 0){
           return textPlural = "Сколько комнат"
