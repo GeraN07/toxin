@@ -1,6 +1,6 @@
 include ../like-button/like-button
 
-mixin feedback(name,date,text,path)
+mixin feedback(name,date,text,path,likeclass,likes)
     .feedback
         .feedback-header
             img.profile-image(src=path, alt="")
@@ -8,6 +8,6 @@ mixin feedback(name,date,text,path)
                 h4.profile-name=name
                 p.comment-date=date
         .feedback-footer
-            +like-button("","like__btn2 animated liked feedback_btn","12")
+            +like-button("",likeclass,likes)
             p.feedback-text=text
             
