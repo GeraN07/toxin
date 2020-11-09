@@ -13,14 +13,16 @@ mixin item-card(rate,number,lux,price,reviews,src1)
                     li.slide 
                         img(src="../src/assets/rooms-preview/room2.jpg", alt="")
             .item-card__navigation-buttons
+                .navigation-buttons__controls-pre
                     <button class="item-card__controls controls-pre">expand_more</button>
+                .navigation-buttons__controls-next
                     <button class="item-card__controls controls-next">expand_more</button>
             .item-card__pagination-buttons
                     <button class="item-card__pagination first-slide current-slide"></button>
                     <button class="item-card__pagination second-slide"></button>
                     <button class="item-card__pagination third-slide"></button>
                     <button class="item-card__pagination fourth-slide"></button>
-        //- img.item-card__image(src="../src/assets/Mask Group.jpg", alt="")
+            a(href="room-details.html").image-slider__room-link
         .item-card__footer
             .item-card__footer-top
                 h1.item-card__title 
