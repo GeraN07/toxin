@@ -112,7 +112,22 @@ margin-right: 18px;
     text-transform: uppercase;
 
     color: #FFFFFF;
-
+    position: relative;
+}
+.button-purpule-large::after{
+    text-transform: none;
+    content: "arrow_forward";
+    font-family: "MaterialIcons-Regular";
+    font-size: 24px;
+    line-height: 24px;
+    color: #FFFFFF;
+    background-image: none;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 44px;
+    height: 30px;
+    font-weight: normal;
 }
 .buttons{
 display: flex;
