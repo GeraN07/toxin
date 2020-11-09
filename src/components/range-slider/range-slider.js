@@ -10,9 +10,7 @@ $(".js-range-slider").ionRangeSlider({
     hide_min_max:true,
     hide_from_to:true,
     onChange: function (data) {
-        // Called every time handle position is changed
-
-        document.getElementById("val1").innerHTML = data.from
-        document.getElementById("val2").innerHTML = data.to
+        document.getElementById("val1").innerHTML = (data.from).toLocaleString()
+        document.getElementById("val2").innerHTML = (data.to).toLocaleString()
     },
 });
