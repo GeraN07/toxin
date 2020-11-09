@@ -61,3 +61,17 @@ color: #000000;
 padding: 0;
 margin-top: 13px;
 }
+@media (max-width:379px){
+    .registration-card{
+        padding: 0;
+        width: 100%;
+    }
+    .registration-card .text-field-block,
+    .registration-card .radio-block,
+    .registration-card .masked-text-field-block,
+    .registration-card .toggle{
+        width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
