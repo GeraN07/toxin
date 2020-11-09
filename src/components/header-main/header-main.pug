@@ -16,20 +16,22 @@ mixin page-header(isLog)
                         li.page-header--services
                                 a(href="#").nav-link 
                                     p.services-text Услуги
-                                    ul.page-header-sevices-list 
+                                ul.page-header-sevices-list 
+                                        +navLink('#','Такси от аэропорта')
+                                        +navLink('#','Камера хранения')
                                         +navLink('#','SPA')
-                                        +navLink('#','PSA')
-                                        +navLink('#','ASP')
                         +navLink('#','Вакансии')
                         +navLink('#','Новости')
                         li.page-header--agree
                                 a(href="#").nav-link
                                     p.agree-text Соглашения
-                                    ul.page-header-sevices-list 
-                                        +navLink('#','SPA')
-                                        +navLink('#','PSA')
-                                        +navLink('#','ASP')
+                                ul.page-header-agree-list 
+                                        +navLink('#','Партнеры')
+                                        +navLink('#','Поставщики')
+                                        +navLink('#','Франшиза')
                         +navLink('#','Юлий Цезарь','page-header__username')
+                span.burger-button
+                    .burger-button__icon                                
     if isLog==false
         header.page-header--notlog
                 .page-header__block--notlog
@@ -42,17 +44,19 @@ mixin page-header(isLog)
                                     p.services-text Услуги
                                     ul.page-header-sevices-list 
                                         +navLink('#','SPA')
-                                        +navLink('#','PSA')
-                                        +navLink('#','ASP')
+                                        +navLink('#','Такси от аэропорта')
+                                        +navLink('#','Камера хранения')
                         +navLink('#','Вакансии')
                         +navLink('#','Новости')
                         li.page-header--agree
                                 a(href="#").nav-link
                                     p.agree-text Соглашения
-                                    ul.page-header-sevices-list 
-                                        +navLink('#','SPA')
-                                        +navLink('#','PSA')
-                                        +navLink('#','ASP')
+                                    ul.page-header-agree-list 
+                                        +navLink('#','Партнеры')
+                                        +navLink('#','Поставщики')
+                                        +navLink('#','Франшиза')
                     .page-header__button-block        
                         +button-white("войти")
                         +button-purpule("зарегистрироваться")
+                span.burger-button
+                    .burger-button__icon       
