@@ -4,6 +4,7 @@
 
 include ../components/header-main/header-main
 include ../components/big-footer/big-footer
+include ../components/small-footer/small-footer
 include ../cards/filter-main-card/filter-main-card
 
 doctype html
@@ -11,7 +12,7 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
+        title landing-page
     body.landing-page
         +page-header(false)
         main
@@ -19,3 +20,4 @@ html(lang="en")
                 +filter-main-card
                 p.filter-image__text Лучшие номера для вашей работы, отдыха и просто вдохновения
         +big-footer
+        +small-footer
