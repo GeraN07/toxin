@@ -35,6 +35,9 @@ justify-content: space-between;
     margin-bottom: 5px;
     
     }
+    .text-field-header.hover ~ input.text-field{
+        border: 1px solid rgba(31, 32, 65, 0.5);
+    }
 .text-field-title{
     font-family: Montserrat-Bold;
 font-style: normal;
