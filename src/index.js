@@ -9,7 +9,10 @@ require("../node_modules/jquery-mask-plugin/dist/jquery.mask.min.js")
 require("../src/assets/Minimal-Rating-Plugin-With-jQuery-And-Material-Icons-star-rating-js/src/jquery.star.rating.min.js")
 require("../src/cards/datepicker-card/datepicker-card.js")
 require("../src/components/dropdown/dropdown.js")
+require("../src/components/header-main/header-main.js")
 //Pages
 require("./pages/ui-kit.pug");
 require("./pages/ui-kit.js");
 require("./pages/room-details.js");
+require("./pages/rooms-catalog.js");
+

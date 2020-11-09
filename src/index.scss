@@ -41,5 +41,11 @@ font-weight: normal;
 @import "./pages/landing-page.scss";
 @import "./pages/rooms-catalog.scss";
 @import "./pages/room-details.scss";
-@import "./pages/registration-signin-page.scss";
+@import "./pages/registration-page.scss";
+@import "./pages/login-page.scss";
 @import '~material-design-icons/iconfont/material-icons.css';
+input:hover,
+input:focus{
+    border: 1px solid rgba(31, 32, 65, 0.5);
+    outline: none;
+}
