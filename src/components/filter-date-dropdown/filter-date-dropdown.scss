@@ -3,6 +3,7 @@
     margin-bottom: 41px;
     max-width: 266px;
     max-height: 65px;
+    position: relative;
 }
 .filte-date-dropdown-title{
     font-family: Montserrat-Bold;
@@ -38,11 +39,11 @@ margin: 0;
     font-family: "MaterialIcons-Regular";
     font-size: 24px;
     line-height: 24px;
-    color: rgba(31, 32, 65, 0.5);
+    color: rgba(55, 57, 110, 0.5);
     background-image: none;
-    position: relative;
-    left: 232px;
-    bottom: 32px;
+    position: absolute;
+    right: 24px;
+    top:30px;
     // transform: rotate(-180deg);
     width: 10px;
     height: 10px;
@@ -55,9 +56,9 @@ margin: 0;
     font-size: 24px;
     line-height: 24px;
     color: rgba(31, 32, 65, 0.5);
-    position: relative;
-    left: 245px;
-    bottom: 22px;
+    position: absolute;
+    right: 10px;
+    top:45px;
     width: 10px;
     height: 10px;
     display: block;
