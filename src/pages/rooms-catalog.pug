@@ -1,5 +1,6 @@
 include ../components/header-main/header-main
 include ../components/big-footer/big-footer
+include ../components/small-footer/small-footer
 include ../components/filter-date-dropdown/filter-date-dropdown
 include ../components/dropdown/dropdown
 include ../components/range-slider/range-slider
@@ -16,21 +17,26 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
+        title rooms-catalog
     body.rooms-catalog
         +page-header(false)
         main.rooms-catalog__main
             .rooms-catalog__main-wrapper
                 aside.rooms-catalog__filter-block
-                    +filter-date-dropdown("даты пребывания в отеле","Выберите даты пребывания")
-                    +dropdown({type:'guests'},"гости","","","dropdown-guests")
-                    +range-slider("диапазон цены")
-                    +checkbox-buttons("Checkbox Buttons")
-                    +rich-checkbox-buttons("доступность")
-                    +dropdown({type:'rooms'},"удобства номера","","","dropdown-rooms")
-                    +expandable-checkbox-list("дополнительные удобства")
+                    span.filter-block__close-button
+                            .close-button__icon 
+                    .rooms-catalog__filter-block-wrapper
+                        +filter-date-dropdown("даты пребывания в отеле","Выберите даты пребывания")
+                        +dropdown({type:'guests'},"гости","","","dropdown-guests")
+                        +range-slider("диапазон цены")
+                        +checkbox-buttons("Checkbox Buttons")
+                        +rich-checkbox-buttons("доступность")
+                        +dropdown({type:'rooms'},"удобства номера","","","dropdown-rooms")
+                        +expandable-checkbox-list("дополнительные удобства")
+                        +button-purpule-large("применить")
                 section.rooms-catalog__catalog-block
                     h1.catalog-block__title Номера, которые мы для вас подобрали
+                        +button-purpule-large("фильтры")
                     +item-card('rating5',888,' люкс','9 990₽ ','145 ',"../src/assets/rooms-preview/room1.jpg")
                     +item-card('rating4',840,'','9 900₽ ','65 ',"../src/assets/rooms-preview/room2.jpg")
                     +item-card('rating3',980,' люкс','8 500₽ ','35 ',"../src/assets/rooms-preview/room3.jpg")
@@ -46,3 +52,4 @@ html(lang="en")
                 section.rooms-catalog__pagination-block
                     +pagination
         +big-footer
+        +small-footer
