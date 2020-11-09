@@ -4,29 +4,30 @@ include ../components/features/features
 include ../components/feedback/feedback
 include ../components/bullet-list/bullet-list
 include ../components/big-footer/big-footer
+include ../components/small-footer/small-footer
    
 doctype html
 html(lang="en")
         head
             meta(charset="UTF-8")
             meta(name="viewport", content="width=device-width, initial-scale=1.0")
-            title Document
+            title room-details
         body.rooms-details
             +page-header(false)
             main.rooms-details__block
-                section.room-details__room-image
+                section.room-details__room-image.revealator-fade.revealator-once
                     img.room-image__image-main(src="src/assets/rooms-image/room-image1.jpg"   alt="")
                     .room-image__image-small-block
                         img.room-image__image-small1(src="src/assets/rooms-image/room-image2.jpg"  alt="")
                         img.room-image__image-small2(src="src/assets/rooms-image/room-image3.jpg"  alt="")
                 section.room-details__details-book
                     .details-book__room-details
-                        .room-details__features-block
+                        .room-details__features-block.revealator-fade.revealator-once
                             h1.features-block__features-title Сведения о номере
                             +features("insert_emoticon","Комфорт","Шумопоглощающие стены")
                             +features("location_city","Удобство","Окно в каждой из спален")
                             +features("whatshot","Уют","Номер оснащён камином")
-                        .room-details__room-impressions
+                        .room-details__room-impressions.revealator-fade.revealator-once.revealator-delay3
                             h1.room-impressions__impressions-title Впечатления от номера
                             .room-impressions__impressions-block
                                 <figure class="chart" data-percent="100">
@@ -49,21 +50,24 @@ html(lang="en")
                                             p.impressions-list__text Удовлетворительно
                                         li.impressions-list__impression-item4 
                                             p.impressions-list__text Разочарован
-                        .room-details__room-feedbacks
+                        .room-details__room-feedbacks.revealator-fade.revealator-once
                             .room-feedbacks__feedback-header
                                 h1.room-feedback__feedbacks-title Отзывы посетителей номера
                                 p.room-feedback__feedbacks-count 2 отзыва
-                            +feedback("Мурад Сарафанов","5 дней назад","Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.")
-                            +feedback("Патрисия Стёклышкова","Неделю назад","Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент")
-                        .room-details__room-rules
+                            +feedback("Мурад Сарафанов","5 дней назад","Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.","src/assets/author-1.jpg","like__btn1 animated liked feedback_btn","12")
+                            +feedback("Патрисия Стёклышкова","Неделю назад","Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент","src/assets/author-2.jpg","like__btn2 animated feedback_btn","2")
+                        .room-details__room-rules.revealator-fade.revealator-once.revealator-delay1
                             h1.room-rules__rules-title Правила
                             +bullet-list
-                        .room-details__book-cancel
+                        .room-details__book-cancel.revealator-fade.revealator-once.revealator-delay1
                             h1.room-rules__book-cancel-title Отмена
                             p.room-rule__book-cancel-text Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
-                    .details-book__room-book
+                    .details-book__room-book.revealator-fade.revealator-once(id="room-book")
                         +booking-card
+                    .room-book__anchor-button(id="anchor-button")
+                        a(href="#room-book").anchor-button__anchor-text Забронировать !
             +big-footer
+            +small-footer
 
                     
 
