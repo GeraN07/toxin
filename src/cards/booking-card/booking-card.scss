@@ -159,8 +159,9 @@ padding-bottom: 4px;
 .booking-card__doted-block{
     content: " ";
     border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
-    min-width: 182px;
     margin-bottom: 5px;
+    width: 100%;
+    max-width: 182px;
 }
 .booking-card__total-price{
     font-family: Quicksand-Bold;
@@ -174,4 +175,63 @@ padding-bottom: 4px;
     /* Dark 100% */
     
     color: #1F2041;
+}
+@media (max-width:1165px) and (min-width:320px){
+    .details-book__room-book{
+        width: 100%;
+    }
+    .booking-card{
+        border-radius: 22px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .booking-card__header{
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top:5px;
+    }
+    .rooms-details .room-details__book-cancel {
+        max-width: none;
+    }
+    .booking-card__first-sum.price-line,
+    .booking-card__service-charge.price-line,
+    .booking-card__additional-sum.price-line,
+    .booking-card__total-sum.price-line{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media (max-width:379px) and (min-width:320px){
+    .booking-card{
+        padding:0;
+     }
+     .rooms-details .double-date-dropdown-block {
+        flex-direction: column;
+        height: 130px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .rooms-details .dropdown-block{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .rooms-details .date-1 input, .rooms-details .date-2 input {
+        width: 320px;
+    }
+    .rooms-details .date-1 {
+        margin-left: 0;
+        height: 60px;
+    }
+    .rooms-details .date-2 {
+        margin-left: 0;
+        height: 60px;
+    }
+    .rooms-details .date-1::after, .rooms-details .date-2::after {
+        left: 285px;
+        right: auto;
+    }
+    .rooms-details .datepicker-activated.date-1::after, .rooms-details.datepicker-activated .date-2::after {
+        left: 300px;
+        right: auto;
+    }
 }
