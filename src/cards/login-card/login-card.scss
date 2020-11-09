@@ -43,3 +43,14 @@ line-height: 18px;
 color: #000000;
 margin-top: 13px;
 }
+@media (max-width:379px){
+    .login-card{
+        padding: 0;
+        width: 100%;
+    }
+    .login-card .text-field-block{
+        width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
