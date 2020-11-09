@@ -8,8 +8,9 @@
     padding-bottom: 120px;
 }
 .small-footer .toxin-logo{
-    margin-left: 331px;
-    margin-right: 331px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 .small-footer__copyright{
     font-family: Montserrat-Regular;
@@ -40,9 +41,13 @@ display: flex;
 /* Primary Gradient */
 
 color:  #BC9CFF;
-margin-left: 328px;
-margin-right: 328px;
+margin-left: auto;
+margin-right: auto;
 
 list-style: none;
 padding: 0;
+justify-content: center;
+}
+.social-link__social-item:last-child{
+    margin-right: 0;
 }
