@@ -1,6 +1,7 @@
 @import "../components/colors/colors.scss";
 @import "../components/fontText/fontText.scss";
-.color-type{
+
+.color-type {
     background: url("./assets/Group.svg");
     background-repeat: no-repeat;
     background-position: 30px 30px;
@@ -12,10 +13,11 @@
     padding-top: 145px;
     padding-bottom: 145px;
 }
-.color-type__wrapper{
+
+.color-type__wrapper {
     display: grid;
     grid-template-rows: 321px 289px;
-    grid-template-columns:270px 427px 403px; 
+    grid-template-columns: 270px 427px 403px;
     max-height: 900px;
     width: 100%;
 }
