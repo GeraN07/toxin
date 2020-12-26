@@ -1,23 +1,25 @@
 require("../assets/Revealator-plugin/fm.revealator.jquery.js");
+if(document.getElementById("nbr")){
+var speed = 4;
+function incEltNbr(id) {
+  setTimeout(function(){
+  elt = document.getElementById("nbr");
+  endNbr = Number(document.getElementById("nbr").innerHTML);
+  incNbrRec(0, endNbr, elt);
+  },3000)
+}
 
-// var speed = 4;
-// function incEltNbr(id) {
-//   elt = document.getElementById(id);
-//   endNbr = Number(document.getElementById(id).innerHTML);
-//   incNbrRec(0, endNbr, elt);
-// }
+function incNbrRec(i, endNbr, elt) {
+  if (i <= endNbr) {
+    elt.innerHTML = i;
+    setTimeout(function() {
+      incNbrRec(i + 1, endNbr, elt);
+    }, speed);
+  }
+}
+$(document).ready(incEltNbr("nbr"));
+}
 
-// function incNbrRec(i, endNbr, elt) {
-//   if (i <= endNbr) {
-//     elt.innerHTML = i;
-//     setTimeout(function() {
-//       incNbrRec(i + 1, endNbr, elt);
-//     }, speed);
-//   }
-// }
-
-
-// $(document).ready(incEltNbr("nbr"));
 
 jQuery(function(f){
     var element = f('#anchor-button');
