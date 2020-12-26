@@ -17,7 +17,7 @@ $('#date_range').datepicker({
 //     timeFormat: 'hh:ii',
 //     firstDay: 1
 // };
-$(".filte-date-dropdown").click(function() {
+$(".filter-date-dropdown").click(function() {
   $(this).parent().toggleClass("datepicker-activated")
 });
 $(document).mouseup(function (e){
@@ -28,4 +28,4 @@ $(document).mouseup(function (e){
       block.removeClass('datepicker-activated');;
   }
 });
-// $(".filte-date-dropdown").click().parent().addClass("datepicker-activated")
+// $(".filter-date-dropdown").click().parent().addClass("datepicker-activated")
