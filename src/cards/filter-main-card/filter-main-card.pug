@@ -4,7 +4,7 @@ include ../../components/buttons/buttons
 
 mixin filter-main-card
         .filter-main
-            h1.filter-main-title Найдём номера под ваши пожелания
+            h1.filter-main__title Найдём номера под ваши пожелания
             +double-date-dropdown("Прибытие","Выезд","ДД.ММ.ГГГГ","ДД.ММ.ГГГГ")
             +dropdown({type:'guests'},"гости")
             +button-purpule-large("подобрать номер",'rooms-catalog.html')
