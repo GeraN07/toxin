@@ -8,7 +8,7 @@ $(".first-date").datepicker({
     let date1 = new Date(d[0]);
     let date2 = new Date(d[1]);
     let daysTotal = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
-    if(daysTotal >= 0){
+    if(daysTotal >= 0 && document.getElementById("totalDayscount")){
     document.getElementById("totalDayscount").innerHTML = daysTotal
     document.getElementById("preAmount").innerHTML = (daysTotal * 9990).toLocaleString()
     document.getElementById("totalAmount").innerHTML = (daysTotal * 9990 - 2179 + 300).toLocaleString()
@@ -41,7 +41,7 @@ $(".second-date").click(function() {
 });
 
 $(document).mouseup(function (e){
-  var block = $(".date-1");
+  var block = $(".double-date-dropdown-block__date-1");
   var block1 = $(".datepickers-container");
   if (!block.is(e.target) 
       && block.has(e.target).length === 0 && !block1.is(e.target) && block1.has(e.target).length === 0 ) {
@@ -49,7 +49,7 @@ $(document).mouseup(function (e){
   }
 });
 $(document).mouseup(function (e){
-  var block = $(".date-2");
+  var block = $(".double-date-dropdown-block__date-2");
   var block1 = $(".datepickers-container");
   if (!block.is(e.target) 
       && block.has(e.target).length === 0 && !block1.is(e.target) && block1.has(e.target).length === 0 ) {

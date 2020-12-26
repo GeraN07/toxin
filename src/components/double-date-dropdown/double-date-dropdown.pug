@@ -1,8 +1,8 @@
 mixin double-date-dropdown(h3n1,h3n2,placeholder,value)
     .double-date-dropdown-block
-        .date-1    
-            h3.double-date-dropdown-h3n1=h3n1
-            input.datepicker-here.first-date(
+        .double-date-dropdown-block__date-1    
+            h3.double-date-dropdown-block__title-1=h3n1
+            input.double-date-dropdown-block__input1.datepicker-here.first-date(
                 readonly
                 data-date-format="dd.mm.yyyy"
                 type="text"
@@ -10,9 +10,9 @@ mixin double-date-dropdown(h3n1,h3n2,placeholder,value)
                 id="start_one"
                 data-range="true"
                 data-multiple-dates-separator=" - ")
-        .date-2
-            h3.double-date-dropdown-h3n2=h3n2
-            input.dates.second-date( 
+        .double-date-dropdown-block__date-2
+            h3.double-date-dropdown-block__title-2=h3n2
+            input.double-date-dropdown-block__input2.dates.second-date( 
                 readonly
                 type='text'
                 value=value
