@@ -1,8 +1,8 @@
 mixin  masked-text-field(h3,p,placeholder,addClass)
     .masked-text-field-block
-        .masked-text-field-header(class=addClass)  
-            h3.masked-text-field-title=h3
-        input.masked-text-field(
+        .masked-text-field-block__header(class=addClass)  
+            h3.masked-text-field-block__title=h3
+        input.masked-text-field-block__masked-text-field(
             type="text"
             name="field-name"
             placeholder=placeholder
