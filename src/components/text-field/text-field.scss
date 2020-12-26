@@ -1,92 +1,95 @@
 
-.text-field-block{
-margin-bottom: 20px;
+.text-field-block {
+    margin-bottom: 20px;
 }
-.text-field-header{
-display: flex;
-justify-content: space-between;
 
+.text-field-block__header {
+    display: flex;
+    justify-content: space-between;
 }
-.text-field-header.default::after{
+
+.text-field-block__header.default::after {
     display: block;
-    content:"default";
-    font-family: Montserrat-Regular;
+    content: "default";
+    font-family: Montserrat-Regular, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
+
     /* identical to box height */
     text-align: right;
     text-transform: uppercase;
     margin-bottom: 8px;
-    
-    }
-.text-field-header.hover::after{
+}
+
+.text-field-block__header.hover::after {
     display: block;
-    content:"Hover / Focus";
-    font-family: Montserrat-Regular;
+    content: "Hover / Focus";
+    font-family: Montserrat-Regular, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
+
     /* identical to box height */
     text-align: right;
     text-transform: uppercase;
     margin-bottom: 5px;
-    
-    }
-    .text-field-header.hover ~ input.text-field{
-        border: 1px solid rgba(31, 32, 65, 0.5);
-    }
-.text-field-title{
-    font-family: Montserrat-Bold;
-font-style: normal;
-font-weight: bold;
-font-size: 12px;
-line-height: 15px;
-/* identical to box height */
-margin: 0;
-padding: 0;
-text-transform: uppercase;
-margin-bottom:5px;
-align-self: center;
 }
 
-.text-field-p{
-    font-family: Montserrat-Regular;
+.text-field-block__header.hover ~ input.text-field {
+    border: 1px solid $DShade50;
+}
+
+.text-field-block__title {
+    font-family: Montserrat-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+
+    /* identical to box height */
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    align-self: center;
+}
+
+.text-field-p {
+    font-family: Montserrat-Regular, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
+
     /* identical to box height */
-    
+
     text-align: right;
     text-transform: uppercase;
     margin: 0;
-    
-    
 }
-.text-field{
+
+.text-field-block__text-field {
     border-radius: 4px;
     box-shadow: none;
     width: 320px;
     height: 44px;
-    border: 1px solid rgba(31, 32, 65, 0.25);
+    border: 1px solid $DShade25;
     box-sizing: border-box;
-}
-.text-field::placeholder{
-    font-family: Montserrat-Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
-    
-}
-.text-field{
-    font-family: Montserrat-Regular;
+    font-family: Montserrat-Regular, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 24px;
     padding-left: 15px;
+}
+
+.text-field-block__text-field::placeholder {
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
 }

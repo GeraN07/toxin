@@ -1,9 +1,9 @@
 mixin text-field(h3,p,name, type, placeholder,value,addClass)
   .text-field-block
-    .text-field-header(class=addClass)
-        h3.text-field-title=h3
+    .text-field-block__header(class=addClass)
+        h3.text-field-block__title=h3
         //- p.text-field-p=p
-    input.text-field(
+    input.text-field-block__text-field(
             name=name
             type=type
             placeholder=placeholder
