@@ -1,40 +1,46 @@
-.registartion-block{
+.registartion-block {
     background-image: url('.../../assets/registration-page-image .jpg');
     background-repeat: no-repeat;
-    background-size:cover;
-    background-position:bottom;
+    background-size: cover;
+    background-position: bottom;
     max-height: 702px;
     padding-top: 19px;
     padding-bottom: 19px;
 }
-.registartion-block .registration-card{
+
+.registartion-block .registration-card {
     margin-left: auto;
     margin-right: auto;
 }
-.registration-page .small-footer{
+
+.registration-page .small-footer {
     display: none;
 }
-.registration-block .login-card{
+
+.registration-block .login-card {
     margin-left: auto;
     margin-right: auto;
 }
 
 @media (max-width: 880px) {
-    .registration-page .burger-button{
+    .registration-page .burger-button {
         display: block;
     }
+
     .registration-page .page-header__block--log,
     .registration-page .page-header__block--notlog {
         width: 100%;
         max-width: 100%;
         display: flex;
-  }
-}
-@media (max-width: 990px) {
-    .registration-page .big-footer{
-        display:none;
     }
-    .registration-page .small-footer{
+}
+
+@media (max-width: 990px) {
+    .registration-page .big-footer {
+        display: none;
+    }
+
+    .registration-page .small-footer {
         display: block;
         width: 100%;
         position: relative;
