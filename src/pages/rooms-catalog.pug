@@ -10,22 +10,24 @@ include ../components/dropdown/dropdown
 include ../components/expandable-checkbox-list/expandable-checkbox-list
 include ../components/pagination/pagination
 include ../cards/item-card/item-card
+include ../components/preloader/preloader
 
 
 doctype html
-html(lang="en")
+html(lang="ru")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title rooms-catalog
     body.rooms-catalog
+        +preloader
         +page-header(false)
         main.rooms-catalog__main
             .rooms-catalog__main-wrapper
-                aside.rooms-catalog__filter-block
+                aside.filter-block
                     span.filter-block__close-button
-                            .close-button__icon 
-                    .rooms-catalog__filter-block-wrapper
+                            .filter-block__close-button-icon 
+                    .filter-block__filter-block-wrapper
                         +filter-date-dropdown("даты пребывания в отеле","Выберите даты пребывания")
                         +dropdown({type:'guests'},"гости","","","dropdown-guests")
                         +range-slider("диапазон цены")
@@ -35,7 +37,7 @@ html(lang="en")
                         +expandable-checkbox-list("дополнительные удобства")
                         +button-purpule-large("применить")
                 section.rooms-catalog__catalog-block
-                    h1.catalog-block__title Номера, которые мы для вас подобрали
+                    h1.rooms-catalog__catalog-block-title Номера, которые мы для вас подобрали
                         +button-purpule-large("фильтры")
                     +item-card('rating5',888,' люкс','9 990₽ ','145 ',"../src/assets/rooms-preview/room1.jpg")
                     +item-card('rating4',840,'','9 900₽ ','65 ',"../src/assets/rooms-preview/room2.jpg")
