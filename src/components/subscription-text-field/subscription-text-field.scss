@@ -1,34 +1,35 @@
-.subscription-text-field{
+.subscription-text-field-block__subscription-text-field {
     position: relative;
-    width:267px;
+    width: 267px;
 }
-.subscription-text-field .text-field{
-    width:267px;
+
+.subscription-text-field-block__subscription-text-field .text-field-block__text-field {
+    width: 267px;
 }
-.sub-button{
-    font-family: "MaterialIcons-Regular";
+
+.sub-button {
+    font-family: "MaterialIcons-Regular", sans-serif;
     font-size: 24px;
     line-height: 24px;
-    color: #BC9CFF;
+    color: $Purpule;
     background-image: none;
-
     position: absolute;
-    right: 0px;
-    bottom: 0px;
+    right: 0;
+    bottom: 0;
     background-color: inherit;
-    
-
-   border: none;
+    cursor: pointer;
+    border: none;
     padding: 10px;
 }
-.big-footer__copyright{
-    font-family: Montserrat-Regular;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 17px;
 
-/* Dark 75% */
+.big-footer__copyright {
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
 
-color: rgba(31, 32, 65, 0.75);
+    /* Dark 75% */
+
+    color: $DShade75;
 }
