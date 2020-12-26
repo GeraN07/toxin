@@ -1,16 +1,18 @@
 include ../components/header-main/header-main
 include ../components/big-footer/big-footer
 include ../cards/registration-card/registration-card
+include ../components/preloader/preloader
 include ../components/small-footer/small-footer
 include ../cards/login-card/login-card
 
 doctype html
-html(lang="en")
+html(lang="ru")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title login-page
     body.login-page
+        +preloader
         +page-header(false)
         section.login-block
             +login-card
