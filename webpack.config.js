@@ -6,6 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const LiveReloadPlugin = require('webpack-livereload-plugin')
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 const fs = require('fs')
 const PATHS = {
   src: path.join(__dirname, 'src/'),
@@ -99,7 +101,22 @@ module.exports = {
     jQuery: "jquery",
     "window.jQuery": "jquery",
     "window.$": "jquery"
-    })
+    }),
+  //   new HtmlWebpackExternalsPlugin({ // optional plugin: inject cdn
+  //     externals: [
+  //         {
+  //             module: 'jquery',
+  //             entry: 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js',
+  //             global: 'jQuery',
+  //         }
+  //     ],
+  // }),
+  new StylelintPlugin({
+    configFile: '.stylelintrc.json',
+    files: '**/*.scss',
+    failOnError: false,
+    ignoreFiles: ["src/assets/**/*.css","../dist/*.css","node_modules/**/*.css"]
+  })
   ],
   module: {
     rules:[
