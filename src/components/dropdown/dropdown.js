@@ -201,37 +201,37 @@ $(document).ready(() => {
       if(totalItems == 0){
         return textPlural = "Сколько гостей"
       }
-      if(itemCount.adult + itemCount.child == 1){
+      if((itemCount.adult + itemCount.child)% 10 == 1 && itemCount.adult + itemCount.child != 11){
        let x = itemCount.adult +itemCount.child+ " " +'гость';
         if(itemCount.adult > 0){
           arr.push(x)
           }
       }
-       else if(itemCount.adult + itemCount.child < 5 ){
+       else if((((itemCount.adult + itemCount.child) % 10 == 2 || (itemCount.adult + itemCount.child) % 10 == 3 || (itemCount.adult + itemCount.child) % 10 == 4) && (itemCount.adult + itemCount.child != 11) && (itemCount.adult + itemCount.child != 12)&& (itemCount.adult + itemCount.child != 13)&& (itemCount.adult + itemCount.child != 14))){
         let x =itemCount.adult + itemCount.child + " " +'гостя';
          if(itemCount.adult > 0){
          arr.push(x)
          }
        }
-       else if(itemCount.adult + itemCount.child > 4){
+       else if(itemCount.adult + itemCount.child > 4 || itemCount.adult + itemCount.child == 11||itemCount.adult + itemCount.child == 12|| itemCount.adult + itemCount.child == 11){
         let x =itemCount.adult + itemCount.child + " " +"гостей";
          if(itemCount.adult > 0){
           arr.push(x)
           }
        }
-       if( itemCount.infant == 1){
+       if(itemCount.infant % 10 == 1 && itemCount.infant != 11){
        let z =itemCount.infant + " " +'младенец';
         if(itemCount.infant > 0){
          arr.push(z)
          }
         }
-       else if(itemCount.infant < 5){
+       else if(((itemCount.infant % 10 == 2 || itemCount.infant % 10 == 3 || itemCount.infant % 10 == 4) && (itemCount.infant != 11) && (itemCount.infant!= 12)&& (itemCount.infant != 13)&& (itemCount.infant != 14))){
        let z =itemCount.infant + " " +'младенца';
         if(itemCount.infant > 0){
           arr.push(z)
           }
       }
-      else if(itemCount.infant > 4){
+      else if(itemCount.infant > 4 || itemCount.infant == 11|| itemCount.infant == 12|| itemCount.infant == 11){
         let z =itemCount.infant + " " +'младенцев';
          if(itemCount.infant > 0){
           arr.push(z)
@@ -249,37 +249,36 @@ $(document).ready(() => {
         if(totalItems == 0){
           return textPlural = "Сколько комнат"
         }
-         
-         if(itemCount.bedroom <5 && itemCount.bedroom > 0){
+        if((itemCount.bedroom % 10 == 1 && itemCount.bedroom != 11)){
+          x = itemCount.bedroom +" "+ "cпальня"
+        }
+         else if(((itemCount.bedroom % 10 == 2 || itemCount.bedroom % 10 == 3 || itemCount.bedroom % 10 == 4) && (itemCount.bedroom != 11) && (itemCount.bedroom!= 12)&& (itemCount.bedroom != 13)&& (itemCount.bedroom != 14) && (itemCount.bedroom > 0))){
            x = itemCount.bedroom +" "+ "cпальни"
          }
-         if(itemCount.bedroom >4){
+         else if(itemCount.bedroom > 4 || itemCount.bedroom == 11|| itemCount.bedroom == 12|| itemCount.bedroom == 11){
            x = itemCount.bedroom +" "+ "cпален"
         }
-        if(itemCount.bedroom == 1){
-          x = itemCount.bedroom +" "+ "cпальня"
-       }
+    
 
-
-         if(itemCount.bed <5 && itemCount.bed > 0){
-         y = itemCount.bed +" "+ "кровати"
-        }
-         if(itemCount.bed >4){
-         y = itemCount.bed +" "+ "кроватей"
-        }
-        if(itemCount.bed == 1){
+        if((itemCount.bed % 10 == 1 && itemCount.bed != 11)){
           y = itemCount.bed +" "+ "кровать"
        }
-
-         if(itemCount.bathroom <5 && itemCount.bathroom > 0){
-           z = itemCount.bathroom +" "+ "ванные комнаты"
-          }
-         if(itemCount.bathroom >4){
-         z = itemCount.bathroom +" "+ "ванных комнат"
+       else if(((itemCount.bed % 10 == 2 || itemCount.bed % 10 == 3 || itemCount.bed % 10 == 4) && (itemCount.bed != 11) && (itemCount.bed!= 12)&& (itemCount.bed != 13)&& (itemCount.bed != 14) && (itemCount.bed > 0))){
+         y = itemCount.bed +" "+ "кровати"
         }
-        if(itemCount.bathroom == 1){
+        else if(itemCount.bed > 4 || itemCount.bed == 11|| itemCount.bed == 12|| itemCount.bed == 11){
+         y = itemCount.bed +" "+ "кроватей"
+        }
+
+        if((itemCount.bathroom % 10 == 1 && itemCount.bathroom != 11)){
           z = itemCount.bathroom +" "+ "ванная комната"
        }
+       else if(((itemCount.bathroom % 10 == 2 || itemCount.bathroom % 10 == 3 || itemCount.bathroom % 10 == 4) && (itemCount.bathroom != 11) && (itemCount.bathroom!= 12)&& (itemCount.bathroom != 13)&& (itemCount.bathroom != 14) && (itemCount.bathroom > 0))){
+           z = itemCount.bathroom +" "+ "ванные комнаты"
+          }
+         else if(itemCount.bathroom > 4 || itemCount.bathroom == 11|| itemCount.bathroom == 12|| itemCount.bathroom == 11){
+         z = itemCount.bathroom +" "+ "ванных комнат"
+        }
 
         if (typeof x == "string"){
         let bedroomtext = x
