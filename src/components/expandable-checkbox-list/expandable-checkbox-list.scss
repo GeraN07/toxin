@@ -1,117 +1,120 @@
 /* Style the button that is used to open and close the collapsible content */
-.expandable-checkbox-list-block{
-margin-bottom: 20px;
-position: relative;
-width: 266px;
+.expandable-checkbox-list-block {
+    margin-bottom: 20px;
+    position: relative;
+    width: 266px;
 }
+
 .collapsible {
-  width: 266px;
-height: 44px;
+    width: 266px;
+    height: 44px;
     background-color: inherit;
     color: #444;
     cursor: pointer;
-    width: 266px;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
-    font-family: Montserrat-Bold;
+    font-family: Montserrat-Bold, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;
+
     /* identical to box height */
-    
+
     padding: 0;
     text-transform: uppercase;
     overflow: auto;
-  }
- 
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+}
 
-  
-  /* Style the collapsible content. Note: hidden by default */
-  .content {
-    
+.expandable-checkbox-buttons {
+
     // display: none;
     visibility: hidden;
     overflow: hidden;
-    background-color:inherit;
+    background-color: inherit;
     border: none;
     margin-top: 4px;
     opacity: 0;
     transition: opacity 0.3s, visibility 0s linear 0.3s;
-    height: 0px;
-  }
-  .checkbox{
+    height: 0;
+}
+
+.expandable-checkbox-buttons__checkbox {
     position: absolute;
     z-index: -1;
     opacity: 0;
-  }
+}
 
-  .checkbox+label::before{
+.expandable-checkbox-buttons__checkbox + label::before {
     display: inline-block;
     border-radius: 4px;
-    border: 1px solid rgba(31, 32, 65, 0.5);
-    content:" ";
+    border: 1px solid $DShade50;
+    content: " ";
     width: 20px;
     height: 20px;
     margin-right: 10px;
-  }
-  .checkbox:not(:disabled):checked+label::before{
-    border: 1px solid #BC9CFF;
+}
+
+.expandable-checkbox-buttons__checkbox:not(:disabled):checked + label::before {
+    border: 1px solid $Purpule;
     background-image: url("./components/expandable-checkbox-list/Vector.svg");
     background-repeat: no-repeat;
     background-position: center center;
-  }
-  .checkbox-label{
-    font-family: Montserrat-Regular;
+}
+
+.expandable-checkbox-buttons__checkbox-label {
+    display: flex;
+    flex-direction: row;
+    font-family: Montserrat-Regular, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
-    color: rgba(31, 32, 65, 0.5);
+    color: $DShade50;
+    cursor: pointer;
+    max-width: 266px;
+}
 
-  }
-  .checkbox-block{
+.expandable-checkbox-buttons__checkbox-block {
     margin-bottom: 10px;
     max-height: 20px;
-  }
-  .button-wrapper.active ~ .content{
+}
+
+.button-wrapper.active ~ .expandable-checkbox-buttons {
     // display: block;
     visibility: visible;
     transition-delay: 0.1s;
     opacity: 1;
     height: auto;
-  }
-  
-  .button-wrapper{
+}
+
+.button-wrapper {
     width: 266px;
-  }
-  .button-wrapper::after{
+}
+
+.button-wrapper::after {
     text-transform: none;
-    content: "expand_more"; 
-    font-family: "MaterialIcons-Regular";
+    content: "expand_more";
+    font-family: "MaterialIcons-Regular", sans-serif;
     font-size: 24px;
     line-height: 24px;
-    color: rgba(31, 32, 65, 0.5);
+    color: $DShade50;
     background-image: none;
     position: absolute;
     right: 23px;
     top: 11px;
     width: 10px;
     height: 10px;
-   
-    
-  }
-  .button-wrapper.active::after{
+}
+
+.button-wrapper.active::after {
     text-transform: none;
-    content: "expand_more"; 
-    font-family: "MaterialIcons-Regular";
+    content: "expand_more";
+    font-family: "MaterialIcons-Regular", sans-serif;
     font-size: 24px;
     line-height: 24px;
-    color: rgba(31, 32, 65, 0.5);
+    color: $DShade50;
     background-image: none;
     position: absolute;
     right: 10px;
@@ -120,20 +123,20 @@ height: 44px;
     height: 10px;
     display: inline-block;
     transform: rotate(-180deg);
-  }
-  // .collapsible-icon::after{
-  //   text-transform: none;
-  //   content: "expand_more"; 
-  //   font-family: "MaterialIcons-Regular";
-  //   font-size: 24px;
-  //   line-height: 24px;
-  //   color: rgba(31, 32, 65, 0.5);
-  //   background-image: none;
-  //   position: relative;
-  //   left:auto;
-  //   top:22px;
-  //   width: 10px;
-  //   height: 10px;
-  //   transform: rotate(-180deg);
-  //   display: inline-block;
-  // }
+}
+// .collapsible-icon::after{
+//   text-transform: none;
+//   content: "expand_more";
+//   font-family: "MaterialIcons-Regular";
+//   font-size: 24px;
+//   line-height: 24px;
+//   color: $DShade50;
+//   background-image: none;
+//   position: relative;
+//   left:auto;
+//   top:22px;
+//   width: 10px;
+//   height: 10px;
+//   transform: rotate(-180deg);
+//   display: inline-block;
+// }

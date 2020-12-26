@@ -3,23 +3,23 @@ mixin expandable-checkbox-list(buttonsName,activeClass,disabled)
             .button-wrapper(class=activeClass)
                 button.collapsible #{buttonsName}
             if disabled != true
-                .content
-                    .checkbox-block
-                        input.checkbox(type="checkbox" id="break")
-                        label.checkbox-label(for = "break") Завтрак
-                    .checkbox-block
-                        input.checkbox(type="checkbox" id="table")
-                        label.checkbox-label(for = "table") Письменный стол
-                    .checkbox-block
-                        input.checkbox(type="checkbox" id="chair")
-                        label.checkbox-label(for = "chair") Стул для кормления
-                    .checkbox-block
-                        input.checkbox(type="checkbox" id="bed")
-                        label.checkbox-label(for = "bed") Кроватка
-                    .checkbox-block
-                        input.checkbox(type="checkbox" id="tv")
-                        label.checkbox-label(for = "tv") Телевизор
-                    .checkbox-block
-                        input.checkbox(type="checkbox" id="shower")
-                        label.checkbox-label(for = "shower") Шампунь
+                .expandable-checkbox-buttons
+                    .expandable-checkbox-buttons__checkbox-block
+                        input.expandable-checkbox-buttons__checkbox(type="checkbox" id="break")
+                        label.expandable-checkbox-buttons__checkbox-label(for = "break") Завтрак
+                    .expandable-checkbox-buttons__checkbox-block
+                        input.expandable-checkbox-buttons__checkbox(type="checkbox" id="table")
+                        label.expandable-checkbox-buttons__checkbox-label(for = "table") Письменный стол
+                    .expandable-checkbox-buttons__checkbox-block
+                        input.expandable-checkbox-buttons__checkbox(type="checkbox" id="chair")
+                        label.expandable-checkbox-buttons__checkbox-label(for = "chair") Стул для кормления
+                    .expandable-checkbox-buttons__checkbox-block
+                        input.expandable-checkbox-buttons__checkbox(type="checkbox" id="bed")
+                        label.expandable-checkbox-buttons__checkbox-label(for = "bed") Кроватка
+                    .expandable-checkbox-buttons__checkbox-block
+                        input.expandable-checkbox-buttons__checkbox(type="checkbox" id="tv")
+                        label.expandable-checkbox-buttons__checkbox-label(for = "tv") Телевизор
+                    .expandable-checkbox-buttons__checkbox-block
+                        input.expandable-checkbox-buttons__checkbox(type="checkbox" id="shower")
+                        label.expandable-checkbox-buttons__checkbox-label(for = "shower") Шампунь
             
