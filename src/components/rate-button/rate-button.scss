@@ -1,26 +1,31 @@
 @import '~material-design-icons/iconfont/material-icons.css';
-.rate-button-title{
-    font-family: Montserrat-Bold;
+
+.rate-button-title {
+    font-family: Montserrat-Bold, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;
+
     /* identical to box height */
-    
+
     text-transform: uppercase;
-    
+
     /* Dark 100% */
     margin: 0;
     padding: 0;
-    color: #1F2041;
+    color: $DShade100;
     margin-bottom: 16px;
 }
-.rating .material-icons{
-    color: #BC9CFF;
+
+.rating .material-icons {
+    color: $Purpule;
 }
-.rate-button-block{
-display: flex;
+
+.rate-button-block {
+    display: flex;
 }
-.rate-button{
+
+.rate-button {
     margin-right: 20px;
 }
