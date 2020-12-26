@@ -1,84 +1,87 @@
-$DShade100: #1F2041;
-$DShade75:rgba(31, 32, 65, 0.75);
-$DShade50:rgba(31, 32, 65, 0.5);
-$DShade25:rgba(31, 32, 65, 0.25);
-$DShade5:rgba(31, 32, 65, 0.05);
-$Purpule:#BC9CFF;
-$Green:#6FCF97;
+// $DShade100: #1F2041;
+// $DShade75:rgba(31, 32, 65, 0.75);
+// $DShade50:rgba(31, 32, 65, 0.5);
+// $DShade25:rgba(31, 32, 65, 0.25);
+// $DShade5:rgba(31, 32, 65, 0.05);
+// $Purpule:#BC9CFF;
+// $Green:#6FCF97;
 
-.colors{
-display: flex;
-flex-direction: column;
-grid-column:1;
-grid-row-start:1;
-grid-row-end: 2;
-}
-.colors-block{
-display: flex;
-margin-bottom: 20px;
-
-}
-.angle{
-width: 70px;
-height: 70px;
-border-radius: 6px;
-
-}
-.data-block{
-display: flex;
-flex-direction: column;
-margin-left: 40px;
-padding-top: 6px;
-
-
-}
-.darkShade100-angle{
-background-color:$DShade100;
-}
-.darkShade75-angle{
-background-color:$DShade75;
-}
-.darkShade50-angle{
-background-color:$DShade50;
-}
-.darkShade25-angle{
-background-color:$DShade25;
-}
-.darkShade5-angle{
-background-color:$DShade5;
-}
-.purple-angle{
-background-color:$Purpule;
-}
-.green-angle{
-background-color:$Green;
+.colors {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
 
-
-.data-block h2{
-font-size:19px;
-line-height: 29px;
-margin: 0;
-font-family: Quicksand-Bold;
-font-style: normal;
-font-weight: bold;
-font-size: 19px;
-line-height: 29px;
-display: flex;
-align-items: center;
+.colors-block {
+    display: flex;
+    margin-bottom: 20px;
 }
-.data-block p{
-    font-family: Quicksand-Regular;
-    font-style: normal;
-    font-weight: normal;
+
+.angle {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+}
+
+.data-block {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    padding-top: 6px;
+}
+
+.darkShade100-angle {
+    background-color: $DShade100;
+}
+
+.darkShade75-angle {
+    background-color: $DShade75;
+}
+
+.darkShade50-angle {
+    background-color: $DShade50;
+}
+
+.darkShade25-angle {
+    background-color: $DShade25;
+}
+
+.darkShade5-angle {
+    background-color: $DShade5;
+}
+
+.purple-angle {
+    background-color: $Purpule;
+}
+
+.green-angle {
+    background-color: $Green;
+}
+
+.data-block h2 {
     font-size: 19px;
     line-height: 29px;
+    margin: 0;
+    font-family: Quicksand-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
     display: flex;
     align-items: center;
-    font-size:19px;
+}
+
+.data-block p {
+    font-family: Quicksand-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    font-size: 19px;
     line-height: 29px;
     margin: 0;
+
     /* Dark 100% */
-    
+
     color: $DShade100;
 }
