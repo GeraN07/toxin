@@ -2,12 +2,12 @@ include ../like-button/like-button
 
 mixin feedback(name,date,text,path,likeclass,likes)
     .feedback
-        .feedback-header
-            img.profile-image(src=path, alt="")
-            .feedback-header-text
-                h4.profile-name=name
-                p.comment-date=date
-        .feedback-footer
+        .feedback__header
+            img.feedback__profile-image(src=path, alt="")
+            .feedback__header-text
+                h4.feedback__profile-name=name
+                p.feedback__comment-date=date
+        .feedback__footer
             +like-button("",likeclass,likes)
-            p.feedback-text=text
+            p.feedback__text=text
             
