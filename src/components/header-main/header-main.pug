@@ -7,56 +7,56 @@ mixin navLink(link,name,special)
             p.navLink-text=name
 mixin page-header(isLog)
     if isLog==true
-        header.page-header--log
+        header.page-header.page-header--log
                 .page-header__block--log
-                    a.page-header--logo 
+                    a(href="landing-page.html").page-header__logo 
                         +toxin-logo
-                    ul.page-header--nav
-                        +navLink('#','О нас','page-header--current')
-                        li.page-header--services
+                    ul.page-header__nav
+                        +navLink('#','О нас')
+                        li.page-header__services
                                 a(href="#").nav-link 
-                                    p.services-text Услуги
-                                ul.page-header-sevices-list 
+                                    p.page-header__services-text Услуги
+                                ul.page-header__sevices-list 
                                         +navLink('#','Такси от аэропорта')
                                         +navLink('#','Камера хранения')
                                         +navLink('#','SPA')
                         +navLink('#','Вакансии')
                         +navLink('#','Новости')
-                        li.page-header--agree
+                        li.page-header__agree
                                 a(href="#").nav-link
                                     p.agree-text Соглашения
-                                ul.page-header-agree-list 
+                                ul.page-header__agree-list 
                                         +navLink('#','Партнеры')
                                         +navLink('#','Поставщики')
                                         +navLink('#','Франшиза')
                         +navLink('#','Юлий Цезарь','page-header__username')
-                span.burger-button
+                span.page-header__burger-button.burger-button
                     .burger-button__icon                                
     if isLog==false
-        header.page-header--notlog
-                .page-header__block--notlog
-                    a.page-header--logo 
+        header.page-header.page-header--notlog
+                .page-header__block.page-header__block--notlog
+                    a(href="landing-page.html").page-header__logo 
                         +toxin-logo
-                    ul.page-header--nav
-                        +navLink('#','О нас','page-header--current')
-                        li.page-header--services
+                    ul.page-header__nav
+                        +navLink('#','О нас')
+                        li.page-header__services
                                 a(href="#").nav-link 
-                                    p.services-text Услуги
-                                    ul.page-header-sevices-list 
+                                    p.page-header__services-text Услуги
+                                    ul.page-header__sevices-list 
                                         +navLink('#','SPA')
                                         +navLink('#','Такси от аэропорта')
                                         +navLink('#','Камера хранения')
                         +navLink('#','Вакансии')
                         +navLink('#','Новости')
-                        li.page-header--agree
+                        li.page-header__agree
                                 a(href="#").nav-link
                                     p.agree-text Соглашения
-                                    ul.page-header-agree-list 
+                                    ul.page-header__agree-list 
                                         +navLink('#','Партнеры')
                                         +navLink('#','Поставщики')
                                         +navLink('#','Франшиза')
-                    .page-header__button-block        
-                        +button-white("войти")
-                        +button-purpule("зарегистрироваться")
-                span.burger-button
-                    .burger-button__icon       
+                    .page-header__button-block
+                        +button-white('войти','','login-page.html')
+                        +button-purpule('зарегистрироваться','','registration-page.html')
+                span.page-header__burger-button.burger-button
+                    .burger-button__icon
