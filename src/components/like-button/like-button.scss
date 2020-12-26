@@ -1,33 +1,52 @@
 
-.like-button-title{
-    font-family: Montserrat-Bold;
+.like-button-title {
+    font-family: Montserrat-Bold, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;
+
     /* identical to box height */
-    
+
     text-transform: uppercase;
-    
+
     /* Dark 100% */
     margin: 0;
     padding: 0;
-    color: #1F2041;
+    color: $DShade100;
     margin-bottom: 15px;
 }
+
+.like-button__liked {
+    display: none;
+    position: relative;
+    margin: 4px;
+    margin-right: 5px;
+    width: 10px;
+    height: 9px;
+}
+
+.like-button__not-liked {
+    display: block;
+    position: relative;
+    margin: 4px;
+    margin-right: 5px;
+    width: 10px;
+    height: 9px;
+}
+
 .like__btn1.animated,
 .like__btn2.animated {
-    font-family: Montserrat-Regular;
+    font-family: Montserrat-Regular, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 10px;
     line-height: 12px;
-/* identical to box height */
+
+    /* identical to box height */
 
     text-align: center;
-    border: none;
     background-color: inherit;
-    color: white;
     cursor: pointer;
     width: 40px;
     height: 20px;
@@ -36,73 +55,60 @@
     flex-direction: row;
     align-items: center;
     border-radius: 10px;
-    border: 1px solid rgba(31, 32, 65, 0.25);
-    color:rgba(31, 32, 65, 0.25);
+    border: 1px solid $DShade25;
+    color: $DShade25;
     padding: 0;
+
     &:hover {
-        border: 1px solid #BC9CFF;
-        color: #BC9CFF;
+        border: 1px solid $Purpule;
+        color: $Purpule;
     }
 
-        &.liked {
+    &.liked {
         background-color: inherit;
-        border: 1px solid#BC9CFF;
+        border: 1px solid $Purpule;
         cursor: pointer;
-        color: #BC9CFF;
-        }
-        &.liked .like{
+        color: $Purpule;
+    }
+
+    &.liked .like-button__liked {
         display: block;
-        }
-        &.liked .nolike{
+    }
+
+    &.liked .like-button__not-liked {
         display: none;
-        }
-    
+    }
 }
-.animated .material-icons{
+
+.animated .material-icons {
     font-size: 10px;
     line-height: 9px;
 }
-.like{
-    display: none;
-    position: relative;
-    margin: 4px;
-    margin-right: 5px;
-    width: 10px;
-    height: 9px;
-    }
-.nolike{
-     display: block;
-     position: relative;
-     margin: 4px;
-     margin-right: 5px;
-     width: 10px;
-    height: 9px;
-    }
-
-
 
 // .like__icon {
 //     font-size: 1.2rem;
 //     margin-right: 0.3rem;
 // }
 
-
 // Container styling
 .container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.like-button-block{
-display: flex;
-margin-bottom: 39px;
+
+.like-button-block {
+    display: flex;
+    margin-bottom: 39px;
 }
-.like-button{
-margin-right:10px ;
+
+.like-button {
+    margin-right: 10px;
 }
-.like__number{
+
+.like__number {
     width: 9.93px;
-height: 13px;
+    height: 13px;
 }
