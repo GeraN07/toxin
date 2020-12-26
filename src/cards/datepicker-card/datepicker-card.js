@@ -1,4 +1,3 @@
- require ("air-datepicker/dist/js/datepicker.js")
 ;(function (window, $, undefined) { ;(function () {
     var VERSION = '2.2.3',
         pluginName = 'datepicker',
