@@ -2,7 +2,7 @@
     width: 320px;
     min-height: 349px;
     border-radius: 4px;
-    z-index: 100;
+    z-index: 10000000;
 }
 
 .datepicker--day-name {
@@ -258,4 +258,16 @@
     display: block;
     transform: rotate(-180deg);
     color: $Purpule;
+}
+
+@media (max-width: 321px) {
+    .datepickers-container .datepicker.active {
+        position: absolute;
+        left: 0 !important;
+        width: 320px;
+    }
+
+    .datepicker--pointer {
+        left: 25px !important;
+    }
 }
