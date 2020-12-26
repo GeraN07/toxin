@@ -1,75 +1,72 @@
-.radio-block{
-display: flex;
+.radio__block {
+    display: flex;
 }
-.radio-title{
-    font-family: Montserrat-Bold;
+
+.radio__title {
+    font-family: Montserrat-Bold, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 15px;
+
     /* identical to box height */
-    
+
     text-transform: uppercase;
     margin-bottom: 12px;
 }
-.radio-label{
+
+.radio__label {
     display: flex;
     flex-direction: row;
     max-height: 24px;
+    cursor: pointer;
 }
-.radio-label-text{
-    font-family: Montserrat-Regular;
+
+.radio__label-text {
+    font-family: Montserrat-Regular, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 24px;
-    /* identical to box height, or 171% */
-    
-    
-    /* Dark 75% */
-    
-    color: rgba(31, 32, 65, 0.75);
+    color: $DShade75;
     padding: 0;
     margin: 0;
-
     align-self: start;
-
-
-    
-  
 }
-.radio-input{
-position: absolute;
-z-index: -1;
-opacity:0 ;
 
+.radio__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
 }
-.radio-input+label::before{
-    background: #FFFFFF;
+
+.radio__input + label::before {
+    background: #fff;
+
     /* Dark 25% */
     content: "";
     display: inline-block;
-    border: 1px solid rgba(31, 32, 65, 0.25);
+    border: 1px solid $DShade25;
     box-sizing: border-box;
     border-radius: 10px;
     width: 20px;
     height: 20px;
     margin-right: 10px;
     margin-top: 3px;
-    
 }
-.radio-input:not(:disabled):checked+label::before{
-    border: 1px solid #BC9CFF;
+
+.radio__input:not(:disabled):checked + label::before {
+    border: 1px solid $Purpule;
     background-image: url("./components/radio/Rectangle 2.1.svg");
     background-repeat: no-repeat;
-    background-position:2px center;
-    
+    background-position: 2px center;
 }
-.radio-button{
+
+.radio__button {
     margin-right: 20px;
     display: flex;
-    
 }
-.radio{
+
+.radio {
     margin-bottom: 40px;
 }
