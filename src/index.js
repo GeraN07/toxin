@@ -7,6 +7,7 @@ require("../src/cards/datepicker-card/datepicker-card.js")
 require("../src/components/dropdown/dropdown.js")
 require("../src/components/header-main/header-main.js")
 require("../src/components/preloader/preloader.js")
+require("../node_modules/slick-carousel/slick/slick.min.js")
 //Pages
 
 require("./pages/ui-kit.js");

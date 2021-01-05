@@ -142,13 +142,14 @@
     margin: 0;
     list-style-type: none;
     height: 151px;
+    z-index: 1500;
 }
 
 .slide {
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
-    opacity: 0;
+    opacity: 1;
     z-index: 1;
     -webkit-transition: opacity 1s;
     -moz-transition: opacity 1s;
@@ -162,14 +163,14 @@
     z-index: 2;
 }
 
-.item-card__controls {
-    width: 44px;
+.slick-arrow {
+    width: 25px;
     height: 44px;
     border: none;
     font-family: MaterialIcons-Regular, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 0;
     line-height: 24px;
     display: flex;
     align-items: center;
@@ -181,34 +182,43 @@
     position: absolute;
 }
 
-.controls-pre {
+.slick-prev {
     width: 44px;
     height: 100%;
     position: absolute;
     left: 0;
     padding: 0;
+    visibility: hidden;
+    cursor: pointer;
 }
 
-.controls-pre::after {
+.slick-prev::after {
+    font-family: MaterialIcons-Regular, sans-serif;
     content: "expand_more";
     transform: rotate(90deg);
     width: 44px;
-    height: 44px;
+    height: 24px;
+    font-size: 24px;
 }
 
-.controls-next {
+.slick-next {
     width: 44px;
     height: 100%;
     position: absolute;
     right: 0;
+    top: 0;
     padding: 0;
+    visibility: hidden;
+    cursor: pointer;
 }
 
-.controls-next::after {
+.slick-next::after {
+    font-family: MaterialIcons-Regular, sans-serif;
     content: "expand_more";
     transform: rotate(-90deg);
     width: 44px;
-    height: 44px;
+    height: 24px;
+    font-size: 24px;
 }
 
 .item-card__navigation-buttons {
@@ -221,11 +231,7 @@
     top: 0;
 }
 
-.item-card:hover .item-card__navigation-buttons {
-    display: flex;
-}
-
-.item-card__pagination {
+.slick-dots li button {
     border: 1px solid #fff;
     border-radius: 50%;
     width: 7.5px;
@@ -234,9 +240,29 @@
     background-color: inherit;
     outline: none;
     cursor: pointer;
+    position: absolute;
+    font-size: 0;
 }
 
-.item-card__pagination-buttons {
+li.slick-active button {
+    background-color: #fff;
+}
+
+.item-card:hover .image-slider .slides button {
+    visibility: visible;
+}
+
+.slick-dots li {
+    position: relative;
+    width: 7.5px;
+    height: 7.49px;
+}
+
+.slick-dots li::marker {
+    font-size: 0;
+}
+
+.slick-dots {
     width: 41.25px;
     height: 7.5px;
     padding: 0;
@@ -246,10 +272,6 @@
     display: flex;
     justify-content: space-between;
     z-index: 1500;
-}
-
-.current-slide {
-    background-color: #fff;
 }
 
 .image-slider__room-link {
