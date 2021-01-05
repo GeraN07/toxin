@@ -337,6 +337,7 @@ li.slick-active button {
 
     .item-card .slides {
         height: inherit;
+        max-height: 300px;
     }
 
     .item-card img {
@@ -347,8 +348,9 @@ li.slick-active button {
     .item-card,
     .item-card__footer,
     .item-card__navigation-buttons,
-    .item-card .slide {
-        width: 100%;
+    .item-card .image-slider {
+        width: 100vw;
+        min-width: 320px;
     }
 
     .item-card__navigation-buttons {
@@ -357,8 +359,8 @@ li.slick-active button {
         height: 60%;
     }
 
-    .item-card__pagination-buttons {
-        bottom: 130px;
+    .slick-dots {
+        bottom: 30px;
         top: auto;
     }
 }
