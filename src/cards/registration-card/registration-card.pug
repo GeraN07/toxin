@@ -13,7 +13,7 @@ mixin registration-card
         +masked-text-field("дата рождения","","ДД.ММ.ГГГГ")
         +text-field("данные для входа в сервис","default","email","text", "Email","","")
         +text-field("","default","Пароль","text", "Пароль","","")
-        +toggle
+        +toggle("","checked","id")
         +button-purpule-large("перейти к оплате")
         .registration-card__footer
             p.registration-card__already-text Уже есть аккаунт на Toxin
