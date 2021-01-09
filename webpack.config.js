@@ -90,7 +90,19 @@ module.exports = {
      {
        from: path.resolve(__dirname,'src/favicon.ico'),
        to: path.resolve(__dirname,'dist')
-     } 
+     } ,
+     {
+      from: path.resolve(__dirname,'src/assets/rooms-image'),
+      to: path.resolve(__dirname,'dist/rooms-image')
+    } ,
+    {
+      from: path.resolve(__dirname,'src/assets/rooms-preview'),
+      to: path.resolve(__dirname,'dist/rooms-preview')
+    } ,
+    {
+    from: path.resolve(__dirname,'src/assets/profile-pictures'),
+    to: path.resolve(__dirname,'dist/profile-pictures')
+  } ,
     ],
   }),
   new MiniCssExtractPlugin({
@@ -137,8 +149,8 @@ module.exports = {
 
       },
       {
-        test: /\.(png|jpg|svg|gif)$/,
-        use:['file-loader']
+        test: /\.(png|jpe?g|svg|gif)$/,
+        use:['file-loader'],
       },
       {
         test:/\.(ttf|woff|woff2|eot)$/,
