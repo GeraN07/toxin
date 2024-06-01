@@ -1,8 +1,0 @@
-include ../text-field/text-field
-
-mixin subscription-text-field(text)
-    .subscription-text-field-block
-        form(action="", method="get")
-            .subscription-text-field-block__subscription-text-field
-                +text-field(text,none,"email","text","Email")
-                button.sub-button(type="submit" value="") arrow_forward

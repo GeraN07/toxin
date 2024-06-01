@@ -1,0 +1,175 @@
+.feedback__profile-image {
+  width: 47.67px;
+  height: 48px;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
+  border-radius: 32px;
+  margin-right: 10px;
+}
+
+.feedback__header {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.feedback__footer {
+  display: flex;
+}
+
+.feedback__profile-name {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat-Bold, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.75);
+}
+
+.feedback__comment-date {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat-Regular, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.75);
+}
+
+.feedback__text {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat-Regular, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.75);
+  margin-left: 4px;
+}
+
+.feedback_btn {
+  margin-left: 4px;
+  margin-top: 1px;
+}
+
+.feedback {
+  margin-top: 10px;
+  max-width: 711px;
+}
+
+
+
+.like-button-title {
+  font-family: Montserrat-Bold, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+
+  /* identical to box height */
+
+  text-transform: uppercase;
+
+  /* Dark 100% */
+  margin: 0;
+  padding: 0;
+  color: #1f2041;
+  margin-bottom: 15px;
+}
+
+.like-button__liked {
+  display: none;
+  position: relative;
+  margin: 4px;
+  margin-right: 5px;
+  width: 10px;
+  height: 9px;
+  font-family: 'MaterialIcons-Regular', sans-serif;
+}
+
+.like-button__not-liked {
+  display: block;
+  position: relative;
+  margin: 4px;
+  margin-right: 5px;
+  width: 10px;
+  height: 9px;
+  font-family: 'MaterialIcons-Regular', sans-serif;
+}
+
+.like__btn1.animated,
+.like__btn2.animated {
+  font-family: Montserrat-Regular, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  /* identical to box height */
+
+  text-align: center;
+  background-color: inherit;
+  cursor: pointer;
+  width: 40px;
+  height: 20px;
+  transition: all ease 0.3s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  color: rgba(31, 32, 65, 0.25);
+  padding: 0;
+
+  &:hover {
+      border: 1px solid #bc9cff;
+      color: #bc9cff;
+  }
+
+  &.liked {
+      background-color: inherit;
+      border: 1px solid #bc9cff;
+      cursor: pointer;
+      color: #bc9cff;
+  }
+
+  &.liked .like-button__liked {
+      display: block;
+  }
+
+  &.liked .like-button__not-liked {
+      display: none;
+  }
+}
+
+.animated .material-icons {
+  font-size: 10px;
+  line-height: 9px;
+}
+
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.like-button-block {
+  display: flex;
+  margin-bottom: 39px;
+}
+
+.like-button {
+  margin-right: 10px;
+}
+
+.like__number {
+  width: 9.93px;
+  height: 13px;
+}

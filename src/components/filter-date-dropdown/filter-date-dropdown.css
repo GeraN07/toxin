@@ -1,0 +1,81 @@
+.filter-date-dropdown-block {
+  margin-bottom: 41px;
+  max-width: 266px;
+  max-height: 65px;
+  position: relative;
+}
+
+.filter-date-dropdown-block__filte-date-dropdown-title {
+  font-family: Montserrat-Bold, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+
+  /* identical to box height */
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.datepicker-here.filter-date-dropdown {
+  width: 266px;
+  height: 44px;
+  font-family: Montserrat-Regular, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.75);
+  margin: 0;
+}
+
+.filter-date-dropdown-block::after {
+  content: 'expand_more';
+  font-family: 'MaterialIcons-Regular', sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  color: rgba(55, 57, 110, 0.5);
+  background-image: none;
+  position: absolute;
+  right: 24px;
+  top: 30px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+ }
+
+
+.filter-date-dropdown-block.datepicker-activated::after {
+  background-image: none;
+  content: 'expand_more';
+  font-family: 'MaterialIcons-Regular', sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.5);
+  position: absolute;
+  right: 10px;
+  top: 45px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(-180deg);
+  display: inline-block;
+}
+
+input.datepicker-here,
+input.dates {
+  width: 150px;
+  height: 44px;
+  background: #fff;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding-left: 15px;
+  font-family: Montserrat-Regular, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(31, 32, 65, 0.75);
+}
