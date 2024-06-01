@@ -1,0 +1,97 @@
+.pagination__title {
+  font-family: Montserrat-Bold, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+
+  /* identical to box height */
+
+  text-transform: uppercase;
+
+  /* Dark 100% */
+
+  color: #1f2041;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 14px;
+}
+
+.pagination__list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  padding-top: 3px;
+  margin-bottom: 8px;
+}
+
+.pagination__item {
+  width: 40px;
+  height: 40px;
+  font-family: Montserrat-Regular, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  align-items: center;
+  text-align: center;
+  padding-top: 12px;
+
+  /* Dark 50% */
+
+  color: rgba(31, 32, 65, 0.5);
+  cursor: pointer;
+}
+
+.pagination__item:hover {
+  background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  border-radius: 22px;
+  opacity: 0.5;
+  color: #fff;
+}
+
+.current-page {
+  background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  border-radius: 22px;
+  font-family: Montserrat-Bold, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.pagination__navigation {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+  border-radius: 22px;
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  font-family: 'MaterialIcons-Regular', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+}
+.pagination-data {
+  font-family: Montserrat-Regular, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(31, 32, 65, 0.75);
+  margin-left: 5px;
+  padding: 0;
+}
+
+.pagination {
+  width: 241px;
+  height: 106px;
+}

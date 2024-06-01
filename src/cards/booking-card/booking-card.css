@@ -1,0 +1,256 @@
+.booking-card {
+    max-width: 380px;
+    max-height: 511px;
+    background: #fff;
+    padding: 30px;
+    padding-top: 40px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.booking-card__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-direction: row;
+}
+
+.booking-card__title {
+    margin: 0;
+    padding: 0;
+    font-family: Quicksand-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+
+    /* Dark 100% */
+
+    color: #1f2041;
+}
+
+.booking-card__number {
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.booking-card__lux {
+    font-family: Montserrat-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    /* Primary Color */
+
+    color: #bc9cff;
+}
+
+.booking-card__day {
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+
+    /* or 150% */
+
+    color: rgba(31, 32, 65, 0.5);
+}
+
+.booking-card__dayprice {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+
+    /* or 129% */
+
+    color: rgba(31, 32, 65, 0.5);
+    align-self: flex-end;
+}
+
+.booking-card .double-date-dropdown-block {
+    margin-bottom: 20px;
+}
+
+.price-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.booking-card__text {
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(31, 32, 65, 0.75);
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.booking-card__text.text-info::after {
+    content: "i";
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+
+    /* identical to box height, or 117% */
+    position: absolute;
+    top: 0;
+    left: 220px;
+    color: rgba(31, 32, 65, 0.25);
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 25px;
+    padding: 8px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+}
+
+.booking-card__text.text-info:first-child::after {
+    content: "i";
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+
+    /* identical to box height, or 117% */
+    position: absolute;
+    top: -2px;
+    left: 220px;
+    color: rgba(31, 32, 65, 0.25);
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 25px;
+    padding: 8px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+}
+
+.booking-card__total-text {
+    font-family: Opensans-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    color: #1f2041;
+    padding: 0;
+    margin: 0;
+}
+
+.booking-card__total-sum {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.booking-card .button-purpule-large {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.booking-card__doted-block {
+    content: " ";
+    border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 182px;
+}
+
+.booking-card__total-price {
+    font-family: Quicksand-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    color: #1f2041;
+}
+
+@media (max-width: 1165px) {
+    .room-details__book-details {
+        width: 100%;
+    }
+
+    .booking-card {
+        border-radius: 22px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .booking-card__header {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+    }
+
+    .room-details .room-details__book-cancel {
+        max-width: none;
+    }
+
+    .booking-card__first-sum.price-line,
+    .booking-card__service-charge.price-line,
+    .booking-card__additional-sum.price-line,
+    .booking-card__total-sum.price-line {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 379px) {
+    .booking-card {
+        padding: 0;
+    }
+
+    .room-details .double-date-dropdown-block {
+        flex-direction: column;
+        height: 130px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .room-details .dropdown-block {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .room-details .double-date-dropdown-block__date-1 input,
+    .room-details .double-date-dropdown-block__date-2 input {
+        width: 320px;
+    }
+
+    .room-details .double-date-dropdown-block__date-1 {
+        margin-left: 0;
+        height: 60px;
+    }
+
+    .room-details .double-date-dropdown-block__date-2 {
+        margin-left: 0;
+        height: 60px;
+    }
+
+    .room-details .double-date-dropdown-block__date-1::after,
+    .room-details .double-date-dropdown-block__date-2::after {
+        left: 285px;
+        right: auto;
+    }
+
+    .room-details .datepicker-activated.double-date-dropdown-block__date-1::after,
+    .room-details.datepicker-activated .double-date-dropdown-block__date-2::after {
+        left: 300px;
+        right: auto;
+    }
+}

@@ -1,0 +1,211 @@
+.big-footer {
+    background: #fff;
+    box-shadow: 0 1px 0 rgba(31, 32, 65, 0.1);
+}
+
+.big-footer__top-wrapper {
+    display: grid;
+    grid-template-columns: 260px 40px 143px 57px 108px 92px 149px 51px 260px;
+    grid-template-rows: 99px 168px 105px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1160px;
+}
+
+.big-footer__top {
+    border-top: 1px solid rgba(31,32,65,.25);
+    width: 100%;
+}
+
+.big-footer__section-1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.big-footer__section-2 {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.big-footer__section-3 {
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.big-footer__section-4 {
+    grid-column-start: 7;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.big-footer__section-5 {
+    grid-column-start: 9;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.big-footer__wrapper-bottom {
+    display: grid;
+    grid-template-columns: 367px 681px 112px;
+    grid-template-rows: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1160px;
+}
+
+.big-footer__copyright {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+
+.big-footer__copyright {
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(31,32,65,.75);
+}
+
+.big-footer__social-link {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.big-footer__text {
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #1f2041;
+}
+
+.big-footer__top .navLink-text {
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+
+    /* Dark 50% */
+
+    color: rgba(31,32,65,.5);
+    margin: 0;
+    padding: 0;
+    margin-bottom: 21px;
+}
+
+.big-footer__top .nav-link {
+    text-decoration: none;
+}
+
+.big-footer__list-title {
+    font-family: Montserrat-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    /* Dark 100% */
+
+    color: #1f2041;
+    margin-top: 5px;
+    margin-bottom: 21px;
+}
+
+.big-footer__list-title.get {
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 17px;
+}
+
+.big-footer__text.get {
+    margin-top: 0;
+    margin-bottom: 19px;
+}
+
+.big-footer .text-field-block__text-field,
+.big-footer .subscription-text-field-block__subscription-text-field {
+    width: 260px;
+}
+
+.big-footer__bottom {
+    border-top: 1px solid rgba(31,32,65,.05);
+}
+
+.big-footer__bottom .big-footer__social-link {
+    font-family: Font-Awesome-5-Brands, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 23px;
+
+    /* identical to box height */
+
+    /* Primary Gradient */
+
+    color: #bc9cff;
+}
+
+.big-footer__social-link-list {
+    list-style: none;
+    margin-top: 23px;
+    margin-bottom: 23px;
+    padding: 0;
+    display: flex;
+}
+
+.big-footer__social-item {
+    margin-right: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 1160px) {
+    .big-footer__top-wrapper {
+        grid-template-columns: 260px 15px 143px 15px 108px 15px 149px 15px 260px;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .big-footer__wrapper-bottom {
+        grid-template-columns: 367px auto 112px;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

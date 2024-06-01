@@ -1,0 +1,91 @@
+.login-block .registration-card {
+    margin-left: calc(50% - 380px / 2 + 3px);
+    margin-right: auto;
+}
+.registration-card {
+    height: 646px;
+    width: 380px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 4px;
+}
+
+.registration-card-title {
+    font-family: Opensans-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    color: #1f2041;
+    margin-top: 10px;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.registration-card .text-field-block {
+    margin-bottom: 5px;
+}
+
+.registration-card .radio .radio__title {
+    margin: 0;
+}
+
+.registration-card .radio {
+    margin-top: 7px;
+    margin-bottom: 22px;
+}
+
+.registration-card .masked-text-field-block__title {
+    margin-bottom: 5px;
+}
+
+.registration-card .masked-text-field-block {
+    margin-bottom: 20px;
+}
+
+.registration-card .toggle {
+    margin-top: 7px;
+    margin-bottom: 23px;
+}
+
+.registration-card .button-purpule-large {
+    margin-bottom: 30px;
+}
+
+.registration-card__footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.registration-card__already-text {
+    font-family: Montserrat-Regular, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    /* identical to box height, or 129% */
+
+    color: #000;
+    padding: 0;
+    margin-top: 13px;
+}
+
+@media (max-width: 379px) {
+    .login-block .registration-card {
+        padding: 0;
+        width: 100%;
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .registration-card .text-field-block,
+    .registration-card .radio__block,
+    .registration-card .masked-text-field-block,
+    .registration-card .toggle {
+        width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

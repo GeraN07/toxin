@@ -1,0 +1,40 @@
+.filter-main {
+    max-width: 380px;
+    max-height: 450px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding-bottom: 0;
+    padding-top: 40px;
+}
+
+.filter-main__title {
+    font-family: Opensans-Bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0;
+
+    /* Dark 100% */
+
+    color: #1f2041;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.filter-main .double-date-dropdown-block {
+    margin-bottom: 20px;
+}
+
+.filter-main .dropdown-block {
+    margin-bottom: 30px;
+}
+
+.filter-main .button-purpule-large {
+    margin-bottom: 30px;
+}

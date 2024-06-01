@@ -1,0 +1,51 @@
+.feature-block {
+  display: flex;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+  margin-bottom: 22px;
+  max-width: 280px;
+}
+
+.feature-block__feature-title {
+  font-family: Montserrat-Bold, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+
+  /* or 171% */
+  margin: 0;
+  padding: 0;
+
+  /* Dark 75% */
+
+  color: rgba(31, 32, 65, 0.75);
+}
+
+.feature-block__feature-text {
+  font-family: Montserrat-Regular, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+
+  /* or 171% */
+  margin: 0;
+  padding: 0;
+
+  /* Dark 75% */
+
+  color: rgba(31, 32, 65, 0.75);
+}
+
+.feature-block__feature-icon {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 41px;
+  color: #bc9cff;
+  margin-right: 10px;
+  align-self: center;
+  font-family: 'MaterialIcons-Regular', sans-serif;
+}
+
