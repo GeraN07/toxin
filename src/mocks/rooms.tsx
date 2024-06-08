@@ -7,10 +7,15 @@ function createRandomRoom(): Room {
     roomNumber: faker.number.int(100).toString(),
     price: faker.number.int(9999).toString(),
     reviews: faker.number.int(10).toString(),
-    srcArr: shuffle(['img/rooms-preview/room2.jpg','img/rooms-preview/room1.jpg','img/rooms-preview/room3.jpg','img/rooms-preview/room4.jpg']),
-    rating: `${faker.number.int(100).toString() }%`,
+    srcArr: shuffle([
+      'img/rooms-preview/room2.jpg',
+      'img/rooms-preview/room1.jpg',
+      'img/rooms-preview/room3.jpg',
+      'img/rooms-preview/room4.jpg',
+    ]),
+    rating: `${faker.number.int(100).toString()}%`,
     lux: faker.datatype.boolean(),
-    dates: [faker.date.anytime(), faker.date.anytime()],
+    dates: generateDates(),
     maxGuests: faker.number.int(10),
     checkboxes: {
       smoking: faker.datatype.boolean(),
@@ -39,5 +44,20 @@ const shuffle = (array) => {
   return array;
 };
 
-const createRooms = (numRums = 15) => Array.from({length: numRums}, createRandomRoom);
+const generateDates = () => {
+  const startDate = faker.date.between({
+    from: new Date(),
+    to: new Date().getTime() + 15 * 24 * 60 * 60 * 1000,
+  });
+
+  const endDate = faker.date.between({
+    from: startDate.getTime() + 1 * 24 * 60 * 60 * 1000,
+    to: startDate.getTime() + 15 * 24 * 60 * 60 * 1000,
+  });
+
+  return [startDate, endDate];
+};
+
+const createRooms = (numRums = 15) =>
+  Array.from({ length: numRums }, createRandomRoom);
 export default createRooms;
