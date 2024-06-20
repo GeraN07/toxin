@@ -1,6 +1,7 @@
 import './header-main.css';
 import '../buttons/buttons.css';
 import Logo from '../toxin-logo/toxin-logo';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const HeaderMain = () => {
@@ -21,9 +22,9 @@ const HeaderMain = () => {
   return (
     <header className="page-header page-header--notlog">
       <div className="page-header__block page-header__block--notlog">
-        <a className="page-header__logo" href="/">
+        <Link className="page-header__logo" to="/">
           <Logo />
-        </a>
+        </Link>
         <ul className={`page-header__nav ${headerExpanded ? 'active' : ''}`}>
           <li>
             <a className="nav-link" href="#">
@@ -103,14 +104,14 @@ const HeaderMain = () => {
           }`}
         >
           <span className="button-white">
-            <a className="button-white__link" href="/login/?param=Log">
+            <Link className="button-white__link" to="/login/?param=Log">
               войти
-            </a>
+            </Link>
           </span>
           <span className="button-purpule">
-            <a className="button-purpule__link" href="/login/?param=Reg">
+            <Link className="button-purpule__link" to="/login/?param=Reg">
               зарегистрироваться
-            </a>
+            </Link>
           </span>
         </div>
       </div>

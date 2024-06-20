@@ -1,4 +1,5 @@
 import './buttons.css';
+import { Link } from 'react-router-dom';
 import { memo } from 'react';
 
 type ButtonsProps = {
@@ -21,13 +22,13 @@ const ButtonPurple = ({ name, addClass = '', link }: ButtonsProps) => (
 const ButtonPurpleLarge = memo(
   ({ name, addClass = '', link, onClick }: ButtonsProps) => (
     <span className={`button-purpule-large ${addClass}`} onClick={onClick}>
-      <a
+      <Link 
         className="button-purpule-large__link"
-        href={link}
+        to={link}
         onClick={(e) => onClick && e.preventDefault()}
       >
         {name}
-      </a>
+      </Link >
     </span>
   )
 );
@@ -56,9 +57,9 @@ const ButtonWhite = ({ name, addClass = '', link, onClick }: ButtonsProps) => {
 
   return (
     <span className={`button-white ${addClass}`}>
-      <a className="button-white__link" href={link} onClick={handleClick}>
+      <Link  className="button-white__link" to={link} onClick={handleClick}>
         {name}
-      </a>
+      </Link>
     </span>
   );
 };

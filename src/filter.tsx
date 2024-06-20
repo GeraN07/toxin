@@ -1,7 +1,7 @@
 import { Rooms } from './types/rooms';
 
 const isWithinRange = (dateRange: Date[], startDate: Date, endDate: Date) => {
-  const [rangeStart, rangeEnd] = dateRange.map(date => new Date(date));
+  const [rangeStart, rangeEnd] = dateRange.map((date) => new Date(date));
   return (
     (startDate >= rangeStart && startDate <= rangeEnd) ||
     (endDate >= rangeStart && endDate <= rangeEnd) ||
@@ -9,70 +9,69 @@ const isWithinRange = (dateRange: Date[], startDate: Date, endDate: Date) => {
   );
 };
 
-const meetsCriteria = (criteriaValue: boolean | undefined, roomValue: boolean | undefined) => {
-  return criteriaValue === undefined || roomValue === criteriaValue;
+const meetsCriteria = (
+  criteriaValue: boolean | undefined,
+  roomValue: boolean | undefined
+) => {
+  return (
+    criteriaValue === undefined ||
+    criteriaValue === false ||
+    roomValue === criteriaValue
+  );
 };
 
-export const offersSort = (
-  rooms: Rooms,
-  maxGuests: number,
-  datesRange: string[],
-  minPrice?: string,
-  maxPrice?: string,
-  smoking?: boolean,
-  pet?: boolean,
-  guests?: boolean,
-  wideCoridor?: boolean,
-  helper?: boolean,
-  breakfast?: boolean,
-  table?: boolean,
-  hchair?: boolean,
-  babyBed?: boolean,
-  tv?: boolean,
-  shampoo?: boolean,
-): Rooms => {
-  const [startDateStr, endDateStr] = datesRange;
-  const startDate = new Date(startDateStr);
-  const endDate = new Date(endDateStr);
+export const roomsSort = (rooms: Rooms, state: Object): Rooms => {
+  const [startDateStr, endDateStr] = state.datesRange;
+  const startDate = startDateStr;
+  const endDate = endDateStr;
 
   return rooms.filter((room) => {
-    const meetsGuestCriteria = room.maxGuests >= maxGuests;
+    const meetsGuestCriteria = room.maxGuests >= state.maxGuests;
     const meetsDateCriteria = isWithinRange(room.dates, startDate, endDate);
+    const meetsBedroomsCriteria =
+      room.additionalDropdown.bedroomCount >= state.bedroomCount;
+    const meetsBedsCriteria =
+      room.additionalDropdown.bedsCount >= state.bedsCount;
+    const meetsBathroomsCriteria =
+      room.additionalDropdown.bathRoomsCount >= state.bathRoomsCount;
 
-    const meetsPriceCriteria = (
-      (!minPrice || !maxPrice) || 
-      (Number(room.price) >= Number(minPrice) && Number(room.price) <= Number(maxPrice))
-    );
+    const meetsPriceCriteria =
+      !state.minPrice &&
+      !state.maxPrice ||
+      (Number(room.price) >= Number(state.minPrice) &&
+        Number(room.price) <= Number(state.maxPrice));
 
-    const meetsCheckboxesCriteria = (
-      meetsCriteria(smoking, room.checkboxes?.smoking) &&
-      meetsCriteria(pet, room.checkboxes?.pet) &&
-      meetsCriteria(guests, room.checkboxes?.guests)
-    );
+    const meetsCheckboxesCriteria =
+      meetsCriteria(state.smoking, room.checkboxes?.smoking) &&
+      meetsCriteria(state.pet, room.checkboxes?.pet) &&
+      meetsCriteria(state.guests, room.checkboxes?.guests);
 
-    const meetsAccessibilityCriteria = (
-      meetsCriteria(wideCoridor, room.accessibilityCheckboxes?.wideCoridor) &&
-      meetsCriteria(helper, room.accessibilityCheckboxes?.helper)
-    );
+    const meetsAccessibilityCriteria =
+      meetsCriteria(
+        state.wideCoridor,
+        room.accessibilityCheckboxes?.wideCoridor
+      ) && meetsCriteria(state.helper, room.accessibilityCheckboxes?.helper);
 
-    const meetsAdditionalCriteria = (
-      meetsCriteria(breakfast, room.additionalCheckboxes?.breakfast) &&
-      meetsCriteria(table, room.additionalCheckboxes?.table) &&
-      meetsCriteria(hchair, room.additionalCheckboxes?.hchair) &&
-      meetsCriteria(babyBed, room.additionalCheckboxes?.badbyBad) &&
-      meetsCriteria(tv, room.additionalCheckboxes?.tv) &&
-      meetsCriteria(shampoo, room.additionalCheckboxes?.shampoo)
-    );
+    const meetsAdditionalCriteria =
+      meetsCriteria(state.breakfast, room.additionalCheckboxes?.breakfast) &&
+      meetsCriteria(state.table, room.additionalCheckboxes?.table) &&
+      meetsCriteria(state.hchair, room.additionalCheckboxes?.hchair) &&
+      meetsCriteria(state.babyBed, room.additionalCheckboxes?.badbyBad) &&
+      meetsCriteria(state.tv, room.additionalCheckboxes?.tv) &&
+      meetsCriteria(state.shampoo, room.additionalCheckboxes?.shampoo);
 
     return (
       meetsGuestCriteria &&
       meetsDateCriteria &&
       meetsPriceCriteria &&
       meetsCheckboxesCriteria &&
+      meetsBedroomsCriteria &&
+      meetsBedsCriteria &&
+      meetsBathroomsCriteria &&
       meetsAccessibilityCriteria &&
       meetsAdditionalCriteria
     );
   });
 };
 
-export default offersSort;
+export default roomsSort;

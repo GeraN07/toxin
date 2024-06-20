@@ -17,7 +17,7 @@
   grid-column: 1;
   display: grid;
   grid-template-columns: 291px 70px auto;
-  grid-template-rows: 273px 30px 306px 30px 160px;
+  grid-template-rows: auto 30px auto 30px 160px;
 }
 
 .room-details__book-details {
@@ -125,21 +125,65 @@
   -moz-transform: rotate(-89deg) translateX(-190px);
 }
 
-.chart[data-percent='100'] .outer {
-  stroke-dashoffset: 353;
+
+.chart[data-percent='25'] .outer {
+  stroke-dashoffset: 445;
   -webkit-animation: show100 2s;
   animation: show100 4s;
   animation-delay: 3s;
 }
 
-.chart[data-percent='100'] .outer1 {
+.chart[data-percent='25'] .outer1 {
+  stroke-dashoffset: 320;
+  -webkit-animation: show100 2s;
+  animation: show200 4s;
+  animation-delay: 3s;
+}
+
+.chart[data-percent='25'] .outer2 {
+  stroke-dashoffset: 1;
+  -webkit-animation: show100 2s;
+  animation: show300 4s;
+  animation-delay: 3s;
+}
+
+.chart[data-percent='50'] .outer {
+  stroke-dashoffset: 3;
+  -webkit-animation: show100 2s;
+  animation: show100 4s;
+  animation-delay: 3s;
+}
+
+.chart[data-percent='50'] .outer1 {
   stroke-dashoffset: 262;
   -webkit-animation: show100 2s;
   animation: show200 4s;
   animation-delay: 3s;
 }
 
-.chart[data-percent='100'] .outer2 {
+.chart[data-percent='50'] .outer2 {
+  stroke-dashoffset: 153;
+  -webkit-animation: show100 2s;
+  animation: show300 4s;
+  animation-delay: 3s;
+}
+
+
+.chart[data-percent='75'] .outer {
+  stroke-dashoffset: 262;
+  -webkit-animation: show100 2s;
+  animation: show100 4s;
+  animation-delay: 3s;
+}
+
+.chart[data-percent='75'] .outer1 {
+  stroke-dashoffset: 220;
+  -webkit-animation: show100 2s;
+  animation: show200 4s;
+  animation-delay: 3s;
+}
+
+.chart[data-percent='75'] .outer2 {
   stroke-dashoffset: 153;
   -webkit-animation: show100 2s;
   animation: show300 4s;
@@ -326,6 +370,8 @@
 .room-details__image-small2 {
   transform: scale(1);
   transition: 0.5s;
+  height: 100%;
+  width: 100%;
 }
 
 .room-details__room-image-main:hover,
@@ -559,6 +605,8 @@
 
   .room-details__room-image-main {
     max-height: 400px;
+    width: 100%;
+    height: 100%;
   }
 }
 

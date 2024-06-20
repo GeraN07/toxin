@@ -74,8 +74,9 @@
   font-size: 12px;
   line-height: 15px;
   text-transform: uppercase;
-  color: purple;
+  color: #bc9cff;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .button-hidden {
@@ -89,6 +90,10 @@
   font-size: 14px;
   line-height: 24px;
   color: black;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 25px;
 }
 
 .iqdropdown .iqdropdown-selection::after {

@@ -29,7 +29,6 @@ const FilterDateDropdown = () => {
   const handleCalendarToggle = () => {
     setCalendarOpen(!calendarOpen);
   };
-
   useEffect(() => {
     if (calBlockRef.current) {
       if (calendarOpen) {

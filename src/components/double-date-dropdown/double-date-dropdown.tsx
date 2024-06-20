@@ -2,6 +2,7 @@ import 'air-datepicker/air-datepicker.css';
 import './double-date-dropdown.css';
 import useCallendar from '../../hooks/use-callendar';
 import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 type DoubleDateDropdownProps = {
   firstTitle?: string;
@@ -16,7 +17,6 @@ const DoubleDateDropdown = ({
 }: DoubleDateDropdownProps) => {
   const calFirstRef = useRef<HTMLInputElement | null>(null);
   const calLastRef = useRef<HTMLInputElement | null>(null);
-
   const handleSecondInputClick = () => {
     if (calFirstRef.current) {
       calFirstRef.current.focus();

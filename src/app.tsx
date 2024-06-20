@@ -7,11 +7,13 @@ import LoginPage from './pages/login/login-page';
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path={'/'} element={<Main />} />
+      <Route path='/' element={<Main />} />
       <Route path={'/rooms-catalog'} element={<RoomCatalog />} />
-      <Route path={'/room-details'} element={<RoomDetails />} />
+      <Route path={'/room-details/:id'} element={<RoomDetails />} />
       <Route path={'/login'} element={<LoginPage />} />
     </Routes>
   </BrowserRouter>
 );
 export default App;
+
+

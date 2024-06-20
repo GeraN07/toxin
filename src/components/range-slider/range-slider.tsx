@@ -1,6 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
+import { memo } from 'react';
 import './range-slider.css';
 import IonRangeSlider from 'react-ion-slider';
+import { useDispatch, useSelector } from 'react-redux';
+import { setMaxPrice, setMinPrice, setSortedRooms } from '../../store/action';
 
 type RangeSliderProps = {
   h3: string;
@@ -10,17 +13,50 @@ const RangeSlider = ({ h3 }: RangeSliderProps) => {
   const minValRef = useRef<HTMLSpanElement>(null);
   const lastValRef = useRef<HTMLSpanElement>(null);
   const sliderRef = useRef(null);
+  const dispatch = useDispatch();
 
-  const formatNumber = (num: number) => num.toLocaleString('ru-RU');
+  // Получаем значения из селекторов один раз при первой загрузке компонента
+  const minPrice = useSelector(
+    (state: { rooms: Rooms }) => state.filter.minPrice
+  );
+  const maxPrice = useSelector(
+    (state: { rooms: Rooms }) => state.filter.maxPrice
+  );
 
-  const handleValueChange = (data) => {
-    if (minValRef.current) {
-      minValRef.current.textContent = formatNumber(data.from);
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.update({
+        from: minPrice,
+        to: maxPrice,
+      });
     }
-    if (lastValRef.current) {
-      lastValRef.current.textContent = formatNumber(data.to);
-    }
-  };
+  }, []);
+
+  const formatNumber = useCallback(
+    (num: number) => num.toLocaleString('ru-RU'),
+    []
+  );
+
+  const handleValueChange = useCallback(
+    (data) => {
+      if (minValRef.current) {
+        minValRef.current.textContent = formatNumber(data.from);
+      }
+      if (lastValRef.current) {
+        lastValRef.current.textContent = formatNumber(data.to);
+      }
+    },
+    [dispatch, formatNumber]
+  );
+
+  const handleValueSet = useCallback(
+    (data) => {
+      dispatch(setMinPrice(data.from));
+      dispatch(setMaxPrice(data.to));
+      dispatch(setSortedRooms());
+    },
+    [dispatch, formatNumber]
+  );
 
   return (
     <div className="range-slider">
@@ -28,11 +64,11 @@ const RangeSlider = ({ h3 }: RangeSliderProps) => {
         <h3 className="range-slider__title">{h3}</h3>
         <p className="range-slider-value">
           <span className="sliderValue1" ref={minValRef}>
-            {formatNumber(5000)}
+            {formatNumber(minPrice)}
           </span>
           ₽ -{' '}
           <span className="sliderValue2" ref={lastValRef}>
-            {formatNumber(10000)}
+            {formatNumber(maxPrice)}
           </span>
           ₽
         </p>
@@ -42,14 +78,15 @@ const RangeSlider = ({ h3 }: RangeSliderProps) => {
         skin={'round'}
         min={0}
         max={16000}
-        from={5000}
-        to={10000}
-        step={1}
+        from={minPrice}
+        to={maxPrice}
+        step={500}
         ref={sliderRef}
         grid={false}
         hide_min_max
         hide_from_to
         onChange={handleValueChange}
+        onFinish={handleValueSet}
       />
       <p className="range-slider__text">
         Стоимость за сутки пребывания в номере
@@ -58,4 +95,4 @@ const RangeSlider = ({ h3 }: RangeSliderProps) => {
   );
 };
 
-export default RangeSlider;
+export default memo(RangeSlider);

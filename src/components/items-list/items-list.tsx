@@ -8,12 +8,9 @@ const ItemsList = ({ rooms }: ItemsListProps) => (
   <>
     {rooms.map((room) => (
       <ItemCard
-        number={room.roomNumber}
-        price={room.price}
-        reviews={room.reviews}
-        srcArr={room.srcArr}
-        rating={room.rating}
-        lux={room.lux}
+      key={Math.random()}
+      room={room}
+      
       />
     ))}
   </>

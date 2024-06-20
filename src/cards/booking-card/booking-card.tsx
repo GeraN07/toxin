@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import DoubleDateDropdown from '../../components/double-date-dropdown/double-date-dropdown';
-import DropdownQty from '../../components/dropdown-qty/dropdown-qty';
+import Dropdown from '../../components/dropdown-qty/dropdown-qty';
 import './booking-card.css';
 
 const BookingCard = () => {
@@ -9,7 +9,7 @@ const BookingCard = () => {
   const handleDatesChange = (days: number) => {
     setTotalDays(days);
   };
-
+  
   return (
     <div className="booking-card">
       <div className="booking-card__header">
@@ -23,7 +23,7 @@ const BookingCard = () => {
         </p>
       </div>
       <DoubleDateDropdown firstTitle="ПРИБЫТИЕ" secondTitle="ВЫЕЗД" onDatesChange={handleDatesChange} />
-      <DropdownQty options="guests" h3="ГОСТИ" />
+      <Dropdown option={"guest"}/>
       <div className="booking-card__first-sum price-line">
         <p className="booking-card__text">
           9 990₽ х <span id="totalDayscount">{totalDays}</span>{' '}
