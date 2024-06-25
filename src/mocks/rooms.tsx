@@ -4,7 +4,7 @@ import { Room } from '../types/rooms';
 function createRandomRoom(): Room {
   return {
     id: faker.string.uuid(),
-    roomNumber: faker.number.int(100).toString(),
+    roomNumber: faker.number.int({ min: 1, max: 100 }).toString(),
     price: faker.number.int(9999).toString(),
     reviews: faker.number.int(10).toString(),
     srcArr: shuffle([
@@ -15,8 +15,8 @@ function createRandomRoom(): Room {
     ]),
     rating: `${faker.number.int(100).toString()}%`,
     lux: faker.datatype.boolean(),
-    dates: generateDates(),
-    maxGuests: faker.number.int(10),
+    dates: generateDates().map(date => date.toISOString()), // Преобразуем даты в строки
+    maxGuests: faker.number.int({ min: 1, max: 10 }),
     checkboxes: {
       smoking: faker.datatype.boolean(),
       pet: faker.datatype.boolean(),
@@ -42,15 +42,15 @@ function createRandomRoom(): Room {
   };
 }
 
-function createFullRandomRoom(): any {
+function createFullRandomRoom(room): any {
   return {
     imgArr: shuffle([
       'img/rooms-image/room-image1.jpg',
       'img/rooms-image/room-image2.jpg',
       'img/rooms-image/room-image3.jpg',
     ]),
-    features: features,
-    feedback: feedbacks,
+    features: faker.helpers.arrayElements(features, { min: 1, max: 3 }),
+    feedback: faker.helpers.arrayElements(feedbacks, { min: room.reviews, max: room.reviews }),
     votes: faker.number.int(100),
     totalRating: rating[faker.number.int(rating.length - 1)],
   };
@@ -77,17 +77,18 @@ const generateDates = () => {
 
   return [startDate, endDate];
 };
+
 const features = [
   { icon: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены' },
   { icon: 'location_city', title: 'Удобство', text: 'Окно в каждой из спален' },
   {
     icon: 'lock',
     title: 'Сейф',
-    text: 'Номер оснащён сейфом высокой системы безопастности',
+    text: 'Номер оснащён сейфом высокой системы безопасности',
   },
   {
     icon: 'wifi',
-    title: 'быстрый Wi-Fi',
+    title: 'Быстрый Wi-Fi',
     text: 'Номер оснащен выделенной скоростной беспроводной точкой доступа',
   },
   {
@@ -145,6 +146,41 @@ const feedbacks = [
   },
   {
     image: 'img/profile-pictures/no-profile-picture.png',
+    name: 'Настя Смирнова',
+    date: '2 года назад',
+    text: 'Обслуживание на высоте!',
+    likes: '9',
+  },
+  {
+    image: 'img/profile-pictures/no-profile-picture.png',
+    name: 'Мурад Сарафан',
+    date: '15 дней назад',
+    text: 'Спасибо. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+    likes: '11',
+  },
+  {
+    image: 'img/profile-pictures/author-2.jpg',
+    name: 'Патриция Стёклышкова',
+    date: 'Неделю назад',
+    text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент',
+    likes: '2',
+  },
+  {
+    image: 'img/profile-pictures/no-profile-picture.png',
+    name: 'Василий Петров',
+    date: 'Месяц назад',
+    text: 'Завтраки в номер советую заказать.',
+    likes: '8',
+  },
+  {
+    image: 'img/profile-pictures/no-profile-picture.png',
+    name: 'Петр Петров',
+    date: '3 года назад',
+    text: 'Чисто...',
+    likes: '1',
+  },
+  {
+    image: 'img/profile-pictures/no-profile-picture.png',
     name: 'Наталья Смирнова',
     date: '2 года назад',
     text: 'Обслуживание на высоте!',
@@ -157,7 +193,8 @@ const createRooms = (numRums = 15) =>
 
 const createFullRooms = (rooms) =>
   rooms.map((room) => {
-    const fullOfferData = createFullRandomRoom();
+    const fullOfferData = createFullRandomRoom(room);
     return { ...fullOfferData, ...room };
   });
-export {createRooms, createFullRooms} ;
+
+export { createRooms, createFullRooms };

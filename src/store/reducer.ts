@@ -10,7 +10,7 @@ const initialState = {
   adultCount: 0,
   childCount: 0,
   infantCount: 0,
-  datesRange: [new Date(), new Date('2050-12-17T03:24:00')],
+  datesRange: [null, null],
   minPrice: 0,
   maxPrice: 16000,
   smoking: undefined,
@@ -28,9 +28,8 @@ const initialState = {
   tv: undefined,
   shampoo: undefined,
 };
-const rooms = createRooms(12);
+const rooms = createRooms(50);
 const fullRooms = createFullRooms(rooms);
-console.log(fullRooms);
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_ROOMS':

@@ -2,10 +2,16 @@ import { Rooms } from './types/rooms';
 
 const isWithinRange = (dateRange: Date[], startDate: Date, endDate: Date) => {
   const [rangeStart, rangeEnd] = dateRange.map((date) => new Date(date));
+  if (startDate != undefined && endDate != undefined) {
+    startDate = new Date(startDate);
+    endDate = new Date(endDate);
+  }
   return (
-    (startDate >= rangeStart && startDate <= rangeEnd) ||
-    (endDate >= rangeStart && endDate <= rangeEnd) ||
-    (startDate <= rangeStart && endDate >= rangeEnd)
+    (startDate >= rangeStart &&
+      startDate <= rangeEnd &&
+      endDate >= rangeStart &&
+      endDate <= rangeEnd) ||
+    (startDate == null && endDate == null)
   );
 };
 
@@ -36,8 +42,7 @@ export const roomsSort = (rooms: Rooms, state: Object): Rooms => {
       room.additionalDropdown.bathRoomsCount >= state.bathRoomsCount;
 
     const meetsPriceCriteria =
-      !state.minPrice &&
-      !state.maxPrice ||
+      (state.minPrice == undefined && state.maxPrice == undefined) ||
       (Number(room.price) >= Number(state.minPrice) &&
         Number(room.price) <= Number(state.maxPrice));
 

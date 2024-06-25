@@ -130,42 +130,42 @@
   stroke-dashoffset: 445;
   -webkit-animation: show100 2s;
   animation: show100 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 .chart[data-percent='25'] .outer1 {
   stroke-dashoffset: 320;
   -webkit-animation: show100 2s;
   animation: show200 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 .chart[data-percent='25'] .outer2 {
   stroke-dashoffset: 1;
   -webkit-animation: show100 2s;
   animation: show300 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 .chart[data-percent='50'] .outer {
   stroke-dashoffset: 3;
   -webkit-animation: show100 2s;
   animation: show100 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 .chart[data-percent='50'] .outer1 {
   stroke-dashoffset: 262;
   -webkit-animation: show100 2s;
   animation: show200 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 .chart[data-percent='50'] .outer2 {
   stroke-dashoffset: 153;
   -webkit-animation: show100 2s;
   animation: show300 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 
@@ -173,21 +173,21 @@
   stroke-dashoffset: 262;
   -webkit-animation: show100 2s;
   animation: show100 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 .chart[data-percent='75'] .outer1 {
   stroke-dashoffset: 220;
   -webkit-animation: show100 2s;
   animation: show200 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 .chart[data-percent='75'] .outer2 {
   stroke-dashoffset: 153;
   -webkit-animation: show100 2s;
   animation: show300 4s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 @keyframes show100 {

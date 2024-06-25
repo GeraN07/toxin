@@ -3,9 +3,8 @@ import DoubleDateDropdown from '../../components/double-date-dropdown/double-dat
 import Dropdown from '../../components/dropdown-qty/dropdown-qty';
 import './booking-card.css';
 
-const BookingCard = () => {
+const BookingCard = ({price}) => {
   const [totalDays, setTotalDays] = useState(0);
-
   const handleDatesChange = (days: number) => {
     setTotalDays(days);
   };
@@ -18,19 +17,18 @@ const BookingCard = () => {
           <span className="booking-card__lux">люкс</span>
         </h1>
         <p className="booking-card__dayprice">
-          {' '}
-          9 990₽ <span className="booking-card__day">в сутки</span>
+          `{price}₽` <span className="booking-card__day">в сутки</span>
         </p>
       </div>
       <DoubleDateDropdown firstTitle="ПРИБЫТИЕ" secondTitle="ВЫЕЗД" onDatesChange={handleDatesChange} />
       <Dropdown option={"guest"}/>
       <div className="booking-card__first-sum price-line">
         <p className="booking-card__text">
-          9 990₽ х <span id="totalDayscount">{totalDays}</span>{' '}
+        `{price} ₽` х <span id="totalDayscount">{totalDays}</span>{' '}
           <span id="daysName">суток</span>
         </p>
         <p className="booking-card__text">
-          <span id="preAmount">{9990 * totalDays}</span>₽
+          <span id="preAmount">{price * totalDays}</span>₽
         </p>
       </div>
       <div className="booking-card__service-charge price-line">
@@ -50,7 +48,7 @@ const BookingCard = () => {
         <p className="booking-card__total-text">Итого</p>
         <div className="booking-card__doted-block" />
         <p className="booking-card__total-text booking-card__total-price">
-          <span id="totalAmount">{9990 * totalDays + 300}</span>₽
+          <span id="totalAmount">{price * totalDays + 300}</span>₽
         </p>
       </div>
       <span className="button-purpule-large">

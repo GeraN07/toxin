@@ -1,21 +1,66 @@
 import './pagination.css';
 import React from 'react';
-const Pagination = () => (
-  <section className="rooms-catalog__pagination-block">
-    <div className="pagination">
-      <h3 className="pagination__title" />
-      <ul className="pagination__list">
-        <li className="pagination__item current-page">1</li>
-        <li className="pagination__item">2</li>
-        <li className="pagination__item">3</li>
-        <li className="pagination__item skip-item">...</li>
-        <li className="pagination__item">15</li>
-        <li className="material-icons pagination__navigation">
-            arrow_forward
-        </li>
-      </ul>
-      <div className="pagination-data">1 – 12 из 100+ вариантов аренды</div>
-    </div>
-  </section>
-);
+const Pagination = ({
+  roomsPerPage,
+  totalRooms,
+  paginate,
+  currentPage,
+  nextPage,
+  prevPage,
+}) => {
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(totalRooms / roomsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  return (
+    <section className="rooms-catalog__pagination-block">
+      {pageNumbers.length > 1 && (
+        <div className="pagination">
+          <h3 className="pagination__title" />
+          <ul className="pagination__list">
+            {currentPage != 1 && (
+              <li
+                className="material-icons pagination__navigation"
+                onClick={prevPage}
+              >
+                arrow_backward
+              </li>
+            )}
+            {pageNumbers.map((number) => (
+              <li
+                className={`pagination__item ${
+                  currentPage == number ? 'current-page' : ''
+                } `}
+                key={number}
+                onClick={() => paginate(number)}
+              >
+                {number}
+              </li>
+            ))}
+            {currentPage != pageNumbers.length && (
+              <li
+                className="material-icons pagination__navigation"
+                onClick={nextPage}
+              >
+                arrow_forward
+              </li>
+            )}
+          </ul>
+          <div className="pagination-data">
+            {(currentPage != pageNumbers[0] &&
+              roomsPerPage * (currentPage - 1) + 1) ||
+              1}{' '}
+            –{' '}
+            {(currentPage != pageNumbers[pageNumbers.length - 1] &&
+              roomsPerPage * currentPage) ||
+              totalRooms}{' '}
+            из {totalRooms} вариантов аренды
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
 export default React.memo(Pagination);
+// {currentPage!=pageNumbers[pageNumbers.length-1] && (roomsPerPage*currentPage) }

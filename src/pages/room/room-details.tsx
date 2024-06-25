@@ -30,6 +30,9 @@ const RoomDetails = () => {
     return <Preloader />;
   }
 
+  const {imgArr, features, votes, feedback, price} = room
+ const {pet} = room.checkboxes
+
   return (
     <div className="room-details">
       <Helmet>
@@ -38,36 +41,36 @@ const RoomDetails = () => {
       <HeaderMain />
 
       <main className="room-details__block">
-        <section className="room-details__room-image revealator-fade revealator-once">
+        <section className="room-details__room-image revealator-once">
           <img
             className="room-details__room-image-main"
-            src={room.imgArr[0]}
+            src={imgArr[0]}
             alt=""
           />
           <div className="room-details__room-image-small-block">
             <img
               className="room-details__image-small1"
-              src={room.imgArr[1]}
+              src={imgArr[1]}
               alt=""
             />
             <img
               className="room-details__image-small2"
-              src={room.imgArr[2]}
+              src={imgArr[2]}
               alt=""
             />
           </div>
         </section>
         <section className="room-details__details-book">
           <div className="room-details__room-details">
-            <div className="room-details__features-block revealator-fade revealator-once">
+            <div className="room-details__features-block revealator-once">
               <h1 className="room-details__features-title">
                 Сведения о номере
               </h1>
-              {room.features.map((feature) => (
-                <Feature feature={feature} />
+              {features.map((feature) => (
+                <Feature feature={feature} key={feature.title}/>
               ))}
             </div>
-            <div className="room-details__room-impressions revealator-fade revealator-once revealator-delay3">
+            <div className="room-details__room-impressions revealator-once revealator-delay3">
               <h1 className="room-details__impressions-title">
                 Впечатления от номера
               </h1>
@@ -82,7 +85,7 @@ const RoomDetails = () => {
                   </svg>
                   <p className="vote-count">
                     <span className="vote-count__number" id="nbr">
-                      {room.votes}
+                      {votes}
                     </span>{' '}
                     <span className="vote-count__text">голосов</span>
                   </p>
@@ -118,15 +121,15 @@ const RoomDetails = () => {
                 <h1 className="room-details__feedback-title">
                   Отзывы посетителей номера
                 </h1>
-                <p className="room-details__feedbacks-count">2 отзыва</p>
+                <p className="room-details__feedbacks-count">{`${feedback.length} отзыва`}</p>
               </div>
-              {room.feedback.map((feedback) => (
-                <Feedback feedBack={feedback} />
+              {feedback.map((feedback) => (
+                <Feedback feedBack={feedback} key={feedback.name }/>
               ))}
             </div>
             <div className="room-details__room-rules revealator-fade revealator-once revealator-delay1">
               <h1 className="room-details__rules-title">Правила</h1>
-              <BulletList />
+              <BulletList pet={pet}  />
             </div>
             <div className="room-details__book-cancel revealator-fade revealator-once revealator-delay1">
               <h1 className="room-details__book-cancel-title">Отмена</h1>
@@ -141,7 +144,7 @@ const RoomDetails = () => {
             className="room-details__book-details revealator-fade revealator-once"
             id="room-book"
           >
-            <BookingCard />
+            <BookingCard price={price}/>
           </div>
           <div className="room-details__book-anchor-button" id="anchor-button">
             <a className="room-details__anchor-button-text" href="#room-book">

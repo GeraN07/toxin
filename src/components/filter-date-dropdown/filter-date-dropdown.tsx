@@ -13,6 +13,7 @@ const FilterDateDropdown = () => {
       if (
         calBlockRef.current &&
         !calBlockRef.current.contains(event.target) &&
+        cal && 
         !cal.contains(event.target)
       ) {
         setCalendarOpen(false);

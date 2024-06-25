@@ -24,7 +24,7 @@ export const setInfantCount = (infantCount) => ({
 
 export const setDatesRange = (datesRange) => ({
   type: 'SET_DATES_RANGE',
-  payload: datesRange,
+  payload: datesRange.map(date => date.toISOString())
 });
 
 export const setMinPrice = (minPrice) => ({

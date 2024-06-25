@@ -3,7 +3,6 @@ type FeatureProps = {
   feature: Any
 };
 const Feature = ({ feature }: Any) => {
-  console.log(feature, feature.icon)
   return (
     <div className="feature-block">
       <i className="material-icons feature-block__feature-icon">{feature.icon}</i>

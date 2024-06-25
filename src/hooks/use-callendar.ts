@@ -11,11 +11,10 @@ const useCallendar = (
   onDatesChange?: (days: number) => void
 ) => {
   const isRenderedRef = useRef<boolean>(false);
-  const dispatch = useDispatch(); // Переносим useDispatch сюда
+  const dispatch = useDispatch();
   const dates = useSelector(
     (state: { dates: Date[] }) => state.filter.datesRange
   );
-
   useEffect(() => {
     if (calFirstRef.current && !isRenderedRef.current) {
       const dp = new AirDatepicker(calFirstRef.current, {
@@ -42,8 +41,9 @@ const useCallendar = (
             className: 'custom-button-submit',
             onClick: (dp) => {
               const dates = dp.selectedDates;
+              const newDates = [new Date(dates[0]), new Date(dates[1])]
               if (dates.length === 2) {
-                dispatch(setDatesRange(dates)); // Используем dispatch здесь
+                dispatch(setDatesRange(newDates));
                 dispatch(setSortedRooms());
                 dp.hide();
               }
@@ -85,8 +85,7 @@ const useCallendar = (
           }
         },
       });
-      const lastDefaultDate = new Date('2050-12-17T03:24:00');
-      if (dates[1].getTime() !== lastDefaultDate.getTime()) {
+      if (dates[0] !== null) {
         dp.selectDate(dates);
       }
 
