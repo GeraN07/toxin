@@ -1,13 +1,12 @@
 import './masked-text-field.css';
 import { useEffect, useRef } from 'react';
 
-type MaskedTextFieldsProps = {
+type MaskedTextFieldProps = {
   title?: string;
   placeholder: string;
-  addClass?: string;
 };
 
-const MaskedTextField = ({ title, placeholder }: MaskedTextFieldsProps) => {
+const MaskedTextField = ({ title, placeholder }: MaskedTextFieldProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -36,13 +35,15 @@ const MaskedTextField = ({ title, placeholder }: MaskedTextFieldsProps) => {
       elm.value = value;
     };
 
-    if (inputRef.current) {
-      inputRef.current.addEventListener('input', dateInputMask);
+    const inputElement = inputRef.current;
+
+    if (inputElement) {
+      inputElement.addEventListener('input', dateInputMask);
     }
 
     return () => {
-      if (inputRef.current) {
-        inputRef.current.removeEventListener('input', dateInputMask);
+      if (inputElement) {
+        inputElement.removeEventListener('input', dateInputMask);
       }
     };
   }, []);

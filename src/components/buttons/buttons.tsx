@@ -8,30 +8,37 @@ type ButtonsProps = {
   link?: string;
   onClick?: () => void;
 };
+
 type SmallButtonsProps = {
   name: string;
 };
 
-const ButtonPurple = ({ name, addClass = '', link }: ButtonsProps) => (
-  <span className={`button-purpule${ addClass}`}>
-    <a className="button-purpule__link" href={link}>
-      {name}
-    </a>
-  </span>
-);
 const ButtonPurpleLarge = memo(
   ({ name, addClass = '', link, onClick }: ButtonsProps) => (
     <span className={`button-purpule-large ${addClass}`} onClick={onClick}>
-      <Link 
-        className="button-purpule-large__link"
-        to={link}
-        onClick={(e) => onClick && e.preventDefault()}
-      >
-        {name}
-      </Link >
+      {link ? (
+        <Link
+          className="button-purpule-large__link"
+          to={link}
+          onClick={(e) => {
+            if (onClick) {
+              e.preventDefault();
+              onClick();
+            }
+          }}
+        >
+          {name}
+        </Link>
+      ) : (
+        <a className="button-purpule-large__link" onClick={onClick}>
+          {name}
+        </a>
+      )}
     </span>
   )
 );
+
+ButtonPurpleLarge.displayName = 'ButtonPurpleLarge';
 
 const AsideOpenButton = memo(
   ({ name, addClass = '', link, onClick }: ButtonsProps) => (
@@ -39,7 +46,12 @@ const AsideOpenButton = memo(
       <a
         className="button-purpule-aside__link"
         href={link}
-        onClick={(e) => onClick && e.preventDefault()}
+        onClick={(e) => {
+          if (onClick) {
+            e.preventDefault();
+            onClick();
+          }
+        }}
       >
         {name}
       </a>
@@ -47,8 +59,10 @@ const AsideOpenButton = memo(
   )
 );
 
+AsideOpenButton.displayName = 'AsideOpenButton';
+
 const ButtonWhite = ({ name, addClass = '', link, onClick }: ButtonsProps) => {
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
       e.preventDefault();
       onClick();
@@ -57,17 +71,28 @@ const ButtonWhite = ({ name, addClass = '', link, onClick }: ButtonsProps) => {
 
   return (
     <span className={`button-white ${addClass}`}>
-      <Link  className="button-white__link" to={link} onClick={handleClick}>
-        {name}
-      </Link>
+      {link ? (
+        <Link className="button-white__link" to={link} onClick={handleClick}>
+          {name}
+        </Link>
+      ) : (
+        <a className="button-white__link" href="#" onClick={handleClick}>
+          {name}
+        </a>
+      )}
     </span>
   );
 };
-const ButtonSubmit = ({ name }: SmallButtonsProps) => <button className="button-submit">{name}</button>;
-const ButtonClear = ({ name }: SmallButtonsProps) => <button className="button-clear">{name}</button>;
+
+const ButtonSubmit = ({ name }: SmallButtonsProps) => (
+  <button className="button-submit">{name}</button>
+);
+
+const ButtonClear = ({ name }: SmallButtonsProps) => (
+  <button className="button-clear">{name}</button>
+);
 
 export {
-  ButtonPurple,
   ButtonPurpleLarge,
   ButtonWhite,
   ButtonSubmit,

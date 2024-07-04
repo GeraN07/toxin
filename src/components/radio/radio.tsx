@@ -12,7 +12,7 @@ const Radio = () => (
           name="sex"
           defaultValue="man"
           id="man"
-          defaultChecked="checked"
+          defaultChecked
         />
         <label className="radio__label" htmlFor="man">
           <p className="radio__label-text">Мужчина</p>

@@ -1,32 +1,45 @@
 import { Rooms } from './types/rooms';
+import { Store } from './types/state';
 
-const isWithinRange = (dateRange: Date[], startDate: Date, endDate: Date) => {
+const isWithinRange = (
+  dateRange: string[],
+  startDate?: string | null,
+  endDate?: string | null
+): boolean => {
   const [rangeStart, rangeEnd] = dateRange.map((date) => new Date(date));
-  if (startDate != undefined && endDate != undefined) {
-    startDate = new Date(startDate);
-    endDate = new Date(endDate);
+
+  let startDateObj: Date | undefined;
+  let endDateObj: Date | undefined;
+
+  if (startDate !== undefined && startDate !== null) {
+    startDateObj = new Date(startDate);
   }
+
+  if (endDate !== undefined && endDate !== null) {
+    endDateObj = new Date(endDate);
+  }
+
   return (
-    (startDate >= rangeStart &&
-      startDate <= rangeEnd &&
-      endDate >= rangeStart &&
-      endDate <= rangeEnd) ||
-    (startDate == null && endDate == null)
+    (startDateObj !== undefined &&
+      endDateObj !== undefined &&
+      startDateObj >= rangeStart &&
+      startDateObj <= rangeEnd &&
+      endDateObj >= rangeStart &&
+      endDateObj <= rangeEnd) ||
+    (startDateObj === undefined && endDateObj === undefined)
   );
 };
 
 const meetsCriteria = (
   criteriaValue: boolean | undefined,
   roomValue: boolean | undefined
-) => {
-  return (
-    criteriaValue === undefined ||
+) => (
+  criteriaValue === undefined ||
     criteriaValue === false ||
     roomValue === criteriaValue
-  );
-};
+);
 
-export const roomsSort = (rooms: Rooms, state: Object): Rooms => {
+export const roomsSort = (rooms: Rooms, state: Store): Rooms => {
   const [startDateStr, endDateStr] = state.datesRange;
   const startDate = startDateStr;
   const endDate = endDateStr;
@@ -42,7 +55,7 @@ export const roomsSort = (rooms: Rooms, state: Object): Rooms => {
       room.additionalDropdown.bathRoomsCount >= state.bathRoomsCount;
 
     const meetsPriceCriteria =
-      (state.minPrice == undefined && state.maxPrice == undefined) ||
+      (state.minPrice === undefined && state.maxPrice === undefined) ||
       (Number(room.price) >= Number(state.minPrice) &&
         Number(room.price) <= Number(state.maxPrice));
 

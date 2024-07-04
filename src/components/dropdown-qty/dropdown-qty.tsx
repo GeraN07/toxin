@@ -1,8 +1,11 @@
+// Dropdown.tsx
+
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import useDropdown from '../../hooks/use-dropdown';
 import './item-quantity-dropdown.min.css';
 import './dropdown-qty.css';
+import { dropdownOptions } from '../../const';
 import {
   setAdultCount,
   setBathrooms,
@@ -14,29 +17,13 @@ import {
   setSortedRooms,
 } from '../../store/action';
 
-const dropdownOptions = {
-  guest: {
-    textPlural: 'Гостей',
-    selectionText: 'Гость',
-    items: [
-      { id: 'adult', label: 'Взрослые', maxCount: 10, minCount: 0 },
-      { id: 'child', label: 'Дети', maxCount: 10, minCount: 0 },
-      { id: 'infant', label: 'Младенцы', maxCount: 10, minCount: 0 },
-    ],
-  },
-  rooms: {
-    textPlural: 'Комнат',
-    selectionText: 'Комната',
-    items: [
-      { id: 'bedrooms', label: 'Спальни', maxCount: 10, minCount: 0 },
-      { id: 'beds', label: 'Кровати', maxCount: 10, minCount: 0 },
-      { id: 'bathrooms', label: 'Ванные комнаты', maxCount: 10, minCount: 0 },
-    ],
-  },
+type DropdownProps = {
+  option: string;
 };
 
-const Dropdown = ({ option }) => {
-  const options = dropdownOptions[option] || dropdownOptions['guest'];
+const Dropdown = ({ option }: DropdownProps) => {
+  const options =
+    option === 'rooms' ? dropdownOptions['rooms'] : dropdownOptions['guest'];
   const {
     itemCount,
     totalItems,
@@ -44,28 +31,30 @@ const Dropdown = ({ option }) => {
     handleDecrement,
     handleIncrement,
     resetCounts,
-    hasSelection
+    hasSelection,
   } = useDropdown(options);
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
-  
 
-  const handleClickOutside = useCallback((event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
       setIsOpen(false);
     }
   }, []);
 
   const handleSubmitButtonClick = useCallback(() => {
     if (option === 'rooms') {
-      dispatch(setBathrooms(itemCount['bathrooms']));
-      dispatch(setBedrooms(itemCount['bedrooms']));
-      dispatch(setBeds(itemCount['beds']));
+      dispatch(setBathrooms(itemCount.bathrooms || 0));
+      dispatch(setBedrooms(itemCount.bedrooms || 0));
+      dispatch(setBeds(itemCount.beds || 0));
     } else {
-      dispatch(setAdultCount(itemCount['adult']));
-      dispatch(setChildCount(itemCount['child']));
-      dispatch(setInfantCount(itemCount['infant']));
+      dispatch(setAdultCount(itemCount.adult || 0));
+      dispatch(setChildCount(itemCount.child || 0));
+      dispatch(setInfantCount(itemCount.infant || 0));
       dispatch(setMaxGuests(totalItems));
     }
     dispatch(setSortedRooms());
@@ -81,23 +70,8 @@ const Dropdown = ({ option }) => {
       dispatch(setMaxGuests(0));
     }
     dispatch(setSortedRooms());
-    resetCounts()
-  }, [dispatch, itemCount, totalItems, option]);
-
-
-
- 
-  // if(option=='guest'){
-  //   itemCount['adult'] = useSelector(
-  //     (state: { dates: Date[] }) => state.filter.bedroomCount
-  //   );
-  //   itemCount['child'] = useSelector(
-  //     (state: { dates: Date[] }) => state.filter.bedsCount
-  //   );
-  //   itemCount['infant'] = useSelector(
-  //     (state: { dates: Date[] }) => state.filter.bathRoomsCount
-  //   );
-  // }
+    resetCounts();
+  }, [dispatch, resetCounts, option]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -106,12 +80,11 @@ const Dropdown = ({ option }) => {
     };
   }, [handleClickOutside]);
 
-  const hasAdult = itemCount['adult'] > 0;
+  const hasAdult = itemCount.adult && itemCount.adult > 0;
   const addClass = option === 'rooms' ? 'dropdown-rooms' : 'dropdown-guests';
   const h1 = option === 'rooms' ? 'УДОБСТВА НОМЕРА' : 'Гости';
   const selectedText = option === 'rooms' ? 'Сколько комнат' : 'Сколько гостей';
 
- 
   return (
     <div className={`dropdown-block ${addClass}`}>
       <div className="dropdown-header">
@@ -175,4 +148,6 @@ const Dropdown = ({ option }) => {
   );
 };
 
-export default React.memo(Dropdown);
+
+const NamedDropdown = React.memo(Dropdown);
+export default NamedDropdown;

@@ -5,15 +5,15 @@ import './filter-date-dropdown.css';
 
 const FilterDateDropdown = () => {
   const calRef = useRef(null);
-  const calBlockRef = useRef(null);
+  const calBlockRef = useRef<HTMLDivElement>(null);
   const [calendarOpen, setCalendarOpen] = useState(false);
   useEffect(() => {
-    const handleCalendarClose = (event) => {
+    const handleCalendarClose = (event:MouseEvent) => {
       const cal = document.querySelector('.air-datepicker');
       if (
         calBlockRef.current &&
         !calBlockRef.current.contains(event.target) &&
-        cal && 
+        cal &&
         !cal.contains(event.target)
       ) {
         setCalendarOpen(false);

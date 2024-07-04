@@ -12,7 +12,7 @@ const Main = () => {
   const dispatch = useDispatch();
 
 
-    dispatch(setRooms());
+  dispatch(setRooms());
   return (
     <div className="landing-page">
       <Helmet>

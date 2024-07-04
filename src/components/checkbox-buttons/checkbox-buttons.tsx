@@ -1,7 +1,17 @@
 import { useDispatch } from 'react-redux';
 import './checkbox-buttons.css';
-import { setGuests, setPet, setSmoking, setSortedRooms } from '../../store/action';
+import {
+  setGuests,
+  setPet,
+  setSmoking,
+  setSortedRooms,
+} from '../../store/action';
 import { useSelector } from 'react-redux';
+import {
+  getGuestStatus,
+  getPetStatus,
+  getSmokingStatus,
+} from '../../store/selectors';
 
 type CheckboxButtonsProps = {
   h3: string;
@@ -9,19 +19,17 @@ type CheckboxButtonsProps = {
 
 const CheckboxButtons = ({ h3 }: CheckboxButtonsProps) => {
   const dispatch = useDispatch();
-  const handleValueChange = (actionCreator) => (event) => {
-    dispatch(actionCreator(event.target.checked));
-    dispatch(setSortedRooms())
-  };
-  const smokingStatus = useSelector(
-    (state: { smoking: Boolean }) => state.filter.smoking
-  );
-  const petStatus = useSelector(
-    (state: { pet: Boolean }) => state.filter.pet
-  );
-  const guestStatus = useSelector(
-    (state: { guests: Boolean }) => state.filter.guests
-  );
+
+  const handleValueChange = (actionCreator: (checked: boolean) => { type: string; payload: boolean }) =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(actionCreator(event.target.checked));
+      dispatch(setSortedRooms());
+    };
+
+  const smokingStatus = useSelector(getSmokingStatus);
+  const petStatus = useSelector(getPetStatus);
+  const guestStatus = useSelector(getGuestStatus);
+
   return (
     <div className="checkbox-buttons">
       <h3 className="checkbox-buttons__title">{h3}</h3>

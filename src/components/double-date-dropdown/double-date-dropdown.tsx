@@ -2,7 +2,6 @@ import 'air-datepicker/air-datepicker.css';
 import './double-date-dropdown.css';
 import useCallendar from '../../hooks/use-callendar';
 import { useRef } from 'react';
-import { useSelector } from 'react-redux';
 
 type DoubleDateDropdownProps = {
   firstTitle?: string;

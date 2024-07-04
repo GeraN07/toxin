@@ -12,7 +12,7 @@ type ItemCardProps = {
 };
 
 const ItemCard = ({ room }: ItemCardProps) => {
-  let { srcArr, id, roomNumber, lux, price, rating, reviews } = room;
+  const { srcArr, id, roomNumber, lux, price, rating, reviews } = room;
   return (
     <div className="item-card" key={Math.random()}>
       <div className="image-slider">
@@ -30,8 +30,9 @@ const ItemCard = ({ room }: ItemCardProps) => {
                 <li className="slide">
                   <Link
                     className="image-slider__room-link"
-                    to={`/room-details/` + id}
-                  ></Link>
+                    to={`/room-details/${ id}`}
+                  >
+                  </Link>
                   <img src={src} alt="" />
                 </li>
               </SwiperSlide>

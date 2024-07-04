@@ -8,12 +8,14 @@ const ItemsList = ({ rooms }: ItemsListProps) => (
   <>
     {rooms.map((room) => (
       <ItemCard
-      key={Math.random()}
-      room={room}
-      
+        key={Math.random()}
+        room={room}
+
       />
     ))}
   </>
 );
 
-export default React.memo(ItemsList);
+
+const NamedItemsList = React.memo(ItemsList);
+export default NamedItemsList;

@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFullRoom } from '../../store/action';
 import { useEffect } from 'react';
 import Preloader from '../../components/preloader/preloader';
+import { FeatureType, FeedbackType } from '../../types/types';
+import { getFullRoom } from '../../store/selectors';
 
 const RoomDetails = () => {
   const { id } = useParams();
@@ -22,16 +24,17 @@ const RoomDetails = () => {
     }
   }, [id, dispatch]);
 
+
   const room = useSelector(
-    (state: { smoking: Boolean }) => state.filter.fullRoom
+    getFullRoom
   );
 
   if (!room) {
     return <Preloader />;
   }
 
-  const {imgArr, features, votes, feedback, price} = room
- const {pet} = room.checkboxes
+  const {imgArr, features, votes, feedback, price} = room;
+  const {pet} = room.checkboxes;
 
   return (
     <div className="room-details">
@@ -66,7 +69,7 @@ const RoomDetails = () => {
               <h1 className="room-details__features-title">
                 Сведения о номере
               </h1>
-              {features.map((feature) => (
+              {features.map((feature:FeatureType) => (
                 <Feature feature={feature} key={feature.title}/>
               ))}
             </div>
@@ -123,13 +126,13 @@ const RoomDetails = () => {
                 </h1>
                 <p className="room-details__feedbacks-count">{`${feedback.length} отзыва`}</p>
               </div>
-              {feedback.map((feedback) => (
-                <Feedback feedBack={feedback} key={feedback.name }/>
+              {feedback.map((feedbackItem:FeedbackType) => (
+                <Feedback feedBack={feedbackItem} key={feedbackItem.name }/>
               ))}
             </div>
             <div className="room-details__room-rules revealator-fade revealator-once revealator-delay1">
               <h1 className="room-details__rules-title">Правила</h1>
-              <BulletList pet={pet}  />
+              <BulletList pet={pet} />
             </div>
             <div className="room-details__book-cancel revealator-fade revealator-once revealator-delay1">
               <h1 className="room-details__book-cancel-title">Отмена</h1>

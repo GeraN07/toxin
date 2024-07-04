@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setDatesRange, setSortedRooms } from '../store/action';
 import AirDatepicker from 'air-datepicker';
 import { useSelector } from 'react-redux';
-
+import { getDates } from '../store/selectors';
 
 const useCallendar = (
   calFirstRef: MutableRefObject<HTMLInputElement | null>,
@@ -12,9 +12,8 @@ const useCallendar = (
 ) => {
   const isRenderedRef = useRef<boolean>(false);
   const dispatch = useDispatch();
-  const dates = useSelector(
-    (state: { dates: Date[] }) => state.filter.datesRange
-  );
+  const dates = useSelector(getDates);
+
   useEffect(() => {
     if (calFirstRef.current && !isRenderedRef.current) {
       const dp = new AirDatepicker(calFirstRef.current, {
@@ -23,7 +22,7 @@ const useCallendar = (
           {
             content: 'очистить',
             className: 'custom-button-clear',
-            onClick: (dp) => {
+            onClick: () => {
               dp.clear();
               if (calFirstRef.current) {
                 calFirstRef.current.value = '';
@@ -39,9 +38,9 @@ const useCallendar = (
           {
             content: 'применить',
             className: 'custom-button-submit',
-            onClick: (dp) => {
-              const dates = dp.selectedDates;
-              const newDates = [new Date(dates[0]), new Date(dates[1])]
+            onClick: () => {
+              const oldDates = dp.selectedDates;
+              const newDates = [new Date(oldDates[0]), new Date(oldDates[1])];
               if (dates.length === 2) {
                 dispatch(setDatesRange(newDates));
                 dispatch(setSortedRooms());
@@ -59,39 +58,43 @@ const useCallendar = (
           const formatFirst = 'd.MM.yyyy';
           const formatRange = 'd MMMM';
 
-          calFirstRef.current.value = dp.formatDate(startDate, formatFirst);
-          if (calLastRef?.current) {
-            calLastRef.current.value =
-              date.length === 2 ? dp.formatDate(endDate, formatFirst) : '';
-          } else {
-            calFirstRef.current.value =
-              date.length === 2
-                ? `${dp.formatDate(startDate, formatRange)} - ${dp.formatDate(
+          if (calFirstRef.current) {
+            calFirstRef.current.value = dp.formatDate(startDate, formatFirst);
+            if (calLastRef?.current) {
+              calLastRef.current.value =
+                date.length === 2 ? dp.formatDate(endDate, formatFirst) : '';
+            } else {
+              calFirstRef.current.value =
+                date.length === 2
+                  ? `${dp.formatDate(startDate, formatRange)} - ${dp.formatDate(
                     endDate,
                     formatRange
                   )}`
-                : dp.formatDate(startDate, formatRange);
+                  : dp.formatDate(startDate, formatRange);
+            }
           }
 
           if (onDatesChange) {
             const diffDays =
               date.length === 2
                 ? Math.ceil(
-                    Math.abs(endDate.getTime() - startDate.getTime()) /
+                  Math.abs(endDate.getTime() - startDate.getTime()) /
                       (1000 * 60 * 60 * 24)
-                  )
+                )
                 : 0;
             onDatesChange(diffDays);
           }
         },
       });
-      if (dates[0] !== null) {
-        dp.selectDate(dates);
+
+      if (dates[0] && dates[1]) {
+        const datess = [new Date(dates[0]), new Date(dates[1])];
+        dp.selectDate(datess);
       }
 
       isRenderedRef.current = true;
     }
-  }, [calFirstRef, calLastRef, onDatesChange, dispatch]);
+  }, [calFirstRef, calLastRef, onDatesChange, dispatch, dates]);
 
   return null;
 };

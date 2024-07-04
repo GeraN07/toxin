@@ -1,8 +1,24 @@
 import { useDispatch } from 'react-redux';
 import './expandable-checkbox-list.css';
 import { useState } from 'react';
-import { setBabyBed, setBreakfast, setHchair, setShampoo, setSortedRooms, setTable, setTv } from '../../store/action';
+import {
+  setBabyBed,
+  setBreakfast,
+  setHchair,
+  setShampoo,
+  setSortedRooms,
+  setTable,
+  setTv,
+} from '../../store/action';
 import { useSelector } from 'react-redux';
+import {
+  getBedStatus,
+  getBreakfastStatus,
+  getChairStatus,
+  getShowerStatus,
+  getTableStatus,
+  getTvStatus,
+} from '../../store/selectors';
 
 type ExpandableCheckboxListProps = {
   buttonTitle: string;
@@ -13,40 +29,43 @@ const ExpandableCheckboxList = ({
 }: ExpandableCheckboxListProps) => {
   const [checkboxListOpen, setCheckboxlistOpen] = useState(false);
   const dispatch = useDispatch();
-  const handleInputChange = (actionCreator) => (event) => {
-    dispatch(actionCreator(event.target.checked));
-    dispatch(setSortedRooms())
-  };
+  const handleInputChange = (actionCreator: (checked: boolean) => { type: string; payload: boolean }) =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(actionCreator(event.target.checked));
+      dispatch(setSortedRooms());
+    };
   const handleOpenButtonClick = () => {
     setCheckboxlistOpen(!checkboxListOpen);
   };
 
+  const breakfastStatus = useSelector(getBreakfastStatus);
+  const tableStatus = useSelector(getTableStatus);
 
-  const breakfastStatus = useSelector(
-    (state: { wideCoridor: Boolean }) => state.filter.breakfast
-  );
-  const tableStatus = useSelector(
-    (state: { helper: Boolean }) => state.filter.table
-  );
-  
-  const chairStatus = useSelector(
-    (state: { wideCoridor: Boolean }) => state.filter.hchair
-  );
-  const bedStatus = useSelector(
-    (state: { helper: Boolean }) => state.filter.babyBed
-  );
-  
-  const tvStatus = useSelector(
-    (state: { wideCoridor: Boolean }) => state.filter.tv
-  );
-  const showerStatus = useSelector(
-    (state: { helper: Boolean }) => state.filter.shampoo
-  );
+  const chairStatus = useSelector(getChairStatus);
+  const bedStatus = useSelector(getBedStatus);
+
+  const tvStatus = useSelector(getTvStatus);
+  const showerStatus = useSelector(getShowerStatus);
 
   const checkboxes = [
-    { id: 'break', label: 'Завтрак', action: setBreakfast, data: breakfastStatus},
-    { id: 'table', label: 'Письменный стол', action: setTable, data: tableStatus },
-    { id: 'chair', label: 'Стул для кормления', action: setHchair, data: chairStatus },
+    {
+      id: 'break',
+      label: 'Завтрак',
+      action: setBreakfast,
+      data: breakfastStatus,
+    },
+    {
+      id: 'table',
+      label: 'Письменный стол',
+      action: setTable,
+      data: tableStatus,
+    },
+    {
+      id: 'chair',
+      label: 'Стул для кормления',
+      action: setHchair,
+      data: chairStatus,
+    },
     { id: 'bed', label: 'Кроватка', action: setBabyBed, data: bedStatus },
     { id: 'tv', label: 'Телевизор', action: setTv, data: tvStatus },
     { id: 'shower', label: 'Шампунь', action: setShampoo, data: showerStatus },
@@ -64,30 +83,31 @@ const ExpandableCheckboxList = ({
           checkboxListOpen ? 'open' : ''
         }`}
       >
-        {checkboxes.map((checkbox) =>{
-          if(checkbox.data && !checkboxListOpen){
-            setCheckboxlistOpen(true)
+        {checkboxes.map((checkbox) => {
+          if (checkbox.data && !checkboxListOpen) {
+            setCheckboxlistOpen(true);
           }
-        return (
-          <div
-            key={checkbox.id}
-            className="expandable-checkbox-buttons__checkbox-block"
-          >
-            <input
-              className="expandable-checkbox-buttons__checkbox"
-              type="checkbox"
-              id={checkbox.id}
-              onChange={handleInputChange(checkbox.action)}
-              checked={checkbox.data}
-            />
-            <label
-              className="expandable-checkbox-buttons__checkbox-label"
-              htmlFor={checkbox.id}
+          return (
+            <div
+              key={checkbox.id}
+              className="expandable-checkbox-buttons__checkbox-block"
             >
-              {checkbox.label}
-            </label>
-          </div>
-        )})}
+              <input
+                className="expandable-checkbox-buttons__checkbox"
+                type="checkbox"
+                id={checkbox.id}
+                onChange={handleInputChange(checkbox.action)}
+                checked={checkbox.data}
+              />
+              <label
+                className="expandable-checkbox-buttons__checkbox-label"
+                htmlFor={checkbox.id}
+              >
+                {checkbox.label}
+              </label>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -1,5 +1,14 @@
 import './pagination.css';
 import React from 'react';
+type PaginationProps = {
+  roomsPerPage: number;
+  totalRooms: number;
+  currentPage: number;
+  paginate: (number: number) => void;
+  nextPage: () => void;
+  prevPage: () => void;
+};
+
 const Pagination = ({
   roomsPerPage,
   totalRooms,
@@ -7,7 +16,7 @@ const Pagination = ({
   currentPage,
   nextPage,
   prevPage,
-}) => {
+}: PaginationProps) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalRooms / roomsPerPage); i++) {
     pageNumbers.push(i);
@@ -19,7 +28,7 @@ const Pagination = ({
         <div className="pagination">
           <h3 className="pagination__title" />
           <ul className="pagination__list">
-            {currentPage != 1 && (
+            {currentPage !== 1 && (
               <li
                 className="material-icons pagination__navigation"
                 onClick={prevPage}
@@ -30,7 +39,7 @@ const Pagination = ({
             {pageNumbers.map((number) => (
               <li
                 className={`pagination__item ${
-                  currentPage == number ? 'current-page' : ''
+                  currentPage === number ? 'current-page' : ''
                 } `}
                 key={number}
                 onClick={() => paginate(number)}
@@ -38,7 +47,7 @@ const Pagination = ({
                 {number}
               </li>
             ))}
-            {currentPage != pageNumbers.length && (
+            {currentPage !== pageNumbers.length && (
               <li
                 className="material-icons pagination__navigation"
                 onClick={nextPage}
@@ -48,11 +57,11 @@ const Pagination = ({
             )}
           </ul>
           <div className="pagination-data">
-            {(currentPage != pageNumbers[0] &&
+            {(currentPage !== pageNumbers[0] &&
               roomsPerPage * (currentPage - 1) + 1) ||
               1}{' '}
             –{' '}
-            {(currentPage != pageNumbers[pageNumbers.length - 1] &&
+            {(currentPage !== pageNumbers[pageNumbers.length - 1] &&
               roomsPerPage * currentPage) ||
               totalRooms}{' '}
             из {totalRooms} вариантов аренды
@@ -62,5 +71,7 @@ const Pagination = ({
     </section>
   );
 };
-export default React.memo(Pagination);
-// {currentPage!=pageNumbers[pageNumbers.length-1] && (roomsPerPage*currentPage) }
+
+const NamedPagination = React.memo(Pagination);
+export default NamedPagination;
+

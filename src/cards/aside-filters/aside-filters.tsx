@@ -10,27 +10,24 @@ type AsideFiltersProps = {
   toggleAside: () => void;
 };
 
-const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
- 
-  return (
-    <aside className={`filter-block ${asideOpen ? 'active' : ''}`}>
-      <span className="filter-block__close-button" onClick={toggleAside}>
-        <div className="filter-block__close-button-icon"></div>
+const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => (
+  <aside className={`filter-block ${asideOpen ? 'active' : ''}`}>
+    <span className="filter-block__close-button" onClick={toggleAside}>
+      <div className="filter-block__close-button-icon"></div>
+    </span>
+    <div className="filter-block__filter-block-wrapper">
+      <FilterDateDropdown />
+      <Dropdown option={'guest'}/>
+      <RangeSlider h3="ДИАПАЗОН ЦЕНЫ" />
+      <CheckboxButtons h3="CHECKBOX BUTTONS" />
+      <RichCheckboxButtons h3="ДОСТУПНОСТЬ" />
+      <Dropdown option={'rooms'}/>
+      <ExpandableCheckboxList buttonTitle="дополнительные удобства" />
+      <span className="button-purpule-large">
+        <a className="button-purpule-large__link">применить</a>
       </span>
-      <div className="filter-block__filter-block-wrapper">
-        <FilterDateDropdown />
-        <Dropdown option={'guest'}/>
-        <RangeSlider h3="ДИАПАЗОН ЦЕНЫ" />
-        <CheckboxButtons h3="CHECKBOX BUTTONS" />
-        <RichCheckboxButtons h3="ДОСТУПНОСТЬ" />
-        <Dropdown option={"rooms"}/>
-        <ExpandableCheckboxList buttonTitle="дополнительные удобства" />
-        <span className="button-purpule-large">
-          <a className="button-purpule-large__link">применить</a>
-        </span>
-      </div>
-    </aside>
-  );
-};
+    </div>
+  </aside>
+);
 
 export default AsideFilters;

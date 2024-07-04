@@ -27,7 +27,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-page">
-       <Helmet>
+      <Helmet>
         <title>login-page</title>
       </Helmet>
       <HeaderMain />

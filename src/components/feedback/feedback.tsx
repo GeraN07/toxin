@@ -1,9 +1,10 @@
+import { FeedbackType } from '../../types/types';
 import './feedback.css';
 type FeedbackProps = {
-  feedBack: object
+  feedBack: FeedbackType;
 };
 const Feedback = ({ feedBack }: FeedbackProps) => {
-const {image, name, date, likes, text} = feedBack
+  const { image, name, date, likes, text } = feedBack;
 
   return (
     <div className="feedback">

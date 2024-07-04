@@ -11,11 +11,9 @@ type RoomsCatalogListProps = {
 const RoomsCatalogList = ({ toggleAside, rooms }: RoomsCatalogListProps) => {
   const [showButton, setShowButton] = useState(false);
 
-  const text = useMemo(() => {
-    return rooms.length < 1
-      ? "Извините, по вашим критериям не найдено подходящих номеров. Попробуйте изменить параметры фильтра."
-      : "Номера, которые мы для вас подобрали";
-  }, [rooms.length]);
+  const text = useMemo(() => rooms.length < 1
+    ? 'Извините, по вашим критериям не найдено подходящих номеров. Попробуйте изменить параметры фильтра.'
+    : 'Номера, которые мы для вас подобрали', [rooms.length]);
 
   const handleScroll = useCallback(() => {
     setShowButton(window.scrollY > 200 && window.innerWidth < 1161);

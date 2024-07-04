@@ -1,3 +1,5 @@
+// RoomCatalog.tsx
+
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
@@ -9,6 +11,7 @@ import Pagination from '../../components/pagination/pagination';
 import SmallFooter from '../../components/small-footer/small-footer';
 import { setRooms, setSortedRooms } from '../../store/action';
 import './rooms-catalog.css';
+import { getSortedRooms } from '../../store/selectors';
 
 const RoomCatalog = () => {
   const [asideOpen, setAsideOpen] = useState(false);
@@ -21,7 +24,7 @@ const RoomCatalog = () => {
     dispatch(setSortedRooms());
   }, [dispatch]);
 
-  const rooms = useSelector((state: { rooms: Rooms }) => state.filter.sortedRooms);
+  const rooms = useSelector(getSortedRooms);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -34,7 +37,7 @@ const RoomCatalog = () => {
   const lastRoomIndex = currentPage * roomsPerPage;
   const firstRoomIndex = lastRoomIndex - roomsPerPage;
   const currentRooms = rooms.slice(firstRoomIndex, lastRoomIndex);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber:number) => setCurrentPage(pageNumber);
   const prevPage = () => setCurrentPage((prev) => prev - 1);
   const nextPage = () => setCurrentPage((prev) => prev + 1);
 
@@ -63,5 +66,5 @@ const RoomCatalog = () => {
     </div>
   );
 };
-
-export default React.memo(RoomCatalog);
+const NamedRoomCatalog = React.memo(RoomCatalog);
+export default NamedRoomCatalog;

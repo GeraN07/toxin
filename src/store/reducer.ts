@@ -1,16 +1,18 @@
 import { roomsSort } from '../filter';
 import { Rooms } from '../types/rooms';
 import { createRooms, createFullRooms } from '../mocks/rooms';
+import { Store } from '../types/state';
+import { FilterActions } from '../types/actions';
 
-const initialState = {
+const initialState: Store = {
   rooms: [],
-  fullRoom:"",
+  fullRoom: undefined,
   sortedRooms: <Rooms>[],
   maxGuests: 1,
   adultCount: 0,
   childCount: 0,
   infantCount: 0,
-  datesRange: [null, null],
+  datesRange: [undefined, undefined],
   minPrice: 0,
   maxPrice: 16000,
   smoking: undefined,
@@ -30,13 +32,14 @@ const initialState = {
 };
 const rooms = createRooms(50);
 const fullRooms = createFullRooms(rooms);
-const filterReducer = (state = initialState, action) => {
+const filterReducer = (state = initialState, action: FilterActions) => {
   switch (action.type) {
     case 'SET_ROOMS':
       return { ...state, rooms: rooms };
-    case 'SET_FULL_ROOM':
+    case 'SET_FULL_ROOM': {
       const fullRoom = fullRooms.find((room) => room.id === action.payload);
       return { ...state, fullRoom: fullRoom };
+    }
     case 'SET_ADULT_COUNT':
       return { ...state, adultCount: action.payload };
     case 'SET_CHILD_COUNT':
@@ -79,26 +82,12 @@ const filterReducer = (state = initialState, action) => {
       return { ...state, tv: action.payload };
     case 'SET_SHAMPOO':
       return { ...state, shampoo: action.payload };
-    case 'SET_SORTED_ROOMS':
+    case 'SET_SORTED_ROOMS': {
       const sortedRooms = roomsSort(state.rooms, state);
       return { ...state, sortedRooms: sortedRooms };
+    }
     default:
       return state;
   }
 };
-// const reducer = createReducer(initialState, (builder) => {
-//   builder
-//     .addCase(changeCity, (state, action) => {
-//       const city = action.payload;
-//       state.city = city;
-//     })
-//     .addCase(changeSort, (state, action) => {
-//       const sortType = action.payload;
-//       state.currentSort = sortType;
-//     })
-//     .addCase(showRooms, (state) => {
-//       const { currentSort, city, rooms } = state;
-//       state.displayedOffers = roomsSort(rooms, city.name, currentSort);
-//     });
-// });
 export default filterReducer;

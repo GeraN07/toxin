@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import './rich-checkbox-buttons.css';
 import { setHelper, setSortedRooms, setWideCoridor } from '../../store/action';
 import { useSelector } from 'react-redux';
+import { getHelperStatus, getWideCoridorStatus } from '../../store/selectors';
 
 type RichCheckboxButtonsProps = {
   h3: string;
@@ -9,18 +10,20 @@ type RichCheckboxButtonsProps = {
 
 const RichCheckboxButtons = ({ h3 }: RichCheckboxButtonsProps) => {
   const dispatch = useDispatch();
-  const handleInputChange = (actionCreator) => (event) => {
-    dispatch(actionCreator(event.target.checked));
-    dispatch(setSortedRooms())
-  };
+  const handleInputChange = (actionCreator: (checked: boolean) => { type: string; payload: boolean }) =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(actionCreator(event.target.checked));
+      dispatch(setSortedRooms());
+    };
+
 
   const wideCoridorStatus = useSelector(
-    (state: { wideCoridor: Boolean }) => state.filter.wideCoridor
+    getWideCoridorStatus
   );
   const helperStatus = useSelector(
-    (state: { helper: Boolean }) => state.filter.helper
+    getHelperStatus
   );
-  
+
 
   return (
     <div className="rich-checkbox-buttons-block">
