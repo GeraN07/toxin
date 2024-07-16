@@ -1,4 +1,5 @@
 import StarRating from '../../components/star-rating/star-rating';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
@@ -68,4 +69,7 @@ const ItemCard = ({ room }: ItemCardProps) => {
   );
 };
 
-export default ItemCard;
+
+const areEqual = (prevProps: ItemCardProps, nextProps: ItemCardProps) => prevProps.room === nextProps.room;
+
+export default React.memo(ItemCard, areEqual);

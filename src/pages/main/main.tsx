@@ -4,15 +4,15 @@ import HeaderMain from '../../components/header-main/header-main';
 import './main.css';
 import SmallFooter from '../../components/small-footer/small-footer';
 import { Helmet } from 'react-helmet-async';
-import { useDispatch } from 'react-redux';
-import { setRooms } from '../../store/action';
+import { fetchRooms } from '../../store/api-actions';
+import { useAppDispatch } from '../../hooks';
 
 
 const Main = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
 
-  dispatch(setRooms());
+  dispatch(fetchRooms());
   return (
     <div className="landing-page">
       <Helmet>

@@ -3,7 +3,7 @@ import DoubleDateDropdown from '../../components/double-date-dropdown/double-dat
 import Dropdown from '../../components/dropdown-qty/dropdown-qty';
 import './booking-card.css';
 type BookingCardProps = {
-  price: number;
+  price: string;
 };
 
 const BookingCard = ({ price }: BookingCardProps) => {
@@ -11,7 +11,7 @@ const BookingCard = ({ price }: BookingCardProps) => {
   const handleDatesChange = (days: number) => {
     setTotalDays(days);
   };
-
+  const numPrice = parseInt(price);
   return (
     <div className="booking-card">
       <div className="booking-card__header">
@@ -35,7 +35,7 @@ const BookingCard = ({ price }: BookingCardProps) => {
           <span id="daysName">суток</span>
         </p>
         <p className="booking-card__text">
-          <span id="preAmount">{price * totalDays}</span>₽
+          <span id="preAmount">{numPrice * totalDays}</span>₽
         </p>
       </div>
       <div className="booking-card__service-charge price-line">
@@ -55,7 +55,7 @@ const BookingCard = ({ price }: BookingCardProps) => {
         <p className="booking-card__total-text">Итого</p>
         <div className="booking-card__doted-block" />
         <p className="booking-card__total-text booking-card__total-price">
-          <span id="totalAmount">{price * totalDays + 300}</span>₽
+          <span id="totalAmount">{numPrice * totalDays + 300}</span>₽
         </p>
       </div>
       <span className="button-purpule-large">

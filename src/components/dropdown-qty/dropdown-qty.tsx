@@ -1,7 +1,7 @@
 // Dropdown.tsx
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import useDropdown from '../../hooks/use-dropdown';
 import './item-quantity-dropdown.min.css';
 import './dropdown-qty.css';
@@ -16,6 +16,13 @@ import {
   setMaxGuests,
   setSortedRooms,
 } from '../../store/action';
+import { useAppDispatch } from '../../hooks';
+import {
+  getBathRooms,
+  getBedrooms,
+  getBeds,
+  getTotalGuests,
+} from '../../store/selectors';
 
 type DropdownProps = {
   option: string;
@@ -35,7 +42,7 @@ const Dropdown = ({ option }: DropdownProps) => {
   } = useDropdown(options);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleClickOutside = useCallback((event: MouseEvent) => {
     if (
@@ -46,18 +53,43 @@ const Dropdown = ({ option }: DropdownProps) => {
     }
   }, []);
 
+  const maxGuests = useSelector(getTotalGuests);
+  const bedrooms = useSelector(getBedrooms);
+  const beds = useSelector(getBeds);
+  const bathRooms = useSelector(getBathRooms);
+
   const handleSubmitButtonClick = useCallback(() => {
+    let bedroomsChanged = false;
+    let bedsChanged = false;
+    let bathRoomsChanged = false;
+
     if (option === 'rooms') {
-      dispatch(setBathrooms(itemCount.bathrooms || 0));
-      dispatch(setBedrooms(itemCount.bedrooms || 0));
-      dispatch(setBeds(itemCount.beds || 0));
+      if (bedrooms !== itemCount.bedrooms) {
+        dispatch(setBedrooms(itemCount.bedrooms || 0));
+        bedroomsChanged = true;
+      }
+      if (beds !== itemCount.beds) {
+        dispatch(setBeds(itemCount.beds || 0));
+        bedsChanged = true;
+      }
+      if (bathRooms !== itemCount.bathrooms) {
+        dispatch(setBathrooms(itemCount.bathrooms || 0));
+        bathRoomsChanged = true;
+      }
     } else {
       dispatch(setAdultCount(itemCount.adult || 0));
       dispatch(setChildCount(itemCount.child || 0));
       dispatch(setInfantCount(itemCount.infant || 0));
       dispatch(setMaxGuests(totalItems));
     }
-    dispatch(setSortedRooms());
+    if (
+      (option !== 'rooms' && maxGuests !== totalItems) ||
+      bedroomsChanged ||
+      bedsChanged ||
+      bathRoomsChanged
+    ) {
+      dispatch(setSortedRooms());
+    }
     setIsOpen(false);
   }, [dispatch, itemCount, totalItems, option]);
 
@@ -147,7 +179,6 @@ const Dropdown = ({ option }: DropdownProps) => {
     </div>
   );
 };
-
 
 const NamedDropdown = React.memo(Dropdown);
 export default NamedDropdown;

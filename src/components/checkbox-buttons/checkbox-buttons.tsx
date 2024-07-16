@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 import './checkbox-buttons.css';
 import {
   setGuests,
@@ -12,13 +11,14 @@ import {
   getPetStatus,
   getSmokingStatus,
 } from '../../store/selectors';
+import { useAppDispatch } from '../../hooks';
 
 type CheckboxButtonsProps = {
   h3: string;
 };
 
 const CheckboxButtons = ({ h3 }: CheckboxButtonsProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleValueChange = (actionCreator: (checked: boolean) => { type: string; payload: boolean }) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {

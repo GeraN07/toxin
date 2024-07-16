@@ -1,15 +1,15 @@
-import { useDispatch } from 'react-redux';
 import './rich-checkbox-buttons.css';
 import { setHelper, setSortedRooms, setWideCoridor } from '../../store/action';
 import { useSelector } from 'react-redux';
 import { getHelperStatus, getWideCoridorStatus } from '../../store/selectors';
+import { useAppDispatch } from '../../hooks';
 
 type RichCheckboxButtonsProps = {
   h3: string;
 };
 
 const RichCheckboxButtons = ({ h3 }: RichCheckboxButtonsProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleInputChange = (actionCreator: (checked: boolean) => { type: string; payload: boolean }) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
       dispatch(actionCreator(event.target.checked));

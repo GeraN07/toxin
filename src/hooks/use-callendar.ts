@@ -1,9 +1,10 @@
 import { useEffect, MutableRefObject, useRef } from 'react';
-import { useDispatch } from 'react-redux';
 import { setDatesRange, setSortedRooms } from '../store/action';
 import AirDatepicker from 'air-datepicker';
 import { useSelector } from 'react-redux';
 import { getDates } from '../store/selectors';
+import { useAppDispatch } from '.';
+import { toast } from 'react-toastify';
 
 const useCallendar = (
   calFirstRef: MutableRefObject<HTMLInputElement | null>,
@@ -11,8 +12,11 @@ const useCallendar = (
   onDatesChange?: (days: number) => void
 ) => {
   const isRenderedRef = useRef<boolean>(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const dates = useSelector(getDates);
+
+  // Сохраняем предыдущие значения дат
+  const prevDates = useRef<string[]>([]);
 
   useEffect(() => {
     if (calFirstRef.current && !isRenderedRef.current) {
@@ -40,11 +44,25 @@ const useCallendar = (
             className: 'custom-button-submit',
             onClick: () => {
               const oldDates = dp.selectedDates;
-              const newDates = [new Date(oldDates[0]), new Date(oldDates[1])];
-              if (dates.length === 2) {
+              if (oldDates[0] === undefined || oldDates[1] === undefined) {
+                toast.error('Выберите даты для применения');
+                return;
+              }
+              const newDates = [
+                new Date(oldDates[0]),
+                new Date(oldDates[1]),
+              ].map((date) => date.toISOString());
+
+              if (
+                newDates.length === 2 &&
+                (newDates[0] !== prevDates.current[0] ||
+                  newDates[1] !== prevDates.current[1])
+              ) {
                 dispatch(setDatesRange(newDates));
                 dispatch(setSortedRooms());
                 dp.hide();
+
+                prevDates.current = newDates;
               }
             },
           },
@@ -88,8 +106,11 @@ const useCallendar = (
       });
 
       if (dates[0] && dates[1]) {
-        const datess = [new Date(dates[0]), new Date(dates[1])];
-        dp.selectDate(datess);
+        const datesData = [new Date(dates[0]), new Date(dates[1])];
+        dp.selectDate(datesData);
+
+        // Инициализируем prevDates текущими значениями
+        prevDates.current = datesData.map((date) => date.toISOString());
       }
 
       isRenderedRef.current = true;

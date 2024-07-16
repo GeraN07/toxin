@@ -1,3 +1,4 @@
+import store from '../store/store';
 import { FullOffer, Rooms } from './rooms';
 
 export type Store = {
@@ -26,3 +27,6 @@ export type Store = {
   tv: boolean | undefined;
   shampoo: boolean | undefined;
 };
+
+export type State = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

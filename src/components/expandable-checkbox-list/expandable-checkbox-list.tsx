@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 import './expandable-checkbox-list.css';
 import { useState } from 'react';
 import {
@@ -19,6 +18,7 @@ import {
   getTableStatus,
   getTvStatus,
 } from '../../store/selectors';
+import { useAppDispatch } from '../../hooks';
 
 type ExpandableCheckboxListProps = {
   buttonTitle: string;
@@ -28,7 +28,7 @@ const ExpandableCheckboxList = ({
   buttonTitle,
 }: ExpandableCheckboxListProps) => {
   const [checkboxListOpen, setCheckboxlistOpen] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleInputChange = (actionCreator: (checked: boolean) => { type: string; payload: boolean }) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
       dispatch(actionCreator(event.target.checked));

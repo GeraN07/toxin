@@ -1,13 +1,12 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { roomsSort } from '../filter';
-import { Rooms } from '../types/rooms';
-import { createRooms, createFullRooms } from '../mocks/rooms';
 import { Store } from '../types/state';
-import { FilterActions } from '../types/actions';
+import { fetchRooms, fetchRoomById } from './api-actions'; // Импорт ваших асинхронных экшенов
 
 const initialState: Store = {
   rooms: [],
   fullRoom: undefined,
-  sortedRooms: <Rooms>[],
+  sortedRooms: [],
   maxGuests: 1,
   adultCount: 0,
   childCount: 0,
@@ -30,64 +29,112 @@ const initialState: Store = {
   tv: undefined,
   shampoo: undefined,
 };
-const rooms = createRooms(50);
-const fullRooms = createFullRooms(rooms);
-const filterReducer = (state = initialState, action: FilterActions) => {
-  switch (action.type) {
-    case 'SET_ROOMS':
-      return { ...state, rooms: rooms };
-    case 'SET_FULL_ROOM': {
-      const fullRoom = fullRooms.find((room) => room.id === action.payload);
-      return { ...state, fullRoom: fullRoom };
-    }
-    case 'SET_ADULT_COUNT':
-      return { ...state, adultCount: action.payload };
-    case 'SET_CHILD_COUNT':
-      return { ...state, childCount: action.payload };
-    case 'SET_INFANT_COUNT':
-      return { ...state, infantCount: action.payload };
-    case 'SET_MAX_GUESTS':
-      return { ...state, maxGuests: action.payload };
-    case 'SET_DATES_RANGE':
-      return { ...state, datesRange: action.payload };
-    case 'SET_MIN_PRICE':
-      return { ...state, minPrice: action.payload };
-    case 'SET_MAX_PRICE':
-      return { ...state, maxPrice: action.payload };
-    case 'SET_SMOKING':
-      return { ...state, smoking: action.payload };
-    case 'SET_PET':
-      return { ...state, pet: action.payload };
-    case 'SET_GUESTS':
-      return { ...state, guests: action.payload };
-    case 'SET_WIDE_CORIDOR':
-      return { ...state, wideCoridor: action.payload };
-    case 'SET_BEDROOMS':
-      return { ...state, bedroomCount: action.payload };
-    case 'SET_BEDS':
-      return { ...state, bedsCount: action.payload };
-    case 'SET_BATHROOMS':
-      return { ...state, bathRoomsCount: action.payload };
-    case 'SET_HELPER':
-      return { ...state, helper: action.payload };
-    case 'SET_BREAKFAST':
-      return { ...state, breakfast: action.payload };
-    case 'SET_TABLE':
-      return { ...state, table: action.payload };
-    case 'SET_HCHAIR':
-      return { ...state, hchair: action.payload };
-    case 'SET_BABY_BED':
-      return { ...state, babyBed: action.payload };
-    case 'SET_TV':
-      return { ...state, tv: action.payload };
-    case 'SET_SHAMPOO':
-      return { ...state, shampoo: action.payload };
-    case 'SET_SORTED_ROOMS': {
-      const sortedRooms = roomsSort(state.rooms, state);
-      return { ...state, sortedRooms: sortedRooms };
-    }
-    default:
-      return state;
-  }
-};
-export default filterReducer;
+
+const filterSlice = createSlice({
+  name: 'filter',
+  initialState,
+  reducers: {
+    setMaxGuests(state, action: PayloadAction<number>) {
+      state.maxGuests = action.payload;
+    },
+    setAdultCount(state, action: PayloadAction<number>) {
+      state.adultCount = action.payload;
+    },
+    setChildCount(state, action: PayloadAction<number>) {
+      state.childCount = action.payload;
+    },
+    setInfantCount(state, action: PayloadAction<number>) {
+      state.infantCount = action.payload;
+    },
+    setDatesRange(state, action: PayloadAction<string[]>) {
+      state.datesRange = action.payload;
+    },
+    setMinPrice(state, action: PayloadAction<number>) {
+      state.minPrice = action.payload;
+    },
+    setMaxPrice(state, action: PayloadAction<number>) {
+      state.maxPrice = action.payload;
+    },
+    setSmoking(state, action: PayloadAction<boolean | undefined>) {
+      state.smoking = action.payload;
+    },
+    setPet(state, action: PayloadAction<boolean | undefined>) {
+      state.pet = action.payload;
+    },
+    setGuests(state, action: PayloadAction<boolean | undefined>) {
+      state.guests = action.payload;
+    },
+    setWideCoridor(state, action: PayloadAction<boolean | undefined>) {
+      state.wideCoridor = action.payload;
+    },
+    setHelper(state, action: PayloadAction<boolean | undefined>) {
+      state.helper = action.payload;
+    },
+    setBedrooms(state, action: PayloadAction<number>) {
+      state.bedroomCount = action.payload;
+    },
+    setBeds(state, action: PayloadAction<number>) {
+      state.bedsCount = action.payload;
+    },
+    setBathrooms(state, action: PayloadAction<number>) {
+      state.bathRoomsCount = action.payload;
+    },
+    setBreakfast(state, action: PayloadAction<boolean | undefined>) {
+      state.breakfast = action.payload;
+    },
+    setTable(state, action: PayloadAction<boolean | undefined>) {
+      state.table = action.payload;
+    },
+    setHchair(state, action: PayloadAction<boolean | undefined>) {
+      state.hchair = action.payload;
+    },
+    setBabyBed(state, action: PayloadAction<boolean | undefined>) {
+      state.babyBed = action.payload;
+    },
+    setTv(state, action: PayloadAction<boolean | undefined>) {
+      state.tv = action.payload;
+    },
+    setShampoo(state, action: PayloadAction<boolean | undefined>) {
+      state.shampoo = action.payload;
+    },
+    setSortedRooms(state) {
+      state.sortedRooms = roomsSort(state.rooms, state);
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchRooms.fulfilled, (state, action) => {
+        state.rooms = action.payload;
+      })
+      .addCase(fetchRoomById.fulfilled, (state, action) => {
+        state.fullRoom = action.payload;
+      });
+  },
+});
+
+export const {
+  setMaxGuests,
+  setAdultCount,
+  setChildCount,
+  setInfantCount,
+  setDatesRange,
+  setMinPrice,
+  setMaxPrice,
+  setSmoking,
+  setPet,
+  setGuests,
+  setWideCoridor,
+  setHelper,
+  setBedrooms,
+  setBeds,
+  setBathrooms,
+  setBreakfast,
+  setTable,
+  setHchair,
+  setBabyBed,
+  setTv,
+  setShampoo,
+  setSortedRooms,
+} = filterSlice.actions;
+
+export default filterSlice.reducer;

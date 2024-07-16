@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import BigFooter from '../../components/big-footer/big-footer';
 import BookingCard from '../../cards/booking-card/booking-card';
 import BulletList from '../../components/bullet-list/bullet-list';
@@ -8,33 +9,32 @@ import './room-details.css';
 import SmallFooter from '../../components/small-footer/small-footer';
 import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFullRoom } from '../../store/action';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Preloader from '../../components/preloader/preloader';
 import { FeatureType, FeedbackType } from '../../types/types';
 import { getFullRoom } from '../../store/selectors';
+import { fetchRoomById } from '../../store/api-actions';
+import { useAppDispatch } from '../../hooks';
 
 const RoomDetails = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (id) {
-      dispatch(setFullRoom(id));
+      dispatch(fetchRoomById(id)).finally(() => setIsLoading(false));
     }
   }, [id, dispatch]);
 
+  const room = useSelector(getFullRoom);
 
-  const room = useSelector(
-    getFullRoom
-  );
-
-  if (!room) {
+  if (!room || isLoading) {
     return <Preloader />;
   }
 
-  const {imgArr, features, votes, feedback, price} = room;
-  const {pet} = room.checkboxes;
+  const { imgArr, features, votes, feedback, price } = room;
+  const { pet } = room.checkboxes;
 
   return (
     <div className="room-details">
@@ -69,8 +69,8 @@ const RoomDetails = () => {
               <h1 className="room-details__features-title">
                 Сведения о номере
               </h1>
-              {features.map((feature:FeatureType) => (
-                <Feature feature={feature} key={feature.title}/>
+              {features.map((feature: FeatureType) => (
+                <Feature feature={feature} key={feature.title} />
               ))}
             </div>
             <div className="room-details__room-impressions revealator-once revealator-delay3">
@@ -126,8 +126,8 @@ const RoomDetails = () => {
                 </h1>
                 <p className="room-details__feedbacks-count">{`${feedback.length} отзыва`}</p>
               </div>
-              {feedback.map((feedbackItem:FeedbackType) => (
-                <Feedback feedBack={feedbackItem} key={feedbackItem.name }/>
+              {feedback.map((feedbackItem: FeedbackType) => (
+                <Feedback feedBack={feedbackItem} key={feedbackItem.name} />
               ))}
             </div>
             <div className="room-details__room-rules revealator-fade revealator-once revealator-delay1">
@@ -147,7 +147,7 @@ const RoomDetails = () => {
             className="room-details__book-details revealator-fade revealator-once"
             id="room-book"
           >
-            <BookingCard price={price}/>
+            <BookingCard price={price} />
           </div>
           <div className="room-details__book-anchor-button" id="anchor-button">
             <a className="room-details__anchor-button-text" href="#room-book">

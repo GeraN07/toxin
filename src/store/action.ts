@@ -1,112 +1,114 @@
 // actions.js
-export const setMaxGuests = (maxGuests: number) => ({
-  type: 'SET_MAX_GUESTS',
+export const setMaxGuests = (maxGuests:number) => ({
+  type: 'filter/setMaxGuests',
   payload: maxGuests,
 });
 
-export const setFullRoom = (id: string) => ({
-  type: 'SET_FULL_ROOM',
+export const setFullRoom = (id:string) => ({
+  type: 'filter/setFullRoom',
   payload: id,
 });
 
-export const setAdultCount = (adultCount: number) => ({
-  type: 'SET_ADULT_COUNT',
+export const setAdultCount = (adultCount:number) => ({
+  type: 'filter/setAdultCount',
   payload: adultCount,
 });
-export const setChildCount = (childCount: number) => ({
-  type: 'SET_CHILD_COUNT',
+
+export const setChildCount = (childCount:number) => ({
+  type: 'filter/setChildCount',
   payload: childCount,
 });
-export const setInfantCount = (infantCount: number) => ({
-  type: 'SET_INFANT_COUNT',
+
+export const setInfantCount = (infantCount:number) => ({
+  type: 'filter/setInfantCount',
   payload: infantCount,
 });
 
-export const setDatesRange = (datesRange: Date[]) => ({
-  type: 'SET_DATES_RANGE',
-  payload: datesRange.map((date) => date.toISOString()),
+export const setDatesRange = (datesRange:string[]) => ({
+  type: 'filter/setDatesRange',
+  payload: datesRange,
 });
 
-export const setMinPrice = (minPrice: number) => ({
-  type: 'SET_MIN_PRICE',
+export const setMinPrice = (minPrice:number) => ({
+  type: 'filter/setMinPrice',
   payload: minPrice,
 });
 
-export const setMaxPrice = (maxPrice: number) => ({
-  type: 'SET_MAX_PRICE',
+export const setMaxPrice = (maxPrice:number) => ({
+  type: 'filter/setMaxPrice',
   payload: maxPrice,
 });
 
-export const setSmoking = (smoking: boolean) => ({
-  type: 'SET_SMOKING',
+export const setSmoking = (smoking:boolean) => ({
+  type: 'filter/setSmoking',
   payload: smoking,
 });
 
-export const setPet = (pet: boolean) => ({
-  type: 'SET_PET',
+export const setPet = (pet:boolean) => ({
+  type: 'filter/setPet',
   payload: pet,
 });
 
-export const setGuests = (guests: boolean) => ({
-  type: 'SET_GUESTS',
+export const setGuests = (guests:boolean) => ({
+  type: 'filter/setGuests',
   payload: guests,
 });
 
-export const setWideCoridor = (wideCoridor: boolean) => ({
-  type: 'SET_WIDE_CORIDOR',
+export const setWideCoridor = (wideCoridor:boolean) => ({
+  type: 'filter/setWideCoridor',
   payload: wideCoridor,
 });
 
-export const setHelper = (helper: boolean) => ({
-  type: 'SET_HELPER',
+export const setHelper = (helper:boolean) => ({
+  type: 'filter/setHelper',
   payload: helper,
 });
-export const setBedrooms = (bedroomCount: number) => ({
-  type: 'SET_BEDROOMS',
+
+export const setBedrooms = (bedroomCount:number) => ({
+  type: 'filter/setBedrooms',
   payload: bedroomCount,
 });
-export const setBeds = (bedsCount: number) => ({
-  type: 'SET_BEDS',
+
+export const setBeds = (bedsCount:number) => ({
+  type: 'filter/setBeds',
   payload: bedsCount,
 });
-export const setBathrooms = (bathrooms: number) => ({
-  type: 'SET_BATHROOMS',
+
+export const setBathrooms = (bathrooms:number) => ({
+  type: 'filter/setBathrooms',
   payload: bathrooms,
 });
 
-export const setBreakfast = (breakfast: boolean) => ({
-  type: 'SET_BREAKFAST',
+export const setBreakfast = (breakfast:boolean) => ({
+  type: 'filter/setBreakfast',
   payload: breakfast,
 });
 
-export const setTable = (table: boolean) => ({
-  type: 'SET_TABLE',
+export const setTable = (table:boolean) => ({
+  type: 'filter/setTable',
   payload: table,
 });
 
-export const setHchair = (hchair: boolean) => ({
-  type: 'SET_HCHAIR',
+export const setHchair = (hchair:boolean) => ({
+  type: 'filter/setHchair',
   payload: hchair,
 });
 
-export const setBabyBed = (babyBed: boolean) => ({
-  type: 'SET_BABY_BED',
+export const setBabyBed = (babyBed:boolean) => ({
+  type: 'filter/setBabyBed',
   payload: babyBed,
 });
 
-export const setTv = (tv: boolean) => ({
-  type: 'SET_TV',
+export const setTv = (tv:boolean) => ({
+  type: 'filter/setTv',
   payload: tv,
 });
 
-export const setShampoo = (shampoo: boolean) => ({
-  type: 'SET_SHAMPOO',
+export const setShampoo = (shampoo:boolean) => ({
+  type: 'filter/setShampoo',
   payload: shampoo,
 });
 
-export const setRooms = () => ({
-  type: 'SET_ROOMS',
-});
 export const setSortedRooms = () => ({
-  type: 'SET_SORTED_ROOMS',
+  type: 'filter/setSortedRooms',
 });
