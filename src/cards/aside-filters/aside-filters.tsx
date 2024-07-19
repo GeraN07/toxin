@@ -24,7 +24,7 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => (
       <Dropdown option={'rooms'}/>
       <ExpandableCheckboxList buttonTitle="дополнительные удобства" />
       <span className="button-purpule-large">
-        <a className="button-purpule-large__link">применить</a>
+        <a className="button-purpule-large__link" onClick={toggleAside}>применить</a>
       </span>
     </div>
   </aside>

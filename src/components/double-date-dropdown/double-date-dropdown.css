@@ -13,7 +13,6 @@
   margin-bottom: 5.4px;
 }
 
-
 input.dates {
   width: 150px;
   height: 44px;
@@ -136,7 +135,8 @@ input.dates {
   color: rgba(31, 32, 65, 0.5);
 }
 
-.air-datepicker-cell.-current- {
+.air-datepicker-cell.-current-,
+.air-datepicker-cell.-current-.-disabled- {
   font-family: Montserrat-Bold, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -155,7 +155,13 @@ input.dates {
   background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
   opacity: 0.25;
 }
-
+.air-datepicker-cell.-in-range-.-disabled- {
+  background: white;
+  opacity: 0.25;
+}
+.air-datepicker-cell.-in-range-.-disabled-.-focus-.-range-to- {
+  background: white;
+}
 .air-datepicker-cell.-in-range-:hover {
   border-radius: 0;
 }
@@ -167,6 +173,16 @@ input.dates {
 }
 .air-datepicker-cell.-current-.-selected- {
   background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+}
+
+.air-datepicker-cell.-disabled- {
+  color: rgba(26, 23, 23, 0.226);
+  border-radius: 0;
+}
+.air-datepicker-cell.-disabled-:hover {
+  border-radius: 0;
+  background-color: #fff;
+  color: rgba(26, 23, 23, 0.226);
 }
 
 .air-datepicker-cell {
@@ -212,7 +228,6 @@ input.dates {
   background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
   z-index: -1;
 }
-
 .air-datepicker-cell.-range-from-.-focus-::before {
   position: absolute;
   right: -1px;
@@ -227,6 +242,12 @@ input.dates {
 .air-datepicker-cell.-range-to-.-focus- {
   background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
   opacity: 0.25;
+}
+.air-datepicker-cell.-range-to-.-focus-.-disabled-::before,
+.air-datepicker-cell.-range-to-.-focus-.-disabled- {
+  background: #ffffff;
+  border: none;
+  color: rgba(0, 0, 0, 0.801);
 }
 
 .air-datepicker-nav {
@@ -279,8 +300,8 @@ input.dates {
   margin: 0;
 }
 
-.air-datepicker--buttons{
-  border:  none;
+.air-datepicker--buttons {
+  border: none;
 }
 .air-datepicker-buttons {
   border-top: none;
@@ -319,7 +340,7 @@ input.dates {
   /* identical to box height */
   max-width: 84px;
   text-transform: uppercase;
-  
+
   margin-bottom: 20px;
 }
 

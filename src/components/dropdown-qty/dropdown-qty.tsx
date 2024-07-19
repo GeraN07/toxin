@@ -1,5 +1,3 @@
-// Dropdown.tsx
-
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import useDropdown from '../../hooks/use-dropdown';
@@ -23,12 +21,14 @@ import {
   getBeds,
   getTotalGuests,
 } from '../../store/selectors';
+import { toast } from 'react-toastify';
 
 type DropdownProps = {
   option: string;
+  roomMaxGuests?: number;
 };
 
-const Dropdown = ({ option }: DropdownProps) => {
+const Dropdown = ({ option, roomMaxGuests }: DropdownProps) => {
   const options =
     option === 'rooms' ? dropdownOptions['rooms'] : dropdownOptions['guest'];
   const {
@@ -59,22 +59,24 @@ const Dropdown = ({ option }: DropdownProps) => {
   const bathRooms = useSelector(getBathRooms);
 
   const handleSubmitButtonClick = useCallback(() => {
-    let bedroomsChanged = false;
-    let bedsChanged = false;
-    let bathRoomsChanged = false;
+    const changes: { [key: string]: boolean } = {
+      bedrooms: false,
+      beds: false,
+      bathRooms: false,
+    };
 
     if (option === 'rooms') {
       if (bedrooms !== itemCount.bedrooms) {
         dispatch(setBedrooms(itemCount.bedrooms || 0));
-        bedroomsChanged = true;
+        changes.bedrooms = true;
       }
       if (beds !== itemCount.beds) {
         dispatch(setBeds(itemCount.beds || 0));
-        bedsChanged = true;
+        changes.beds = true;
       }
       if (bathRooms !== itemCount.bathrooms) {
         dispatch(setBathrooms(itemCount.bathrooms || 0));
-        bathRoomsChanged = true;
+        changes.bathRooms = true;
       }
     } else {
       dispatch(setAdultCount(itemCount.adult || 0));
@@ -82,16 +84,31 @@ const Dropdown = ({ option }: DropdownProps) => {
       dispatch(setInfantCount(itemCount.infant || 0));
       dispatch(setMaxGuests(totalItems));
     }
+
+    if (roomMaxGuests && roomMaxGuests < totalItems) {
+      toast.error(
+        `Выбранное количество гостей превышает вместимость номера. Макс. ${roomMaxGuests} без учета младенцев.`
+      );
+    }
+
     if (
       (option !== 'rooms' && maxGuests !== totalItems) ||
-      bedroomsChanged ||
-      bedsChanged ||
-      bathRoomsChanged
+      Object.values(changes).some((change) => change)
     ) {
       dispatch(setSortedRooms());
     }
     setIsOpen(false);
-  }, [dispatch, itemCount, totalItems, option]);
+  }, [
+    dispatch,
+    itemCount,
+    totalItems,
+    option,
+    maxGuests,
+    bedrooms,
+    beds,
+    bathRooms,
+    roomMaxGuests,
+  ]);
 
   const handleEraseButtonClick = useCallback(() => {
     if (option === 'rooms') {

@@ -9,7 +9,8 @@ import { toast } from 'react-toastify';
 const useCallendar = (
   calFirstRef: MutableRefObject<HTMLInputElement | null>,
   calLastRef?: MutableRefObject<HTMLInputElement | null>,
-  onDatesChange?: (days: number) => void
+  onDatesChange?: (days: number) => void,
+  availableDates: string[] = []
 ) => {
   const isRenderedRef = useRef<boolean>(false);
   const dispatch = useAppDispatch();
@@ -17,6 +18,16 @@ const useCallendar = (
 
   // Сохраняем предыдущие значения дат
   const prevDates = useRef<string[]>([]);
+
+  // Преобразование строковых дат в объекты Date и установка времени на полдень локального времени
+  const availableDateObjects = availableDates.map((date) => {
+    const d = new Date(date);
+    d.setHours(12, 0, 0, 0); // Установка времени на 12:00 дня
+    return d;
+  });
+  const startAvailableDate = availableDateObjects[0] || new Date();
+  const endAvailableDate =
+    availableDateObjects[availableDateObjects.length - 1] || new Date();
 
   useEffect(() => {
     if (calFirstRef.current && !isRenderedRef.current) {
@@ -44,7 +55,7 @@ const useCallendar = (
             className: 'custom-button-submit',
             onClick: () => {
               const oldDates = dp.selectedDates;
-              if (oldDates[0] === undefined || oldDates[1] === undefined) {
+              if (oldDates.length < 2) {
                 toast.error('Выберите даты для применения');
                 return;
               }
@@ -61,7 +72,6 @@ const useCallendar = (
                 dispatch(setDatesRange(newDates));
                 dispatch(setSortedRooms());
                 dp.hide();
-
                 prevDates.current = newDates;
               }
             },
@@ -103,19 +113,41 @@ const useCallendar = (
             onDatesChange(diffDays);
           }
         },
+        onRenderCell({ date, cellType }) {
+          if (cellType === 'day' && availableDates.length > 0) {
+            date.setHours(12, 0, 0, 0);
+            const dateString = date.toISOString().split('T')[0];
+            const dateObj = new Date(dateString);
+            dateObj.setHours(12, 0, 0, 0);
+
+            if (dateObj < startAvailableDate || dateObj > endAvailableDate) {
+              return {
+                disabled: true,
+              };
+            }
+          }
+          return {};
+        },
       });
 
-      if (dates[0] && dates[1]) {
+      if (dates[0] && dates[1] && availableDates.length === 0) {
         const datesData = [new Date(dates[0]), new Date(dates[1])];
         dp.selectDate(datesData);
-
-        // Инициализируем prevDates текущими значениями
         prevDates.current = datesData.map((date) => date.toISOString());
       }
 
       isRenderedRef.current = true;
     }
-  }, [calFirstRef, calLastRef, onDatesChange, dispatch, dates]);
+  }, [
+    calFirstRef,
+    calLastRef,
+    onDatesChange,
+    dispatch,
+    dates,
+    startAvailableDate,
+    endAvailableDate,
+    availableDates,
+  ]);
 
   return null;
 };
