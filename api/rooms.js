@@ -212,7 +212,6 @@ export default function handler(req, res) {
   const { id } = req.query;
   console.log(`Received request for room id: ${id}`);
   if (id) {
-    console.log(`Received request for room id: ${id}`);
     const fullRoom = fullRooms.find((room) => room.id === id);
     if (!fullRoom) {
       console.log(`Room with id ${id} not found`);
@@ -220,7 +219,7 @@ export default function handler(req, res) {
       return;
     }
     console.log(`Found room data: ${JSON.stringify(fullRoom.data)}`);
-    res.json(fullRoom.data);
+    res.json(fullRoom);
   } else {
     console.log('Returning all rooms');
     res.json(rooms);
