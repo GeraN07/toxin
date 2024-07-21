@@ -2,11 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "api/rooms.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "src/**/*.tsx",
+        "src": "package.json",
         "use": "@vercel/static-build",
         "config": {
           "distDir": "dist"
