@@ -4,6 +4,13 @@
       {
         "src": "api/rooms.js",
         "use": "@vercel/node"
+      },
+      {
+        "src": "src/**/*.tsx",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
       }
     ],
     "routes": [
@@ -16,8 +23,10 @@
         "dest": "/api/rooms.js?id=:id"
       }
     ],
-    "env": {
-      "NPM_FLAGS": "--legacy-peer-deps"
+    "build": {
+      "env": {
+        "NPM_FLAGS": "--legacy-peer-deps"
+      }
     }
   }
   
