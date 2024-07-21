@@ -7,7 +7,7 @@
   content: '';
   display: inline-block;
   height: 100%;
-  background: url(img/stars.svg) transparent no-repeat center;
+  background: url('img/stars.svg') transparent no-repeat center;
 }
 .rating__stars span {
   position: absolute;
@@ -21,7 +21,7 @@
   content: '';
   display: inline-block;
   height: 100%;
-  background: url(img/stars-active.svg) transparent no-repeat center;
+  background: url('img/stars-active.svg') transparent no-repeat center;
 }
 
 .reviews__rating {
