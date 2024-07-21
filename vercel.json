@@ -15,6 +15,9 @@
         "src": "/api/rooms/:id",
         "dest": "/api/rooms.js?id=:id"
       }
-    ]
+    ],
+    "env": {
+      "NPM_FLAGS": "--legacy-peer-deps"
+    }
   }
   
