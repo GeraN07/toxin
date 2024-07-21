@@ -16,7 +16,7 @@ const StatusCodeMapping: Record<number, boolean> = {
 const shouldDisplayError = (response: AxiosResponse) =>
   !!StatusCodeMapping[response.status];
 
-const BACKEND_URL = 'http://localhost:3001';
+const BACKEND_URL = 'https://vercel-project.vercel.app/api';
 const REQUEST_TIMEOUT = 5000;
 
 export const createAPI = (): AxiosInstance => {
