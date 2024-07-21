@@ -201,7 +201,7 @@ let fullRooms = [];
 const createFullRooms = (rooms) =>
   rooms.map((room) => {
     const fullRoom = createFullRandomRoom(room);
-    fullRooms.push({ id: room.id, data: fullRoom }); // Сохраняем объект с id комнаты как строку
+    fullRooms.push({ id: room.id, data: fullRoom });
     return { ...room, ...fullRoom };
   });
 
@@ -213,11 +213,11 @@ export default function handler(req, res) {
 
   if (id) {
     const fullRoom = fullRooms.find((room) => room.id === id);
-    if    (!fullRoom) {
+    if (!fullRoom) {
       res.status(404).json({ message: "Full room data not found" });
       return;
     }
-    res.json(fullRoom);
+    res.json(fullRoom.data);
   } else {
     res.json(rooms);
   }
