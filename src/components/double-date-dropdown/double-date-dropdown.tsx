@@ -7,7 +7,7 @@ type DoubleDateDropdownProps = {
   firstTitle?: string;
   secondTitle?: string;
   onDatesChange?: (days: number) => void;
-  availableDates: string[];
+  availableDates?: string[];
 };
 
 const DoubleDateDropdown = ({
