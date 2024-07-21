@@ -210,7 +210,7 @@ fullRooms = createFullRooms(rooms);
 
 export default function handler(req, res) {
   const { id } = req.query;
-
+  console.log(`Received request for room id: ${id}`);
   if (id) {
     console.log(`Received request for room id: ${id}`);
     const fullRoom = fullRooms.find((room) => room.id === id);
