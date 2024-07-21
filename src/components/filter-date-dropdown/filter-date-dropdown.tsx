@@ -2,19 +2,19 @@ import useCallendar from '../../hooks/use-callendar';
 import { useState, useEffect, useRef } from 'react';
 import './filter-date-dropdown.css';
 
-
 const FilterDateDropdown = () => {
   const calRef = useRef(null);
   const calBlockRef = useRef<HTMLDivElement>(null);
   const [calendarOpen, setCalendarOpen] = useState(false);
+
   useEffect(() => {
-    const handleCalendarClose = (event:MouseEvent) => {
+    const handleCalendarClose = (event: MouseEvent) => {
       const cal = document.querySelector('.air-datepicker');
       if (
         calBlockRef.current &&
-        !calBlockRef.current.contains(event.target) &&
+        !calBlockRef.current.contains(event.target as Node) && 
         cal &&
-        !cal.contains(event.target)
+        !cal.contains(event.target as Node)
       ) {
         setCalendarOpen(false);
       }
@@ -30,6 +30,7 @@ const FilterDateDropdown = () => {
   const handleCalendarToggle = () => {
     setCalendarOpen(!calendarOpen);
   };
+
   useEffect(() => {
     if (calBlockRef.current) {
       if (calendarOpen) {
@@ -39,7 +40,9 @@ const FilterDateDropdown = () => {
       }
     }
   }, [calendarOpen]);
+
   useCallendar(calRef);
+
   return (
     <div className="filter-date-dropdown-block" ref={calBlockRef}>
       <div className="filter-date-dropdown-block__filter-date-dropdown-header">

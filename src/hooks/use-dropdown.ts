@@ -49,7 +49,9 @@ const useDropdown = (
     selectionText: 'item',
     textPlural: 'items',
     items: [],
-    onChange: (id: string, newCount: number, totalItems: number) => {}, // Placeholder function
+    onChange: (id: string, newCount: number, totalItems: number) => {
+      console.log(`Item changed: ${id}, New count: ${newCount}, Total items: ${totalItems}`);
+    },
     beforeDecrement: () => true,
     beforeIncrement: () => true,
     setSelectionText(itemCount: ItemCount) {
