@@ -1,32 +1,31 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "api/rooms.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "dist"
-        }
-      }
-    ],
-    "routes": [
-      {
-        "src": "/api/rooms",
-        "dest": "/api/rooms.js"
-      },
-      {
-        "src": "/api/rooms/(.*)",
-        "dest": "/api/rooms.js?id=$1"
-      }
-    ],
-    "build": {
-      "env": {
-        "NPM_FLAGS": "--legacy-peer-deps"
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/rooms.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
       }
     }
+  ],
+  "routes": [
+    {
+      "src": "/api/rooms",
+      "dest": "/api/rooms.js"
+    },
+    {
+      "src": "/api/rooms/(.*)",
+      "dest": "/api/rooms.js?id=$1"
+    }
+  ],
+  "build": {
+    "env": {
+      "NPM_FLAGS": "--legacy-peer-deps"
+    }
   }
-  
+}

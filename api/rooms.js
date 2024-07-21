@@ -212,13 +212,17 @@ export default function handler(req, res) {
   const { id } = req.query;
 
   if (id) {
+    console.log(`Received request for room id: ${id}`);
     const fullRoom = fullRooms.find((room) => room.id === id);
     if (!fullRoom) {
+      console.log(`Room with id ${id} not found`);
       res.status(404).json({ message: "Full room data not found" });
       return;
     }
+    console.log(`Found room data: ${JSON.stringify(fullRoom.data)}`);
     res.json(fullRoom.data);
   } else {
+    console.log('Returning all rooms');
     res.json(rooms);
   }
 }
