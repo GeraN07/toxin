@@ -19,8 +19,8 @@
       "dest": "/api/rooms.js"
     },
     {
-      "src": "/api/rooms/(.*)",
-      "dest": "/api/rooms.js?id=$1"
+      "src": "/api/rooms/:id",
+      "dest": "/api/rooms.js?id=:id"
     }
   ],
   "build": {
