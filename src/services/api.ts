@@ -16,7 +16,7 @@ const StatusCodeMapping: Record<number, boolean> = {
 const shouldDisplayError = (response: AxiosResponse) =>
   !!StatusCodeMapping[response.status];
 
-const BACKEND_URL = 'https://toxin-39t3mjrtu-geran7s-projects.vercel.app/api';
+const BACKEND_URL = 'https://toxin-eight.vercel.app/api';
 const REQUEST_TIMEOUT = 5000;
 
 export const createAPI = (): AxiosInstance => {
