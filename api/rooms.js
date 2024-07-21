@@ -193,7 +193,7 @@ const createFullRandomRoom = (room) => {
   };
 };
 
-const createRooms = (numRooms = 50) =>
+const createRooms = (numRooms = 25) =>
   Array.from({ length: numRooms }, createRandomRoom);
 
 let fullRooms = [];
