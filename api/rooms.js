@@ -1,4 +1,4 @@
-const { faker } = require('@faker-js/faker');
+import { faker } from '@faker-js/faker';
 
 const features = [
   { icon: "insert_emoticon", title: "Комфорт", text: "Шумопоглощающие стены" },
@@ -193,7 +193,7 @@ const createFullRandomRoom = (room) => {
   };
 };
 
-const createRooms = (numRooms = 25) =>
+const createRooms = (numRooms = 50) =>
   Array.from({ length: numRooms }, createRandomRoom);
 
 let fullRooms = [];
