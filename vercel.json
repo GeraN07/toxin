@@ -21,6 +21,10 @@
     {
       "src": "/api/rooms/(.*)",
       "dest": "/api/rooms.js?id=$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "build": {
