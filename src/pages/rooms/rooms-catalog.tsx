@@ -11,7 +11,7 @@ import Pagination from '../../components/pagination/pagination';
 import SmallFooter from '../../components/small-footer/small-footer';
 import { setSortedRooms } from '../../store/action';
 import './rooms-catalog.css';
-import { getSortedRooms } from '../../store/selectors';
+import { getAllRooms, getSortedRooms } from '../../store/selectors';
 import Preloader from '../../components/preloader/preloader';
 import { fetchRooms } from '../../store/api-actions';
 import { useAppDispatch } from '../../hooks';
@@ -28,10 +28,11 @@ const RoomCatalog = () => {
     setIsLoading(false);
   }, [dispatch]);
 
+  const allRooms = useSelector(getAllRooms);
   const rooms = useSelector(getSortedRooms);
 
   useEffect(() => {
-    if (rooms.length < 1) {
+    if (allRooms.length < 1) {
       setIsLoading(true);
       dispatch(fetchRooms())
         .then(() => dispatch(setSortedRooms()))
