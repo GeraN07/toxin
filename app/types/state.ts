@@ -1,13 +1,11 @@
 import store from '../store/store';
-import { FullOffer, Rooms } from './rooms';
 
 export type Store = {
-  fullRoom: FullOffer | undefined;
   maxGuests: number;
   adultCount: number;
   childCount: number;
   infantCount: number;
-  datesRange: string[] | undefined[];
+  datesRange: string[] | null[];
   minPrice: number;
   maxPrice: number;
   smoking: boolean | undefined;

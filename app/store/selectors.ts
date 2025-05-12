@@ -30,10 +30,6 @@ export const getAdults = createSelector(selectState, (state) => state.adultCount
 export const getChild = createSelector(selectState, (state) => state.childCount);
 export const getInfant = createSelector(selectState, (state) => state.infantCount);
 
-export const getAllRooms = createSelector(selectState, (state) => state.rooms);
-export const getFullRoom = createSelector(selectState, (state) => state.fullRoom);
-export const getSortedRooms = createSelector(selectState, (state) => state.sortedRooms);
-
 export const getTotalGuests = createSelector(selectState, (state) => state.maxGuests);
 
 

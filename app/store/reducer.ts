@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { State, Store } from '../types/state';
+import { Store } from '../types/state';
 
 const initialState: Store = {
-  fullRoom: null, 
   maxGuests: 1,
   adultCount: 0,
   childCount: 0,
@@ -30,7 +29,7 @@ const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    setFilters(state, action: PayloadAction<Partial<State>>) {
+    setFilters(state, action: PayloadAction<Partial<typeof initialState>>) {
       Object.assign(state, action.payload);
     },
     setMaxGuests(state, action: PayloadAction<number>) {
@@ -97,7 +96,6 @@ const filterSlice = createSlice({
       state.shampoo = action.payload;
     },
   },
- 
 });
 
 export const {
