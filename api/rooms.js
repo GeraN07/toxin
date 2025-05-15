@@ -88,7 +88,7 @@ const generateDates = () => {
   });
   startDate.setUTCHours(12, 0, 0, 0);
 
-  const daysToAdd = faker.datatype.number({ min: 1, max: 14 });
+  const daysToAdd = faker.number.int({ min: 1, max: 14 });
   const endDate = new Date(
     startDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000
   );
@@ -100,20 +100,20 @@ const generateDates = () => {
 const createRandomRoom = () => {
   const dates = generateDates().map((date) => date.toISOString());
   return {
-    id: faker.datatype.uuid(),
-    roomNumber: faker.datatype.number({ min: 1, max: 100 }).toString(),
-    price: faker.datatype.number({ max: 9999 }).toString(),
-    reviews: faker.datatype.number({ max: 10 }).toString(),
+    id: faker.string.uuid(),
+    roomNumber: faker.number.int({ min: 1, max: 100 }).toString(),
+    price: faker.number.int({ max: 9999 }).toString(),
+    reviews: faker.number.int({ max: 10 }).toString(),
     srcArr: shuffle([
       "/img/rooms-preview/room2.jpg",
       "/img/rooms-preview/room1.jpg",
       "/img/rooms-preview/room3.jpg",
       "/img/rooms-preview/room4.jpg",
     ]),
-    rating: `${faker.datatype.number({ max: 100 }).toString()}%`,
+    rating: `${faker.number.int({ max: 100 }).toString()}%`,
     lux: faker.datatype.boolean(),
     dates: dates,
-    maxGuests: faker.datatype.number({ min: 1, max: 10 }),
+    maxGuests: faker.number.int({ min: 1, max: 10 }),
     checkboxes: {
       smoking: faker.datatype.boolean(),
       pet: faker.datatype.boolean(),
@@ -124,9 +124,9 @@ const createRandomRoom = () => {
       helper: faker.datatype.boolean(),
     },
     additionalDropdown: {
-      bedroomCount: faker.datatype.number(2),
-      bedsCount: faker.datatype.number(5),
-      bathRoomsCount: faker.datatype.number(2),
+      bedroomCount: faker.number.int(2),
+      bedsCount: faker.number.int(5),
+      bathRoomsCount: faker.number.int(2),
     },
     additionalCheckboxes: {
       breakfast: faker.datatype.boolean(),
@@ -151,8 +151,8 @@ const createFullRandomRoom = (room) => {
       min: parseInt(room.reviews, 10),
       max: parseInt(room.reviews, 10),
     }),
-    votes: faker.datatype.number({ max: 100 }),
-    totalRating: rating[faker.datatype.number({ max: rating.length - 1 })],
+    votes: faker.number.int({ max: 100 }),
+    totalRating: rating[faker.number.int({ max: rating.length - 1 })],
   };
 };
 
