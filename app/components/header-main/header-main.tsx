@@ -2,7 +2,7 @@
 import './header-main.css';
 import '../buttons/buttons.css';
 import Logo from '../toxin-logo/toxin-logo';
-import Link  from 'next/link';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const HeaderMain = () => {

@@ -5,8 +5,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const nextConfig = withBundleAnalyzer({
-  typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
   env: {
     BASE_API_URL: process.env.BASE_API_URL,
   },

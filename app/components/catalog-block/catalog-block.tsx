@@ -14,17 +14,17 @@ const RoomsCatalogList = ({ toggleAside, rooms }: RoomsCatalogListProps) => {
 
   const handleScroll = useCallback(() => {
     if (typeof window !== 'undefined') {
-    setShowButton(window.scrollY > 200 && window.innerWidth < 1161);
+      setShowButton(window.scrollY > 200 && window.innerWidth < 1161);
     }
   }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
   }, [handleScroll]);
 
   return (

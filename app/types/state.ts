@@ -5,7 +5,7 @@ export type Store = {
   adultCount: number;
   childCount: number;
   infantCount: number;
-  datesRange: string[] | null[];
+  datesRange: (string | undefined| null)[];
   minPrice: number;
   maxPrice: number;
   smoking: boolean | undefined;

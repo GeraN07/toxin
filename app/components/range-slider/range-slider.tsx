@@ -9,7 +9,9 @@ import { useAppDispatch } from '../../hooks';
 import dynamic from 'next/dynamic';
 
 //  Динамический импорт IonRangeSlider
-const IonRangeSlider = dynamic(() => import('react-ion-slider'), { ssr: false });
+const IonRangeSlider = dynamic(() => import('react-ion-slider'), {
+  ssr: false,
+});
 
 type RangeSliderProps = {
   h3: string;
@@ -27,7 +29,8 @@ const RangeSlider = forwardRef<IonRangeSliderInstance, RangeSliderProps>(
     const minPrice = useSelector(getMinPrice);
     const maxPrice = useSelector(getMaxPrice);
 
-    const [sliderInstance, setSliderInstance] = useState<IonRangeSliderInstance | null>(null);
+    const [sliderInstance, setSliderInstance] =
+      useState<IonRangeSliderInstance | null>(null);
 
     useEffect(() => {
       if (sliderInstance?.update) {
@@ -78,7 +81,7 @@ const RangeSlider = forwardRef<IonRangeSliderInstance, RangeSliderProps>(
             ₽
           </p>
         </div>
-        
+
         <IonRangeSlider
           type={'double'}
           skin={'round'}
@@ -99,7 +102,7 @@ const RangeSlider = forwardRef<IonRangeSliderInstance, RangeSliderProps>(
             } else if (ref) {
               ref.current = instance;
             }
-          }} 
+          }}
         />
 
         <p className="range-slider__text">
@@ -109,7 +112,6 @@ const RangeSlider = forwardRef<IonRangeSliderInstance, RangeSliderProps>(
     );
   }
 );
-
 
 RangeSlider.displayName = 'RangeSlider';
 

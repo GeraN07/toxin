@@ -5,7 +5,9 @@ import './component-preloader.css';
 const ComponentPreloader = () => {
   useEffect(() => {
     const preloader = document.getElementById('preloader');
-    if (!preloader) return;
+    if (!preloader) {
+      return;
+    }
 
     setTimeout(() => preloader.classList.add('ready'), 1200);
     setTimeout(() => preloader.classList.add('show'), 1300);

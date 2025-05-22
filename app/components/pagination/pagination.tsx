@@ -23,11 +23,15 @@ const Pagination = ({ totalRooms, roomsPerPage }: PaginationProps) => {
   };
 
   const prevPage = () => {
-    if (currentPage > 1) paginate(currentPage - 1);
+    if (currentPage > 1) {
+      paginate(currentPage - 1);
+    }
   };
 
   const nextPage = () => {
-    if (currentPage < totalPages) paginate(currentPage + 1);
+    if (currentPage < totalPages) {
+      paginate(currentPage + 1);
+    }
   };
 
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -68,7 +72,8 @@ const Pagination = ({ totalRooms, roomsPerPage }: PaginationProps) => {
           </ul>
           <div className="pagination-data">
             {(currentPage - 1) * roomsPerPage + 1} –{' '}
-            {Math.min(currentPage * roomsPerPage, totalRooms)} из {totalRooms} вариантов аренды
+            {Math.min(currentPage * roomsPerPage, totalRooms)} из {totalRooms}{' '}
+            вариантов аренды
           </div>
         </div>
       )}

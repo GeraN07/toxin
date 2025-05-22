@@ -30,7 +30,11 @@ const ItemCard = ({ room }: ItemCardProps) => {
             {srcArr.map((src) => (
               <SwiperSlide key={Math.random()}>
                 <li className="slide">
-                  <Link className="image-slider__room-link" href={"rooms/"+id}></Link>
+                  <Link
+                    className="image-slider__room-link"
+                    href={`rooms/${ id}`}
+                  >
+                  </Link>
                   <img src={src} alt="" />
                 </li>
               </SwiperSlide>

@@ -1,5 +1,5 @@
 import { Rooms } from './types/rooms';
-
+import { State } from './types/state';
 
 const isWithinRange = (
   dateRange: string[],
@@ -30,24 +30,22 @@ const isWithinRange = (
   );
 };
 
-
 const meetsCriteria = (
   criteriaValue: boolean | undefined,
   roomValue: boolean | undefined
-) => (
+) =>
   criteriaValue === undefined ||
-    criteriaValue === false ||
-    roomValue === criteriaValue
-);
+  criteriaValue === false ||
+  roomValue === criteriaValue;
 
-export const roomsSort = (rooms: Rooms, filters: any): Rooms => {
+export const roomsSort = (rooms: Rooms, filters: State): Rooms => {
   const {
     datesRange,
-    maxGuests = 1, 
-    minPrice = 0, 
+    maxGuests = 1,
+    minPrice = 0,
     maxPrice = 16000,
     bedroomCount = 0,
-    bedsCount = 0, 
+    bedsCount = 0,
     bathRoomsCount = 0,
     smoking,
     pet,
@@ -64,17 +62,19 @@ export const roomsSort = (rooms: Rooms, filters: any): Rooms => {
 
   return rooms.filter((room) => {
     const meetsGuestCriteria = room.maxGuests >= maxGuests;
-    const meetsDateCriteria =  datesRange == undefined || isWithinRange(room.dates, datesRange[0], datesRange[1]);
+    const meetsDateCriteria =
+      datesRange == undefined ||
+      isWithinRange(room.dates, datesRange[0], datesRange[1]);
     const meetsBedroomsCriteria =
       room.additionalDropdown.bedroomCount >= bedroomCount;
-    const meetsBedsCriteria =
-      room.additionalDropdown.bedsCount >= bedsCount;
+    const meetsBedsCriteria = room.additionalDropdown.bedsCount >= bedsCount;
     const meetsBathroomsCriteria =
       room.additionalDropdown.bathRoomsCount >= bathRoomsCount;
 
     const meetsPriceCriteria =
       (minPrice === undefined && maxPrice === undefined) ||
-      (Number(room.price) >= Number(minPrice) && Number(room.price) <= Number(maxPrice))
+      (Number(room.price) >= Number(minPrice) &&
+        Number(room.price) <= Number(maxPrice));
 
     const meetsCheckboxesCriteria =
       meetsCriteria(smoking, room.checkboxes?.smoking) &&

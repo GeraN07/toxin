@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { FeedbackType } from '../../types/types';
 import './feedback.css';
 type FeedbackProps = {
@@ -9,7 +10,7 @@ const Feedback = ({ feedBack }: FeedbackProps) => {
   return (
     <div className="feedback">
       <div className="feedback__header">
-        <img className="feedback__profile-image" src={image} alt="" />
+        <Image className="feedback__profile-image" src={image} alt="" />
         <div className="feedback__header-text">
           <h4 className="feedback__profile-name">{name}</h4>
           <p className="feedback__comment-date">{date}</p>

@@ -21,8 +21,8 @@ const ClientRoomsCatalogList = () => {
     params[key] = value;
   });
 
-  const filters = useMemo(() => {
-    return {
+  const filters = useMemo(
+    () => ({
       maxPrice: params.maxPrice ? Number(params.maxPrice) : undefined,
       minPrice: params.minPrice ? Number(params.minPrice) : undefined,
       maxGuests: params.maxGuests ? Number(params.maxGuests) : undefined,
@@ -48,33 +48,11 @@ const ClientRoomsCatalogList = () => {
       babyBed: params.babyBed === 'true',
       tv: params.tv === 'true',
       shampoo: params.shampoo === 'true',
-    };
-  }, [JSON.stringify(params)]);
+    }),
+    [JSON.stringify(params)]
+  );
 
   const prevFiltersRef = useRef<string | null>(null);
-
-  useEffect(() => {
-    setLoading(true);
-    const timeoutId = setTimeout(
-      () => {
-        setDelayedParams(filters);
-      },
-      Object.keys(params).length === 0 ? 500 : 0
-    );
-
-    return () => clearTimeout(timeoutId);
-  }, [filters]);
-
-  useEffect(() => {
-    const filtersString = JSON.stringify(delayedParams);
-
-    if (delayedParams === null || prevFiltersRef.current === filtersString)
-      return;
-
-    prevFiltersRef.current = filtersString;
-    fetchRooms();
-  }, [delayedParams]);
-
   const fetchRooms = async () => {
     setLoading(true);
     try {
@@ -97,6 +75,28 @@ const ClientRoomsCatalogList = () => {
     }
     setLoading(false);
   };
+  useEffect(() => {
+    setLoading(true);
+    const timeoutId = setTimeout(
+      () => {
+        setDelayedParams(filters);
+      },
+      Object.keys(params).length === 0 ? 500 : 0
+    );
+
+    return () => clearTimeout(timeoutId);
+  }, [filters]);
+
+  useEffect(() => {
+    const filtersString = JSON.stringify(delayedParams);
+
+    if (delayedParams === null || prevFiltersRef.current === filtersString) {
+      return;
+    }
+
+    prevFiltersRef.current = filtersString;
+    fetchRooms();
+  }, [delayedParams]);
 
   const currentPage = Number(params.page) || 1;
   const roomsPerPage = 12;

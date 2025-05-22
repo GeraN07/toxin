@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { roomsSort } from '../../../app/filter'; 
+import { roomsSort } from '../../../app/filter';
 
 const fetchRoomsFromServer = async () => {
   try {
@@ -19,11 +19,16 @@ const fetchRoomsFromServer = async () => {
     return await response.json();
   } catch (error: any) {
     console.error('Ошибка при загрузке данных с внешнего сервера:', error);
-    throw new Error('Ошибка при загрузке данных с внешнего сервера: ' + error.message);
+    throw new Error(
+      'Ошибка при загрузке данных с внешнего сервера: ' + error.message
+    );
   }
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === 'POST') {
     const filters = req.body;
     console.log('Фильтры, полученные от клиента:', filters);
@@ -48,7 +53,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(200).json(sortedRooms);
     } catch (error: any) {
       console.error('Ошибка при обработке запроса:', error);
-      res.status(500).json({ error: 'Error filtering rooms', details: error.message });
+      res
+        .status(500)
+        .json({ error: 'Error filtering rooms', details: error.message });
     }
   } else {
     res.status(405).json({ message: 'Method Not Allowed' });

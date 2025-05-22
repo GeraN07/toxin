@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import 'air-datepicker/air-datepicker.css';
 import './double-date-dropdown.css';
 import useCallendar from '../../hooks/use-callendar';
@@ -15,7 +15,7 @@ const DoubleDateDropdown = ({
   firstTitle = '',
   secondTitle = '',
   onDatesChange,
-  availableDates
+  availableDates,
 }: DoubleDateDropdownProps) => {
   const calFirstRef = useRef<HTMLInputElement | null>(null);
   const calLastRef = useRef<HTMLInputElement | null>(null);

@@ -9,19 +9,17 @@ export const metadata = {
   description: 'Лучшие номера в нашем отеле',
 };
 
-const RoomCatalog = async () => {
-  return (
-    <div className="rooms-catalog">
-      <HeaderMain />
-      <main className="rooms-catalog__main">
-        <div className="rooms-catalog__main-wrapper">
-          <ClientRoomsCatalogList />
-        </div>
-      </main>
-      <BigFooter />
-      <SmallFooter />
-    </div>
-  );
-};
+const RoomCatalog = async () => (
+  <div className="rooms-catalog">
+    <HeaderMain />
+    <main className="rooms-catalog__main">
+      <div className="rooms-catalog__main-wrapper">
+        <ClientRoomsCatalogList />
+      </div>
+    </main>
+    <BigFooter />
+    <SmallFooter />
+  </div>
+);
 
 export default RoomCatalog;

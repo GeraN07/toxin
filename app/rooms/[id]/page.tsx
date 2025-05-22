@@ -32,7 +32,7 @@ type Room = {
   dates: string[];
   totalRating: number;
   checkboxes: { pet: boolean };
-  id: string
+  id: string;
 };
 
 export async function generateStaticParams() {
@@ -41,13 +41,15 @@ export async function generateStaticParams() {
     id: room.id,
   }));
 }
-async function fetchRoomData(id: string): Promise<Room | null> {  
+async function fetchRoomData(id: string): Promise<Room | null> {
   try {
-    const res = await fetch(getBaseUrl() +`/api/rooms/${id}`, {
+    const res = await fetch(`${getBaseUrl() }/api/rooms/${id}`, {
       cache: 'force-cache',
     });
 
-    if (!res.ok) return null;
+    if (!res.ok) {
+      return null;
+    }
     return res.json();
   } catch (error) {
     console.error(`Ошибка при загрузке комнаты ${id}:`, error);
@@ -55,15 +57,12 @@ async function fetchRoomData(id: string): Promise<Room | null> {
   }
 }
 
-
-
-
 export default async function RoomDetails({ params }: Props) {
   const resolvedParams = await params; // Ждём промис перед доступом к id
   const room = await fetchRoomData(resolvedParams.id);
 
   if (!room) {
-    await new Promise(resolve => setTimeout(resolve, 1000)); // задержка 1 сек
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // задержка 1 сек
     notFound();
   }
 
@@ -79,12 +78,19 @@ export default async function RoomDetails({ params }: Props) {
         <section className="room-details__details-book">
           <div className="room-details__room-details">
             <Features features={room.features} />
-            <RoomImpressions totalRationg={room.totalRating} votes={room.votes} />
+            <RoomImpressions
+              totalRationg={room.totalRating}
+              votes={room.votes}
+            />
             <Feedbacks feedBacks={room.feedback} />
             <RoomInformation pet={room.checkboxes.pet} />
           </div>
           <div className="room-details__book-details" id="room-book">
-            <BookingCard price={room.price} maxGuests={room.maxGuests} availableDates={room.dates} />
+            <BookingCard
+              price={room.price}
+              maxGuests={room.maxGuests}
+              availableDates={room.dates}
+            />
           </div>
         </section>
       </main>
@@ -93,6 +99,3 @@ export default async function RoomDetails({ params }: Props) {
     </div>
   );
 }
-
-
-

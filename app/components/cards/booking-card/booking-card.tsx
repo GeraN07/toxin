@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { useState, useCallback } from 'react';
 import DoubleDateDropdown from '../../double-date-dropdown/double-date-dropdown';
 import Dropdown from '../../dropdown-qty/dropdown-qty';
@@ -9,7 +9,11 @@ type BookingCardProps = {
   availableDates: string[];
 };
 
-const BookingCard = ({ price, maxGuests,availableDates }: BookingCardProps) => {
+const BookingCard = ({
+  price,
+  maxGuests,
+  availableDates,
+}: BookingCardProps) => {
   const [totalDays, setTotalDays] = useState(0);
   const formatNumber = useCallback(
     (num: number) => num.toLocaleString('ru-RU'),
@@ -27,7 +31,8 @@ const BookingCard = ({ price, maxGuests,availableDates }: BookingCardProps) => {
           <span className="booking-card__lux">люкс</span>
         </h1>
         <p className="booking-card__dayprice">
-          {formatNumber(numPrice)}₽ <span className="booking-card__day">в сутки</span>
+          {formatNumber(numPrice)}₽{' '}
+          <span className="booking-card__day">в сутки</span>
         </p>
       </div>
       <DoubleDateDropdown
@@ -39,7 +44,8 @@ const BookingCard = ({ price, maxGuests,availableDates }: BookingCardProps) => {
       <Dropdown option={'guest'} roomMaxGuests={maxGuests} />
       <div className="booking-card__first-sum price-line">
         <p className="booking-card__text">
-          `{formatNumber(numPrice)}₽` х <span id="totalDayscount">{totalDays}</span>{' '}
+          `{formatNumber(numPrice)}₽` х{' '}
+          <span id="totalDayscount">{totalDays}</span>{' '}
           <span id="daysName">суток</span>
         </p>
         <p className="booking-card__text">
@@ -63,7 +69,10 @@ const BookingCard = ({ price, maxGuests,availableDates }: BookingCardProps) => {
         <p className="booking-card__total-text">Итого</p>
         <div className="booking-card__doted-block" />
         <p className="booking-card__total-text booking-card__total-price">
-          <span id="totalAmount">{formatNumber(numPrice * totalDays + 300)}</span>₽
+          <span id="totalAmount">
+            {formatNumber(numPrice * totalDays + 300)}
+          </span>
+          ₽
         </p>
       </div>
       <span className="button-purpule-large">

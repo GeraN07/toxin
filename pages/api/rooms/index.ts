@@ -1,4 +1,3 @@
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const fetchRoomsFromServer = async () => {
@@ -18,11 +17,16 @@ const fetchRoomsFromServer = async () => {
     return await response.json();
   } catch (error: any) {
     console.error('Ошибка при загрузке данных с внешнего сервера:', error);
-    throw new Error('Ошибка при загрузке данных с внешнего сервера: ' + error.message);
+    throw new Error(
+      'Ошибка при загрузке данных с внешнего сервера: ' + error.message
+    );
   }
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === 'GET') {
     try {
       const rooms = await fetchRoomsFromServer();
@@ -32,7 +36,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       res.status(200).json(rooms);
     } catch (error: any) {
-      res.status(500).json({ error: 'Ошибка при получении комнат', details: error.message });
+      res
+        .status(500)
+        .json({ error: 'Ошибка при получении комнат', details: error.message });
     }
   } else {
     res.status(405).json({ message: 'Метод не разрешен' });

@@ -13,7 +13,7 @@ const FilterDateDropdown = () => {
       const cal = document.querySelector('.air-datepicker');
       if (
         calBlockRef.current &&
-        !calBlockRef.current.contains(event.target as Node) && 
+        !calBlockRef.current.contains(event.target as Node) &&
         cal &&
         !cal.contains(event.target as Node)
       ) {
