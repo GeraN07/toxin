@@ -16,6 +16,7 @@ type AsideFiltersProps = {
   asideOpen: boolean;
   toggleAside: () => void;
 };
+type StateData = number | boolean | undefined | string[] | undefined[];
 
 const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
   const filters = useSelector(getFilters);
@@ -25,19 +26,12 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
 
   //  Загружаем фильтры из URL в Redux при каждом изменении searchParams
   useEffect(() => {
-    const validated: Partial<State> = {};
+    const validated: { [key: string]: StateData } = {};
 
-    const intOrDefault = <K extends keyof State>(
-      key: K,
-      min = 0,
-      max = 20,
-      def = 0
-    ) => {
-      const raw = searchParams.get(key as string);
+    const intOrDefault = (key: string, min = 0, max = 20, def = 0) => {
+      const raw = searchParams.get(key);
       const val = parseInt(raw || '');
-      validated[key] = (
-        isNaN(val) || val < min || val > max ? def : val
-      ) as State[K];
+      validated[key] = isNaN(val) || val < min || val > max ? def : val;
     };
     intOrDefault('maxGuests', 1, 10, 1);
     intOrDefault('adultCount', 0, 10, 0);
@@ -75,7 +69,7 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
       ? datesRaw.split(',')
       : [undefined, undefined];
 
-    dispatch(setFilters(validated));
+    dispatch(setFilters(validated as State));
   }, [searchParams]);
 
   //  Синхронизируем Redux В URL
@@ -83,7 +77,11 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
     const params = new URLSearchParams();
     let changed = false;
 
-    const addParam = (key: string, value: number | boolean| undefined, defaultValue?: number | boolean) => {
+    const addParam = (
+      key: string,
+      value: StateData,
+      defaultValue?: number | boolean
+    ) => {
       if (value !== undefined && value !== defaultValue) {
         if (value !== false) {
           if (params.get(key) !== value.toString()) {
