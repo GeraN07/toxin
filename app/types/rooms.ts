@@ -1,4 +1,4 @@
-import { Features, Feedbacks } from './types';
+import { Features, FeedbacksType } from './types';
 
 export type Room = {
   id: string;
@@ -21,7 +21,7 @@ export type Rooms = Room[];
 export interface FullOffer extends Room {
   imgArr: string[];
   features: Features;
-  feedback: Feedbacks;
+  feedback: FeedbacksType;
   votes: number;
   totalRating: number;
 }

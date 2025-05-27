@@ -8,11 +8,11 @@ import Feedbacks from '../../components/feedbacks/feedbacks';
 import RoomImages from '../../components/room-images/room-images';
 import Features from '../../components/features/features';
 import RoomInformation from '../../components/room-information/room-information';
-import { FeatureType } from '../../types/types';
 import ComponentPreloader from '../../components/component-preloader/component-preloader';
 import { notFound } from 'next/navigation';
 import { getBaseUrl } from '../../utils/getBaseUrl';
 import { getRooms } from '../../utils/getRooms';
+import { FullOffer } from '../../types/rooms';
 
 export const metadata = {
   title: 'Номер',
@@ -22,28 +22,15 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-type Room = {
-  imgArr: string[];
-  features: FeatureType[];
-  votes: number;
-  feedback: any[];
-  price: string;
-  maxGuests: number;
-  dates: string[];
-  totalRating: number;
-  checkboxes: { pet: boolean };
-  id: string;
-};
-
 export async function generateStaticParams() {
   const rooms = await getRooms();
   return rooms.map((room) => ({
     id: room.id,
   }));
 }
-async function fetchRoomData(id: string): Promise<Room | null> {
+async function fetchRoomData(id: string): Promise<FullOffer | null> {
   try {
-    const res = await fetch(`${getBaseUrl() }/api/rooms/${id}`, {
+    const res = await fetch(`${getBaseUrl()}/api/rooms/${id}`, {
       cache: 'force-cache',
     });
 
@@ -52,7 +39,6 @@ async function fetchRoomData(id: string): Promise<Room | null> {
     }
     return res.json();
   } catch (error) {
-    console.error(`Ошибка при загрузке комнаты ${id}:`, error);
     return null;
   }
 }

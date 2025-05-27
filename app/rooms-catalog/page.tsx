@@ -9,7 +9,7 @@ export const metadata = {
   description: 'Лучшие номера в нашем отеле',
 };
 
-const RoomCatalog = async () => (
+const RoomCatalog = () => (
   <div className="rooms-catalog">
     <HeaderMain />
     <main className="rooms-catalog__main">

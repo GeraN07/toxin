@@ -30,7 +30,7 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
 
     const intOrDefault = (key: string, min = 0, max = 20, def = 0) => {
       const raw = searchParams.get(key);
-      const val = parseInt(raw || '');
+      const val = parseInt(raw || '', 10);
       validated[key] = isNaN(val) || val < min || val > max ? def : val;
     };
     intOrDefault('maxGuests', 1, 10, 1);

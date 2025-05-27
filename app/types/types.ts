@@ -24,4 +24,4 @@ export type ItemCount = {
 
 
 export type Features = FeatureType[];
-export type Feedbacks = FeedbackType[];
+export type FeedbacksType = FeedbackType[];

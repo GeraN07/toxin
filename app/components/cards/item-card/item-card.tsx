@@ -8,6 +8,7 @@ import Link from 'next/link';
 import './item-card.css';
 import 'swiper/css';
 import { Room } from '../../../types/rooms';
+import Image from 'next/image';
 
 type ItemCardProps = {
   room: Room;
@@ -35,13 +36,13 @@ const ItemCard = ({ room }: ItemCardProps) => {
                     href={`rooms/${ id}`}
                   >
                   </Link>
-                  <img src={src} alt="" />
+                  <Image src={src} alt="" />
                 </li>
               </SwiperSlide>
             ))}
           </Swiper>
         </ul>
-        <a className="image-slider__room-link" href="/room-details"></a>
+        <Link className="image-slider__room-link" href="/room-details"></Link>
       </div>
       <div className="item-card__footer">
         <div className="item-card__footer-top">

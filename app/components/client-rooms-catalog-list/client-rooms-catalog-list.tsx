@@ -7,12 +7,16 @@ import RoomsCatalogList from '../catalog-block/catalog-block';
 import Pagination from '../pagination/pagination';
 import AsideFilters from '../cards/aside-filters/aside-filters';
 
+
+type StateData = number | boolean | undefined | string[] | undefined[];
+
+
 const ClientRoomsCatalogList = () => {
   const [asideOpen, setAsideOpen] = useState(false);
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(false);
   const [delayedParams, setDelayedParams] = useState<{
-    [key: string]: any;
+    [key: string]: StateData;
   } | null>(null);
 
   const searchParams = useSearchParams();

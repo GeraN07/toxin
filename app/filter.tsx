@@ -63,7 +63,7 @@ export const roomsSort = (rooms: Rooms, filters: State): Rooms => {
   return rooms.filter((room) => {
     const meetsGuestCriteria = room.maxGuests >= maxGuests;
     const meetsDateCriteria =
-      datesRange == undefined ||
+      datesRange === undefined ||
       isWithinRange(room.dates, datesRange[0], datesRange[1]);
     const meetsBedroomsCriteria =
       room.additionalDropdown.bedroomCount >= bedroomCount;
