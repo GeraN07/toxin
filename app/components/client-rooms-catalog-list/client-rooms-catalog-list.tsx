@@ -6,14 +6,13 @@ import ComponentPreloader from '../component-preloader/component-preloader';
 import RoomsCatalogList from '../catalog-block/catalog-block';
 import Pagination from '../pagination/pagination';
 import AsideFilters from '../cards/aside-filters/aside-filters';
-
+import { Rooms } from '../../types/rooms';
 
 type StateData = number | boolean | undefined | string[] | undefined[];
 
-
 const ClientRoomsCatalogList = () => {
   const [asideOpen, setAsideOpen] = useState(false);
-  const [rooms, setRooms] = useState([]);
+  const [rooms, setRooms] = useState<Rooms>([]);
   const [loading, setLoading] = useState(false);
   const [delayedParams, setDelayedParams] = useState<{
     [key: string]: StateData;
@@ -71,10 +70,9 @@ const ClientRoomsCatalogList = () => {
         throw new Error(`Ошибка HTTP: ${response.status}`);
       }
 
-      const data = await response.json();
+      const data = (await response.json()) as Rooms;
       setRooms(data);
     } catch (error) {
-      console.error('Ошибка при загрузке данных:', error);
       setRooms([]);
     }
     setLoading(false);

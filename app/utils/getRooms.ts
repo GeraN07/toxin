@@ -1,15 +1,14 @@
-type Room = {
-  id: string;
-};
+import { Rooms } from '../types/rooms';
+import { getBaseUrl } from './getBaseUrl';
 
-export async function getRooms(): Promise<Room[]> {
+export async function getRooms(): Promise<Rooms> {
   try {
-    const res = await fetch(`${process.env.BASE_API_URL}/api/rooms`);
+    const res = await fetch(`${getBaseUrl()}/api/rooms`);
     if (!res.ok) {
       throw new Error(`Ошибка API: ${res.status}`);
     }
-    const data = await res.json();
-    return data as Room[];
+    const data = (await res.json()) as Rooms;
+    return data;
   } catch (error) {
     return [];
   }

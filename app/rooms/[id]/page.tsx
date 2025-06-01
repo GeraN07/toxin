@@ -37,7 +37,8 @@ async function fetchRoomData(id: string): Promise<FullOffer | null> {
     if (!res.ok) {
       return null;
     }
-    return res.json();
+    const data = (await res.json()) as FullOffer;
+    return data;
   } catch (error) {
     return null;
   }

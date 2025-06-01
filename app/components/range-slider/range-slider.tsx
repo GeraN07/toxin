@@ -95,10 +95,10 @@ const RangeSlider = forwardRef<IonRangeSliderInstance, RangeSliderProps>(
           hide_from_to
           onChange={handleValueChange}
           onFinish={handleValueSet}
-          ref={(instance) => {
+          ref={(instance: IonRangeSliderInstance | null) => {
             setSliderInstance(instance);
             if (typeof ref === 'function') {
-              ref(instance); //  передаем инстанс через ref
+              ref(instance);
             } else if (ref) {
               ref.current = instance;
             }

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { FullOffer } from '../../../app/types/rooms';
 
-type Room = Record<string, any>;
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -18,15 +18,16 @@ export default async function handler(
       return res.status(response.status).json({ error: 'Room not found' });
     }
 
-    const data: Room = await response.json();
+    const data = await response.json() as FullOffer;
 
     if (!data || Object.keys(data).length === 0) {
       return res.status(404).json({ error: 'Room not found' });
     }
 
     res.status(200).json(data);
-  } catch (error: any) {
-    console.error('❌ Ошибка при получении комнаты:', error);
-    res.status(500).json({ error: 'Server error', details: error.message });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      res.status(500).json({ error: 'Server error', details: error.message });
+    }
   }
 }
