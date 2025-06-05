@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 'use client';
 import StarRating from '../../star-rating/star-rating';
 import React from 'react';
@@ -36,7 +37,7 @@ const ItemCard = ({ room }: ItemCardProps) => {
                     href={`rooms/${ id}`}
                   >
                   </Link>
-                  <Image src={src} alt="" />
+                  <Image src={src} width={271} height={152} alt="" />
                 </li>
               </SwiperSlide>
             ))}

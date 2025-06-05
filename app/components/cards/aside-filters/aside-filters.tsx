@@ -70,7 +70,7 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
       : [undefined, undefined];
 
     dispatch(setFilters(validated as State));
-  }, [searchParams]);
+  }, [searchParams,dispatch]);
 
   //  Синхронизируем Redux В URL
   useEffect(() => {

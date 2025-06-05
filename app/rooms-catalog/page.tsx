@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import BigFooter from '../components/big-footer/big-footer';
 import HeaderMain from '../components/header-main/header-main';
 import SmallFooter from '../components/small-footer/small-footer';

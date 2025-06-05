@@ -10,7 +10,13 @@ const Feedback = ({ feedBack }: FeedbackProps) => {
   return (
     <div className="feedback">
       <div className="feedback__header">
-        <Image className="feedback__profile-image" src={image} alt="" />
+        <Image
+          className="feedback__profile-image"
+          width={271}
+          height={152}
+          src={image}
+          alt=""
+        />
         <div className="feedback__header-text">
           <h4 className="feedback__profile-name">{name}</h4>
           <p className="feedback__comment-date">{date}</p>

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components, @next/next/no-css-tags */
 import type { Metadata } from 'next';
 import type { LayoutProps } from '../.next/types/app/page';
 

@@ -1,4 +1,4 @@
-import { useEffect, MutableRefObject, useRef } from 'react';
+import { useEffect, MutableRefObject, useRef, useMemo } from 'react';
 import { setDatesRange, setSortedRooms } from '../store/action';
 import AirDatepicker from 'air-datepicker';
 import { useSelector } from 'react-redux';
@@ -12,22 +12,23 @@ const useCallendar = (
   onDatesChange?: (days: number) => void,
   availableDates: string[] = []
 ) => {
-  const isRenderedRef = useRef<boolean>(false);
+  const isRenderedRef = useRef(false);
   const dispatch = useAppDispatch();
   const dates = useSelector(getDates);
-
-  // Сохраняем предыдущие значения дат
   const prevDates = useRef<string[]>([]);
 
-  // Преобразование строковых дат в объекты Date и установка времени на полдень локального времени
-  const availableDateObjects = availableDates.map((date) => {
-    const d = new Date(date);
-    d.setHours(12, 0, 0, 0);
-    return d;
-  });
-  const startAvailableDate = availableDateObjects[0] || new Date();
-  const endAvailableDate =
-    availableDateObjects[availableDateObjects.length - 1] || new Date();
+  const [startAvailableDate, endAvailableDate] = useMemo(() => {
+    const dateObjs = availableDates.map((date) => {
+      const d = new Date(date);
+      d.setHours(12, 0, 0, 0);
+      return d;
+    });
+
+    return [
+      dateObjs[0] || new Date(),
+      dateObjs[dateObjs.length - 1] || new Date(),
+    ];
+  }, [availableDates]);
 
   useEffect(() => {
     if (calFirstRef.current && !isRenderedRef.current) {
@@ -45,24 +46,20 @@ const useCallendar = (
               if (calLastRef?.current) {
                 calLastRef.current.value = '';
               }
-              if (onDatesChange) {
-                onDatesChange(0);
-              }
+              onDatesChange?.(0);
             },
           },
           {
             content: 'применить',
             className: 'custom-button-submit',
             onClick: () => {
-              const oldDates = dp.selectedDates;
-              if (oldDates.length < 2) {
+              const selected = dp.selectedDates;
+              if (selected.length < 2) {
                 toast.error('Выберите даты для применения');
                 return;
               }
-              const newDates = [
-                new Date(oldDates[0]),
-                new Date(oldDates[1]),
-              ].map((date) => date.toISOString());
+
+              const newDates = selected.map((d) => new Date(d).toISOString());
 
               if (
                 newDates.length === 2 &&
@@ -82,13 +79,14 @@ const useCallendar = (
           if (!Array.isArray(date) || date.length === 0) {
             return;
           }
+
           const [startDate, endDate] = date;
           const formatFirst = 'd.MM.yyyy';
           const formatRange = 'd MMMM';
 
           if (calFirstRef.current) {
-            calFirstRef.current.value = dp.formatDate(startDate, formatFirst);
             if (calLastRef?.current) {
+              calFirstRef.current.value = dp.formatDate(startDate, formatFirst);
               calLastRef.current.value =
                 date.length === 2 ? dp.formatDate(endDate, formatFirst) : '';
             } else {
@@ -102,28 +100,24 @@ const useCallendar = (
             }
           }
 
-          if (onDatesChange) {
-            const diffDays =
-              date.length === 2
-                ? Math.ceil(
-                  Math.abs(endDate.getTime() - startDate.getTime()) /
-                      (1000 * 60 * 60 * 24)
-                )
-                : 0;
+          if (onDatesChange && date.length === 2) {
+            const diffDays = Math.ceil(
+              Math.abs(endDate.getTime() - startDate.getTime()) /
+                (1000 * 60 * 60 * 24)
+            );
             onDatesChange(diffDays);
           }
         },
         onRenderCell({ date, cellType }) {
           if (cellType === 'day' && availableDates.length > 0) {
             date.setHours(12, 0, 0, 0);
-            const dateString = date.toISOString().split('T')[0];
-            const dateObj = new Date(dateString);
-            dateObj.setHours(12, 0, 0, 0);
-
-            if (dateObj < startAvailableDate || dateObj > endAvailableDate) {
-              return {
-                disabled: true,
-              };
+            const normalized = new Date(date.toISOString().split('T')[0]);
+            normalized.setHours(12, 0, 0, 0);
+            if (
+              normalized < startAvailableDate ||
+              normalized > endAvailableDate
+            ) {
+              return { disabled: true };
             }
           }
           return {};
@@ -131,9 +125,9 @@ const useCallendar = (
       });
 
       if (dates[0] && dates[1] && availableDates.length === 0) {
-        const datesData = [new Date(dates[0]), new Date(dates[1])];
-        dp.selectDate(datesData);
-        prevDates.current = datesData.map((date) => date.toISOString());
+        const preselect = [new Date(dates[0]), new Date(dates[1])];
+        dp.selectDate(preselect);
+        prevDates.current = preselect.map((d) => d.toISOString());
       }
 
       isRenderedRef.current = true;

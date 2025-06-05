@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from 'react';
 import ItemCard from '../cards/item-card/item-card';
 import { Rooms } from '../../types/rooms';
