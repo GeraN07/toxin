@@ -2,11 +2,10 @@ import { NextResponse } from 'next/server';
 import { getCachedRooms } from '../../../utils/roomCache';
 import { FullOffer } from '../../../types/rooms';
 
-export async function GET(request: Request, context: any) {
+export async function GET(_request: Request, context: any) {
   const { id } = context.params;
 
   const { fullRooms } = getCachedRooms();
-
   const fullRoom = fullRooms.find((room: FullOffer) => room.id === id);
 
   if (!fullRoom) {
