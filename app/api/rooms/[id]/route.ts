@@ -3,8 +3,6 @@ import { getCachedRooms } from '../../../utils/roomCache';
 import { FullOffer } from '../../../types/rooms';
 
 export async function GET(
-  request: Request,
-  context: { params: { id: string } }
 ) {
   const { id } = context.params;
   const { fullRooms } = getCachedRooms();
