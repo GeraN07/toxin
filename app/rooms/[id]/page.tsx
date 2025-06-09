@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+export const dynamic = 'force-dynamic';
 import BigFooter from '../../components/big-footer/big-footer';
 import BookingCard from '../../components/cards/booking-card/booking-card';
 import HeaderMain from '../../components/header-main/header-main';
