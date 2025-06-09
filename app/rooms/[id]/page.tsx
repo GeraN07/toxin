@@ -31,7 +31,7 @@ export async function generateStaticParams() {
 }
 async function fetchRoomData(id: string): Promise<FullOffer | null> {
   try {
-    const res = await fetch(`${getBaseUrl()}/api/rooms/${id}`, {
+    const res = await fetch(`${await getBaseUrl()}/api/rooms/${id}`, {
       cache: 'force-cache',
     });
 

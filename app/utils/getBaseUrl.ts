@@ -1,21 +1,8 @@
-export function getBaseUrl() {
-  const isBrowser = typeof window !== 'undefined';
-  const isDev = process.env.NODE_ENV === 'development';
-  const isBuildTime = !isBrowser && process.env.NEXT_RUNTIME === 'nodejs';
+import { headers } from 'next/headers';
 
-  if (isBrowser) {
-    return '';
-  }
-
-  if (isDev && !isBuildTime) {
-    return '';
-  }
-
-  if (process.env.BASE_API_URL) {
-    return process.env.BASE_API_URL;
-  }
-
-  const host = process.env.VERCEL_URL || process.env.HOST || 'localhost:3000';
+export const getBaseUrl = async (): Promise<string> => {
+  const headersList = await headers();
+  const host = headersList.get('host') ?? '';
   const protocol = host.includes('localhost') ? 'http' : 'https';
   return `${protocol}://${host}`;
-}
+};

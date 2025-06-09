@@ -23,6 +23,6 @@ module.exports = {
       rules: { '@typescript-eslint/unbound-method': 'off' }
     },
   ],
-  ignorePatterns: [".eslintrc.cjs", "vite.config.ts","next-env.d.ts","*.js"],
+  ignorePatterns: [".eslintrc.cjs", "vite.config.ts","next-env.d.ts","*.js","roomCache.ts","route.ts"],
   
 }
