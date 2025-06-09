@@ -46,11 +46,11 @@ async function fetchRoomData(id: string): Promise<FullOffer | null> {
 }
 
 export default async function RoomDetails({ params }: Props) {
-  const resolvedParams = await params; 
+  const resolvedParams = await params;
   const room = await fetchRoomData(resolvedParams.id);
 
   if (!room) {
-    await new Promise((resolve) => setTimeout(resolve, 100)); 
+    await new Promise((resolve) => setTimeout(resolve, 100));
     notFound();
   }
 
