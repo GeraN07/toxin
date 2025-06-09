@@ -1,11 +1,7 @@
-import fs from 'fs';
-import path from 'path';
 
 import { faker } from '@faker-js/faker';
-import { Room, Rooms } from '../types/rooms';
+import { Room } from '../types/rooms';
 
-const cacheFile = path.resolve('./cache.json');
-const CACHE_DURATION = 10 * 60 * 1000;
 
 const features = [
   { icon: 'insert_emoticon', title: 'Комфорт', text: 'Шумопоглощающие стены' },
@@ -76,110 +72,80 @@ const feedbacks = [
 ];
 
 const shuffle = <T>(array: T[]): T[] => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  };
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
 const generateDates = () => {
-  const startDate = faker.date.between({
-    from: new Date(),
-    to: new Date(new Date().getTime() + 15 * 24 * 60 * 60 * 1000),
-  });
-  startDate.setUTCHours(12, 0, 0, 0);
-
-  const daysToAdd = faker.number.int({ min: 1, max: 14 });
-  const endDate = new Date(
-    startDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000
-  );
-  endDate.setUTCHours(12, 0, 0, 0);
-
-  return [startDate, endDate];
+  const start = faker.date.soon({ days: 15 });
+  start.setUTCHours(12, 0, 0, 0);
+  const end = new Date(start.getTime() + faker.number.int({ min: 1, max: 14 }) * 86400000);
+  end.setUTCHours(12, 0, 0, 0);
+  return [start.toISOString(), end.toISOString()];
 };
 
-const createRandomRoom = () => {
-  const dates = generateDates().map((date) => date.toISOString());
-  return {
-    id: faker.string.uuid(),
-    roomNumber: faker.number.int({ min: 1, max: 100 }).toString(),
-    price: faker.number.int({ max: 9999 }).toString(),
-    reviews: faker.number.int({ max: 10 }).toString(),
-    srcArr: shuffle([
-      '/img/rooms-preview/room2.jpg',
-      '/img/rooms-preview/room1.jpg',
-      '/img/rooms-preview/room3.jpg',
-      '/img/rooms-preview/room4.jpg',
-    ]),
-    rating: `${faker.number.int({ max: 100 }).toString()}%`,
-    lux: faker.datatype.boolean(),
-    dates: dates,
-    maxGuests: faker.number.int({ min: 1, max: 10 }),
-    checkboxes: {
-      smoking: faker.datatype.boolean(),
-      pet: faker.datatype.boolean(),
-      guests: faker.datatype.boolean(),
-    },
-    accessibilityCheckboxes: {
-      wideCoridor: faker.datatype.boolean(),
-      helper: faker.datatype.boolean(),
-    },
-    additionalDropdown: {
-      bedroomCount: faker.number.int(2),
-      bedsCount: faker.number.int(5),
-      bathRoomsCount: faker.number.int(2),
-    },
-    additionalCheckboxes: {
-      breakfast: faker.datatype.boolean(),
-      table: faker.datatype.boolean(),
-      hchair: faker.datatype.boolean(),
-      badbyBad: faker.datatype.boolean(),
-      tv: faker.datatype.boolean(),
-      shampoo: faker.datatype.boolean(),
-    },
-  };
-};
+const createRandomRoom = (): Room => ({
+  id: faker.string.uuid(),
+  roomNumber: faker.number.int({ min: 1, max: 100 }).toString(),
+  price: faker.number.int({ max: 9999 }).toString(),
+  reviews: faker.number.int({ max: 10 }).toString(),
+  srcArr: shuffle([
+    '/img/rooms-preview/room1.jpg',
+    '/img/rooms-preview/room2.jpg',
+    '/img/rooms-preview/room3.jpg',
+    '/img/rooms-preview/room4.jpg',
+  ]),
+  rating: `${faker.number.int({ max: 100 })}%`,
+  lux: faker.datatype.boolean(),
+  dates: generateDates(),
+  maxGuests: faker.number.int({ min: 1, max: 10 }),
+  checkboxes: {
+    smoking: faker.datatype.boolean(),
+    pet: faker.datatype.boolean(),
+    guests: faker.datatype.boolean(),
+  },
+  accessibilityCheckboxes: {
+    wideCoridor: faker.datatype.boolean(),
+    helper: faker.datatype.boolean(),
+  },
+  additionalDropdown: {
+    bedroomCount: faker.number.int(2),
+    bedsCount: faker.number.int(5),
+    bathRoomsCount: faker.number.int(2),
+  },
+  additionalCheckboxes: {
+    breakfast: faker.datatype.boolean(),
+    table: faker.datatype.boolean(),
+    hchair: faker.datatype.boolean(),
+    badbyBad: faker.datatype.boolean(),
+    tv: faker.datatype.boolean(),
+    shampoo: faker.datatype.boolean(),
+  },
+});
 
-const createFullRandomRoom = (room:Room) => {
-  return {
-    imgArr: shuffle([
-      '/img/rooms-image/room-image1.jpg',
-      '/img/rooms-image/room-image2.jpg',
-      '/img/rooms-image/room-image3.jpg',
-    ]),
-    features: faker.helpers.arrayElements(features, { min: 1, max: 3 }),
-    feedback: faker.helpers.arrayElements(feedbacks, {
-      min: parseInt(room.reviews, 10),
-      max: parseInt(room.reviews, 10),
-    }),
-    votes: faker.number.int({ max: 100 }),
-    totalRating: rating[faker.number.int({ max: rating.length - 1 })],
-  };
-};
+const createFullRandomRoom = (room: Room) => ({
+  imgArr: shuffle([
+    '/img/rooms-image/room-image1.jpg',
+    '/img/rooms-image/room-image2.jpg',
+    '/img/rooms-image/room-image3.jpg',
+  ]),
+  features: faker.helpers.arrayElements(features, { min: 1, max: 3 }),
+  feedback: faker.helpers.arrayElements(feedbacks, {
+    min: parseInt(room.reviews),
+    max: parseInt(room.reviews),
+  }),
+  votes: faker.number.int({ max: 100 }),
+  totalRating: rating[faker.number.int({ max: rating.length - 1 })],
+});
 
-const createRooms = (numRooms = 50) =>
-  Array.from({ length: numRooms }, createRandomRoom);
+export const generateRooms = (count = 50): Room[] =>
+  Array.from({ length: count }, createRandomRoom);
 
-const createFullRooms = (rooms:Rooms) =>
-  rooms.map((room) => {
-    return { ...room, ...createFullRandomRoom(room) };
-  });
-
-export const getCachedRooms = () => {
-  if (fs.existsSync(cacheFile)) {
-    const { rooms, fullRooms, lastUpdated } = JSON.parse(
-      fs.readFileSync(cacheFile, 'utf-8')
-    );
-    if (Date.now() - lastUpdated < CACHE_DURATION) {
-      return { rooms, fullRooms };
-    }
-  }
-  const rooms = createRooms();
-  const fullRooms = createFullRooms(rooms);
-  fs.writeFileSync(
-    cacheFile,
-    JSON.stringify({ rooms, fullRooms, lastUpdated: Date.now() })
-  );
-  return { rooms, fullRooms };
+  
+export const generateFullRooms = (): any[] => {
+  const rooms = generateRooms();
+  return rooms.map((room) => ({ ...room, ...createFullRandomRoom(room) }));
 };

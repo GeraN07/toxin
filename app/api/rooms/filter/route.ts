@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { roomsSort } from '../../../filter';
 import type { State } from '../../../types/state';
-import { getCachedRooms } from '../../../utils/roomCache';
+import { generateRooms } from '../../../utils/roomCache';
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { rooms } = getCachedRooms();
+    const rooms = generateRooms();
 
     if (!rooms || rooms.length === 0) {
       return NextResponse.json({ error: 'No rooms found' }, { status: 404 });

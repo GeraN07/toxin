@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { getCachedRooms } from '../../utils/roomCache';
+import { generateRooms } from '../../utils/roomCache';
 
 export async function GET() {
-  const { rooms } = getCachedRooms();
+  const rooms = generateRooms();
   try {
     if (!rooms?.length) {
       return NextResponse.json(
