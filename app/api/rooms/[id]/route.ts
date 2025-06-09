@@ -1,15 +1,13 @@
 import { NextResponse } from 'next/server';
 import { getCachedRooms } from '../../../utils/roomCache';
 import type { NextRequest } from 'next/server';
-import type { RouteContext } from 'next';
 import { FullOffer } from '../../../types/rooms';
 
 export async function GET(
-  _: NextRequest,
-  context: Awaited<RouteContext<{ id: string }>>
+  _req: NextRequest,
+  context: { params: { id: string } }
 ) {
-  const params = await context.params;
-  const id = params.id;
+  const { id } = context.params;
 
   const { fullRooms } = getCachedRooms();
   const fullRoom = fullRooms.find((room: FullOffer) => room.id === id);
