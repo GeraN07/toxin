@@ -1,4 +1,9 @@
+import fs from 'fs';
+import path from 'path';
 import { faker } from '@faker-js/faker';
+
+const cacheFile = path.resolve('./cache.json');
+const CACHE_DURATION = 10 * 60 * 1000;
 
 const features = [
   { icon: "insert_emoticon", title: "Комфорт", text: "Шумопоглощающие стены" },
@@ -39,74 +44,32 @@ const rating = [25, 50, 75];
 
 const feedbacks = [
   {
-    image: "img/profile-pictures/author-1.jpg",
+    image: "/img/profile-pictures/author-1.jpg",
     name: "Мурад Сарафанов",
     date: "5 дней назад",
     text: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
     likes: "11",
   },
   {
-    image: "img/profile-pictures/author-2.jpg",
+    image: "/img/profile-pictures/author-2.jpg",
     name: "Патрисия Стёклышкова",
     date: "Неделю назад",
     text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
     likes: "2",
   },
   {
-    image: "img/profile-pictures/no-profile-picture.png",
+    image: "/img/profile-pictures/no-profile-picture.png",
     name: "Василий Смирнов",
     date: "Месяц назад",
     text: "Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
     likes: "8",
   },
   {
-    image: "img/profile-pictures/no-profile-picture.png",
+    image: "/img/profile-pictures/no-profile-picture.png",
     name: "Иван Петров",
     date: "Год назад",
     text: "Всё аккуратно, чисто.",
     likes: "1",
-  },
-  {
-    image: "img/profile-pictures/no-profile-picture.png",
-    name: "Настя Смирнова",
-    date: "2 года назад",
-    text: "Обслуживание на высоте!",
-    likes: "9",
-  },
-  {
-    image: "img/profile-pictures/no-profile-picture.png",
-    name: "Мурад Сарафан",
-    date: "15 дней назад",
-    text: "Спасибо. Выкрикивал комплименты повару — никто не жаловался из соседей.",
-    likes: "11",
-  },
-  {
-    image: "img/profile-pictures/author-2.jpg",
-    name: "Патриция Стёклышкова",
-    date: "Неделю назад",
-    text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
-    likes: "2",
-  },
-  {
-    image: "img/profile-pictures/no-profile-picture.png",
-    name: "Василий Петров",
-    date: "Месяц назад",
-    text: "Завтраки в номер советую заказать.",
-    likes: "8",
-  },
-  {
-    image: "img/profile-pictures/no-profile-picture.png",
-    name: "Петр Петров",
-    date: "3 года назад",
-    text: "Чисто...",
-    likes: "1",
-  },
-  {
-    image: "img/profile-pictures/no-profile-picture.png",
-    name: "Наталья Смирнова",
-    date: "2 года назад",
-    text: "Обслуживание на высоте!",
-    likes: "9",
   },
 ];
 
@@ -125,7 +88,7 @@ const generateDates = () => {
   });
   startDate.setUTCHours(12, 0, 0, 0);
 
-  const daysToAdd = faker.datatype.number({ min: 1, max: 14 });
+  const daysToAdd = faker.number.int({ min: 1, max: 14 });
   const endDate = new Date(
     startDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000
   );
@@ -137,20 +100,20 @@ const generateDates = () => {
 const createRandomRoom = () => {
   const dates = generateDates().map((date) => date.toISOString());
   return {
-    id: faker.datatype.uuid(),
-    roomNumber: faker.datatype.number({ min: 1, max: 100 }).toString(),
-    price: faker.datatype.number({ max: 9999 }).toString(),
-    reviews: faker.datatype.number({ max: 10 }).toString(),
+    id: faker.string.uuid(),
+    roomNumber: faker.number.int({ min: 1, max: 100 }).toString(),
+    price: faker.number.int({ max: 9999 }).toString(),
+    reviews: faker.number.int({ max: 10 }).toString(),
     srcArr: shuffle([
-      "img/rooms-preview/room2.jpg",
-      "img/rooms-preview/room1.jpg",
-      "img/rooms-preview/room3.jpg",
-      "img/rooms-preview/room4.jpg",
+      "/img/rooms-preview/room2.jpg",
+      "/img/rooms-preview/room1.jpg",
+      "/img/rooms-preview/room3.jpg",
+      "/img/rooms-preview/room4.jpg",
     ]),
-    rating: `${faker.datatype.number({ max: 100 }).toString()}%`,
+    rating: `${faker.number.int({ max: 100 }).toString()}%`,
     lux: faker.datatype.boolean(),
     dates: dates,
-    maxGuests: faker.datatype.number({ min: 1, max: 10 }),
+    maxGuests: faker.number.int({ min: 1, max: 10 }),
     checkboxes: {
       smoking: faker.datatype.boolean(),
       pet: faker.datatype.boolean(),
@@ -161,9 +124,9 @@ const createRandomRoom = () => {
       helper: faker.datatype.boolean(),
     },
     additionalDropdown: {
-      bedroomCount: faker.datatype.number(2),
-      bedsCount: faker.datatype.number(5),
-      bathRoomsCount: faker.datatype.number(2),
+      bedroomCount: faker.number.int(2),
+      bedsCount: faker.number.int(5),
+      bathRoomsCount: faker.number.int(2),
     },
     additionalCheckboxes: {
       breakfast: faker.datatype.boolean(),
@@ -179,59 +142,64 @@ const createRandomRoom = () => {
 const createFullRandomRoom = (room) => {
   return {
     imgArr: shuffle([
-      "img/rooms-image/room-image1.jpg",
-      "img/rooms-image/room-image2.jpg",
-      "img/rooms-image/room-image3.jpg",
+      "/img/rooms-image/room-image1.jpg",
+      "/img/rooms-image/room-image2.jpg",
+      "/img/rooms-image/room-image3.jpg",
     ]),
     features: faker.helpers.arrayElements(features, { min: 1, max: 3 }),
     feedback: faker.helpers.arrayElements(feedbacks, {
       min: parseInt(room.reviews, 10),
       max: parseInt(room.reviews, 10),
     }),
-    votes: faker.datatype.number({ max: 100 }),
-    totalRating: rating[faker.datatype.number({ max: rating.length - 1 })],
+    votes: faker.number.int({ max: 100 }),
+    totalRating: rating[faker.number.int({ max: rating.length - 1 })],
   };
 };
 
 const createRooms = (numRooms = 50) =>
   Array.from({ length: numRooms }, createRandomRoom);
 
-let fullRooms = [];
-
 const createFullRooms = (rooms) =>
   rooms.map((room) => {
-    const fullRoom = createFullRandomRoom(room);
-    fullRooms.push({ id: room.id, data: fullRoom });
-    return { ...room, ...fullRoom };
+    return { ...room, ...createFullRandomRoom(room) };
   });
 
-let rooms = createRooms();
-fullRooms = createFullRooms(rooms);
+const loadCache = () => {
+  if (fs.existsSync(cacheFile)) {
+    const { rooms, fullRooms, lastUpdated } = JSON.parse(fs.readFileSync(cacheFile, 'utf-8'));
+    if (Date.now() - lastUpdated < CACHE_DURATION) {
+      console.log("Чтение данных из файла кэша...");
+      return { rooms, fullRooms };
+    }
+  }
+  console.log("Генерация новых данных...");
+  const rooms = createRooms();
+  const fullRooms = createFullRooms(rooms);
+  fs.writeFileSync(cacheFile, JSON.stringify({ rooms, fullRooms, lastUpdated: Date.now() }));
+  return { rooms, fullRooms };
+};
+
+let { rooms, fullRooms } = loadCache();
 
 export default function handler(req, res) {
-
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); 
 
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    res.status(200).end();
+    return;
   }
 
   const { id } = req.query;
-  console.log(`Received request for room id: ${id}`);
   if (id) {
     const fullRoom = fullRooms.find((room) => room.id === id);
     if (!fullRoom) {
-      console.log(`Room with id ${id} not found`);
       res.status(404).json({ message: "Full room data not found" });
       return;
     }
-    console.log(`Found room data: ${JSON.stringify(fullRoom.data)}`);
     res.json(fullRoom);
   } else {
-    console.log('Returning all rooms');
     res.json(rooms);
   }
 }
