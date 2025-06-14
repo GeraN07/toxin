@@ -1,5 +1,14 @@
 import { faker } from '@faker-js/faker';
 
+import { Redis } from '@upstash/redis';
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
+
+const TTL = 60 * 60;
+
 const features = [
   { icon: "insert_emoticon", title: "Комфорт", text: "Шумопоглощающие стены" },
   { icon: "location_city", title: "Удобство", text: "Окно в каждой из спален" },
@@ -208,30 +217,50 @@ const createFullRooms = (rooms) =>
 let rooms = createRooms();
 fullRooms = createFullRooms(rooms);
 
-export default function handler(req, res) {
-
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
-  const { id } = req.query;
-  console.log(`Received request for room id: ${id}`);
-  if (id) {
-    const fullRoom = fullRooms.find((room) => room.id === id);
-    if (!fullRoom) {
-      console.log(`Room with id ${id} not found`);
-      res.status(404).json({ message: "Full room data not found" });
-      return;
+  try {
+    const { id } = req.query;
+
+    if (id) {
+      const cachedRoom = await redis.hget('fullRooms', id);
+      if (cachedRoom) {
+        return res.json(cachedRoom);
+      }
+
+      return res.status(404).json({ message: "Room not found in cache" });
     }
-    console.log(`Found room data: ${JSON.stringify(fullRoom.data)}`);
-    res.json(fullRoom);
-  } else {
-    console.log('Returning all rooms');
-    res.json(rooms);
+
+    let cachedRooms = await redis.get('rooms');
+
+    if (!cachedRooms) {
+  
+      console.log('Generating new faker data...');
+      let rooms = createRooms();
+      let fullRooms = createFullRooms(rooms);
+
+
+      await redis.set('rooms', rooms, { ex: TTL });
+      const fullRoomsMap = {};
+      for (const room of fullRooms) {
+        fullRoomsMap[room.id] = room;
+      }
+      await redis.hmset('fullRooms', fullRoomsMap); 
+      await redis.expire('fullRooms', TTL);
+
+      cachedRooms = rooms;
+    }
+
+    res.json(cachedRooms);
+  } catch (error) {
+    console.error('Redis error:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 }
