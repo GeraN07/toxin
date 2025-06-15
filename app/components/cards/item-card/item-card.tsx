@@ -3,7 +3,7 @@
 import StarRating from '../../star-rating/star-rating';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import Link from 'next/link';
 
 import './item-card.css';
@@ -24,19 +24,16 @@ const ItemCard = ({ room }: ItemCardProps) => {
           <Swiper
             className="slides"
             loop
-            modules={[Navigation, Pagination]}
+            modules={[Navigation, Pagination, Mousewheel]}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
+            mousewheel
           >
             {srcArr.map((src) => (
               <SwiperSlide key={Math.random()}>
                 <li className="slide">
-                  <Link
-                    className="image-slider__room-link"
-                    href={`rooms/${ id}`}
-                  >
-                  </Link>
+                  <Link className="image-slider__room-link" href={`rooms/${id}`}></Link>
                   <Image src={src} width={271} height={152} alt="" />
                 </li>
               </SwiperSlide>

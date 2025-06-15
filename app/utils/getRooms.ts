@@ -1,14 +1,17 @@
 import { Rooms } from '../types/rooms';
-import { getBaseUrl } from './getBaseUrl';
+import { fetchWithRetry } from './fetchWithRetry';
 
 export async function getRooms(): Promise<Rooms> {
   try {
-    const res = await fetch(`${await getBaseUrl()}/api/rooms`);
-    if (!res.ok) {
-      throw new Error(`Ошибка API: ${res.status}`);
+    const rooms = await fetchWithRetry<Rooms>(
+      'https://toxin-git-react-redux-geran7s-projects.vercel.app/api/rooms'
+    );
+
+    if (!rooms || rooms.length === 0) {
+      throw new Error('Комнаты не найдены');
     }
-    const data = (await res.json()) as Rooms;
-    return data;
+
+    return rooms;
   } catch (error) {
     return [];
   }

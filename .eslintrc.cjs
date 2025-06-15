@@ -6,7 +6,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     "htmlacademy/react-typescript",
-    "next", // Убираем plugin:react-hooks/recommended, так как Next.js уже включает его
+    "next",
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module', project: 'tsconfig.json' },

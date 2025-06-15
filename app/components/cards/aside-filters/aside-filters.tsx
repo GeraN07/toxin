@@ -28,8 +28,11 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
   useEffect(() => {
     const validated: { [key: string]: StateData } = {};
 
+    // ❗️Игнорируем page
+    const pageIgnoredParams = searchParams;
+
     const intOrDefault = (key: string, min = 0, max = 20, def = 0) => {
-      const raw = searchParams.get(key);
+      const raw = pageIgnoredParams.get(key);
       const val = parseInt(raw || '', 10);
       validated[key] = isNaN(val) || val < min || val > max ? def : val;
     };
@@ -70,11 +73,11 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
       : [undefined, undefined];
 
     dispatch(setFilters(validated as State));
-  }, [searchParams,dispatch]);
+  }, [searchParams, dispatch]);
 
   //  Синхронизируем Redux В URL
   useEffect(() => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams.toString());
     let changed = false;
 
     const addParam = (
@@ -89,6 +92,13 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
             params.set(key, value.toString());
           }
         } else {
+          if (params.has(key)) {
+            changed = true;
+            params.delete(key);
+          }
+        }
+      } else {
+        if (params.has(key)) {
           changed = true;
           params.delete(key);
         }
@@ -122,9 +132,11 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
       filters.datesRange[0]
     ) {
       params.set('datesRange', filters.datesRange.join(','));
+      changed = true;
     }
 
     if (typeof window !== 'undefined' && changed) {
+      params.delete('page');
       router.replace(`${window.location.pathname}?${params.toString()}`, {
         scroll: false,
       });

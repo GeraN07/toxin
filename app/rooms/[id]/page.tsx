@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-export const dynamic = 'force-dynamic';
 import BigFooter from '../../components/big-footer/big-footer';
 import BookingCard from '../../components/cards/booking-card/booking-card';
 import HeaderMain from '../../components/header-main/header-main';
@@ -12,9 +11,10 @@ import Features from '../../components/features/features';
 import RoomInformation from '../../components/room-information/room-information';
 import ComponentPreloader from '../../components/component-preloader/component-preloader';
 import { notFound } from 'next/navigation';
-import { getBaseUrl } from '../../utils/getBaseUrl';
 import { getRooms } from '../../utils/getRooms';
 import { FullOffer } from '../../types/rooms';
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 export const metadata = {
   title: 'Номер',
@@ -24,17 +24,17 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
+export const revalidate = 3600;
 export async function generateStaticParams() {
   const rooms = await getRooms();
   return rooms.map((room) => ({
     id: room.id,
   }));
 }
+
 async function fetchRoomData(id: string): Promise<FullOffer | null> {
   try {
-    const res = await fetch(`${await getBaseUrl()}/api/rooms/${id}`, {
-      cache: 'force-cache',
-    });
+    const res = await fetch(`${baseUrl}/api/rooms/${id}`, {});
 
     if (!res.ok) {
       return null;
