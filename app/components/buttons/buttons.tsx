@@ -15,24 +15,21 @@ type SmallButtonsProps = {
 
 const ButtonPurpleLarge = memo(
   ({ name, addClass = '', link, onClick }: ButtonsProps) => (
-    <span className={`button-purpule-large ${addClass}`} onClick={onClick}>
+    <span
+      className={`button-purpule-large ${addClass}`}
+      onClick={(e) => {
+        if (onClick) {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+    >
       {link ? (
-        <Link
-          className="button-purpule-large__link"
-          href={link}
-          onClick={(e) => {
-            if (onClick) {
-              e.preventDefault();
-              onClick();
-            }
-          }}
-        >
+        <Link className="button-purpule-large__link" href={link}>
           {name}
         </Link>
       ) : (
-        <a className="button-purpule-large__link" onClick={onClick}>
-          {name}
-        </a>
+        <a className="button-purpule-large__link">{name}</a>
       )}
     </span>
   )
