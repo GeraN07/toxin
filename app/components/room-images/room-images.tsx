@@ -11,6 +11,8 @@ const RoomImages = ({ imgArr }: RoomImagesProps) => (
       width={981}
       height={517}
       src={imgArr[0]}
+      sizes="(max-width: 768px) 100vw, 50vw"
+      style={{ width: '100%', height: 'auto' }}
       alt=""
     />
     <div className="room-details__room-image-small-block">

@@ -452,6 +452,7 @@
   .room-details__image-small1,
   .room-details__image-small2 {
     width: 50%;
+    height: auto;
   }
 
   .room-details__room-image-main {
