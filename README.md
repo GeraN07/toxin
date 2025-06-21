@@ -26,8 +26,8 @@ ____
 <a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/toxin.fig">Ссылка</a>
 
 ### Материалы для проверки на perfect-pixel (клик по картинке для открытия полного изображения)
-<a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Landing page.jpg">
-    <img src="https://github.com/GeraN07/toxin/pug-old/master/perfect-pixel/Landing page.jpg" height="190" width="160" >
+<a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Landing%20page.jpg">
+    <img src="https://github.com/GeraN07/toxin/pug-old/master/perfect-pixel/Landing%20page.jpg" height="190" width="160" >
 </a>
 <a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Filter.png">
     <img src="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Filter.png" height="190" width="160" >
