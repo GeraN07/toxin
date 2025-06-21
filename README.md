@@ -23,23 +23,23 @@ ____
 ____
 ## perfect-pixel
 ### Макет проекта (Figma)
-<a href="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/toxin.fig">Ссылка</a>
+<a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/toxin.fig">Ссылка</a>
 
 ### Материалы для проверки на perfect-pixel (клик по картинке для открытия полного изображения)
-<a href="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Landing page.jpg">
-    <img src="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Landing page.jpg" height="190" width="160" >
+<a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Landing page.jpg">
+    <img src="https://github.com/GeraN07/toxin/pug-old/master/perfect-pixel/Landing page.jpg" height="190" width="160" >
 </a>
-<a href="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Filter.png">
-    <img src="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Filter.png" height="190" width="160" >
+<a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Filter.png">
+    <img src="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Filter.png" height="190" width="160" >
 </a>
-<a href="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Room details.png">
-    <img src="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Room details.png" height="190" width="160" >
+<a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Room details.png">
+    <img src="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Room details.png" height="190" width="160" >
 </a>
-<a href="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Sign in.png">
-    <img src="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Sign in.png" height="190" width="160" >
+<a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Sign in.png">
+    <img src="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Sign in.png" height="190" width="160" >
 </a>
-<a href="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Registration.png">
-    <img src="https://github.com/GeraN07/toxin/blob/master/perfect-pixel/Registration.png" height="190" width="160">
+<a href="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Registration.png">
+    <img src="https://github.com/GeraN07/toxin/blob/pug-old/perfect-pixel/Registration.png" height="190" width="160">
 </a>
 
 ## Использованные библиотеки (плагины)
