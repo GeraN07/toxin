@@ -1,5 +1,5 @@
-# toxin
-Проект "Toxin"  — каталог номеров отеля / Next.js 15 + Server-side фильтрация  
+# TOXIN — Каталог номеров отеля
+Проект "Toxin" / Next.js 15 + Server-side фильтрация  
 Главная страница - <a href="https://toxin-eight.vercel.app">Ссылка</a><br>
 ____
 
