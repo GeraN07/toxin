@@ -1,6 +1,6 @@
 # toxin
 Проект "Toxin" / React + Redux / Vite
-Главная страница - <a href="https://toxin-eight.vercel.app">Ссылка</a><br>
+Главная страница - <a href="https://toxin-git-react-redux-geran7s-projects.vercel.app/">Ссылка</a><br>
 ____
 
 ## Структура проекта
