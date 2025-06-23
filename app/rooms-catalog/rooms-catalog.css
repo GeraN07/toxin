@@ -5,6 +5,7 @@
 .rooms-catalog__main {
   margin-top: 30px;
   width: 100%;
+  min-height: 700px;
 }
 
 .rooms-catalog__main-wrapper {

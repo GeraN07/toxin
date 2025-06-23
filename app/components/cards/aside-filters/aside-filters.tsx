@@ -1,6 +1,6 @@
 'use client';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import CheckboxButtons from '../../checkbox-buttons/checkbox-buttons';
 import Dropdown from '../../dropdown-qty/dropdown-qty';
@@ -10,12 +10,13 @@ import RangeSlider from '../../range-slider/range-slider';
 import RichCheckboxButtons from '../../rich-checkbox-buttons/rich-checkbox-buttons';
 import { getFilters } from '../../../store/selectors';
 import { setFilters } from '../../../store/action';
-import { State } from '../../../types/state';
+import type { State } from '../../../types/state';
 
 type AsideFiltersProps = {
   asideOpen: boolean;
   toggleAside: () => void;
 };
+
 type StateData = number | boolean | undefined | string[] | undefined[];
 
 const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
@@ -24,18 +25,32 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  //  Загружаем фильтры из URL в Redux при каждом изменении searchParams
+  const [isMobile, setIsMobile] = useState(false);
+  const [localFilters, setLocalFilters] = useState<State>(filters);
+
+  useEffect(() => {
+    const checkWidth = () => {
+      setIsMobile(window.innerWidth < 1161);
+    };
+
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+
+    return () => {
+      window.removeEventListener('resize', checkWidth);
+    };
+  }, []);
+
+  // Загружаем параметры из URL при монтировании
   useEffect(() => {
     const validated: { [key: string]: StateData } = {};
 
-    // ❗️Игнорируем page
-    const pageIgnoredParams = searchParams;
-
     const intOrDefault = (key: string, min = 0, max = 20, def = 0) => {
-      const raw = pageIgnoredParams.get(key);
+      const raw = searchParams.get(key);
       const val = parseInt(raw || '', 10);
       validated[key] = isNaN(val) || val < min || val > max ? def : val;
     };
+
     intOrDefault('maxGuests', 1, 10, 1);
     intOrDefault('adultCount', 0, 10, 0);
     intOrDefault('childCount', 0, 10, 0);
@@ -60,11 +75,9 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
       'shampoo',
     ] as const;
 
-    type BoolKey = (typeof boolKeys)[number];
-
     for (const key of boolKeys) {
       const raw = searchParams.get(key);
-      validated[key] = (raw === 'true') as State[BoolKey];
+      validated[key] = raw === 'true';
     }
 
     const datesRaw = searchParams.get('datesRange');
@@ -72,76 +85,92 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
       ? datesRaw.split(',')
       : [undefined, undefined];
 
-    dispatch(setFilters(validated as State));
-  }, [searchParams, dispatch]);
+    const fullState = validated as State;
 
-  //  Синхронизируем Redux В URL
+    if (!isMobile) {
+      dispatch(setFilters(fullState));
+    }
+
+    setLocalFilters(fullState);
+  }, [searchParams, dispatch, isMobile]);
+
+  // При каждом открытии фильтров на мобилке — сбрасываем локальные на текущее состояние из Redux
   useEffect(() => {
-    const params = new URLSearchParams(searchParams.toString());
-    let changed = false;
+    if (isMobile && asideOpen) {
+      setLocalFilters(filters);
+    }
+  }, [asideOpen, isMobile, filters]);
+
+  const updateUrlFromFilters = (filtersToUpdate: State) => {
+    const params = new URLSearchParams();
 
     const addParam = (
       key: string,
       value: StateData,
-      defaultValue?: number | boolean
+      def?: number | boolean
     ) => {
-      if (value !== undefined && value !== defaultValue) {
-        if (value !== false) {
-          if (params.get(key) !== value.toString()) {
-            changed = true;
-            params.set(key, value.toString());
-          }
-        } else {
-          if (params.has(key)) {
-            changed = true;
-            params.delete(key);
-          }
-        }
-      } else {
-        if (params.has(key)) {
-          changed = true;
-          params.delete(key);
+      if (value !== undefined && value !== def) {
+        if (typeof value === 'boolean' && value) {
+          params.set(key, 'true');
+        } else if (typeof value !== 'boolean') {
+          params.set(key, value.toString());
         }
       }
     };
 
-    addParam('maxGuests', filters.maxGuests, 1);
-    addParam('adultCount', filters.adultCount, 0);
-    addParam('childCount', filters.childCount, 0);
-    addParam('infantCount', filters.infantCount, 0);
-    addParam('minPrice', filters.minPrice, 0);
-    addParam('maxPrice', filters.maxPrice, 16000);
-    addParam('smoking', filters.smoking);
-    addParam('pet', filters.pet);
-    addParam('guests', filters.guests);
-    addParam('wideCoridor', filters.wideCoridor);
-    addParam('helper', filters.helper);
-    addParam('bedroomCount', filters.bedroomCount, 0);
-    addParam('bedsCount', filters.bedsCount, 0);
-    addParam('bathrooms', filters.bathRoomsCount, 0);
-    addParam('breakfast', filters.breakfast);
-    addParam('table', filters.table);
-    addParam('hchair', filters.hchair);
-    addParam('babyBed', filters.babyBed);
-    addParam('tv', filters.tv);
-    addParam('shampoo', filters.shampoo);
+    addParam('maxGuests', filtersToUpdate.maxGuests, 1);
+    addParam('adultCount', filtersToUpdate.adultCount, 0);
+    addParam('childCount', filtersToUpdate.childCount, 0);
+    addParam('infantCount', filtersToUpdate.infantCount, 0);
+    addParam('minPrice', filtersToUpdate.minPrice, 0);
+    addParam('maxPrice', filtersToUpdate.maxPrice, 16000);
+    addParam('bedroomCount', filtersToUpdate.bedroomCount, 0);
+    addParam('bedsCount', filtersToUpdate.bedsCount, 0);
+    addParam('bathRoomsCount', filtersToUpdate.bathRoomsCount, 0);
+
+    const boolKeys = [
+      'smoking',
+      'pet',
+      'guests',
+      'wideCoridor',
+      'helper',
+      'breakfast',
+      'table',
+      'hchair',
+      'babyBed',
+      'tv',
+      'shampoo',
+    ];
+
+    for (const key of boolKeys) {
+      addParam(key, filtersToUpdate[key as keyof State] as boolean);
+    }
 
     if (
-      Array.isArray(filters.datesRange) &&
-      filters.datesRange.length > 0 &&
-      filters.datesRange[0]
+      Array.isArray(filtersToUpdate.datesRange) &&
+      filtersToUpdate.datesRange.length > 0 &&
+      filtersToUpdate.datesRange[0]
     ) {
-      params.set('datesRange', filters.datesRange.join(','));
-      changed = true;
+      params.set('datesRange', filtersToUpdate.datesRange.join(','));
     }
 
-    if (typeof window !== 'undefined' && changed) {
-      params.delete('page');
-      router.replace(`${window.location.pathname}?${params.toString()}`, {
-        scroll: false,
-      });
+    params.delete('page');
+    router.replace(`${window.location.pathname}?${params.toString()}`, {
+      scroll: false,
+    });
+  };
+
+  useEffect(() => {
+    if (!isMobile) {
+      updateUrlFromFilters(filters);
     }
-  }, [filters, router]);
+  }, [filters, isMobile]);
+
+  const applyMobileFilters = () => {
+    dispatch(setFilters(localFilters));
+    updateUrlFromFilters(localFilters);
+    toggleAside();
+  };
 
   return (
     <aside className={`filter-block ${asideOpen ? 'active' : ''}`}>
@@ -150,14 +179,17 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
       </span>
       <div className="filter-block__filter-block-wrapper">
         <FilterDateDropdown />
-        <Dropdown option={'guest'} />
+        <Dropdown option="guest" />
         <RangeSlider h3="ДИАПАЗОН ЦЕНЫ" />
         <CheckboxButtons h3="CHECKBOX BUTTONS" />
         <RichCheckboxButtons h3="ДОСТУПНОСТЬ" />
-        <Dropdown option={'rooms'} />
+        <Dropdown option="rooms" />
         <ExpandableCheckboxList buttonTitle="дополнительные удобства" />
         <span className="button-purpule-large">
-          <a className="button-purpule-large__link" onClick={toggleAside}>
+          <a
+            className="button-purpule-large__link"
+            onClick={applyMobileFilters}
+          >
             применить
           </a>
         </span>
