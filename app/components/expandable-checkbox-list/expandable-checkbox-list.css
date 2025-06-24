@@ -89,6 +89,7 @@
 
 .button-wrapper {
     width: 266px;
+    cursor: pointer;
 }
 
 .button-wrapper::after {
