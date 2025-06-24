@@ -73,8 +73,8 @@ const ExpandableCheckboxList = ({
 
   return (
     <div className="expandable-checkbox-list-block">
-      <div className={`button-wrapper ${checkboxListOpen ? 'active' : ''}`}>
-        <button onClick={handleOpenButtonClick} className="collapsible">
+      <div onClick={handleOpenButtonClick} className={`button-wrapper ${checkboxListOpen ? 'active' : ''}`}>
+        <button className="collapsible">
           {buttonTitle}
         </button>
       </div>
