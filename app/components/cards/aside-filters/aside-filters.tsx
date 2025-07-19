@@ -45,7 +45,9 @@ const AsideFilters = ({ asideOpen, toggleAside }: AsideFiltersProps) => {
   useEffect(() => {
     const hasParams = Array.from(searchParams.entries()).length > 0;
 
-    if (!hasParams) return; // ничего не делаем если в URL нет фильтров
+    if (!hasParams) {
+      return;
+    } // ничего не делаем если в URL нет фильтров
     const validated: { [key: string]: StateData } = {};
 
     const intOrDefault = (key: string, min = 0, max = 20, def = 0) => {
