@@ -10,6 +10,7 @@
 
 # production
 /dist
+/.next  
 # misc
 Thumbs.db
 .DS_Store
@@ -24,3 +25,5 @@ yarn-error.log*
 .idea
 *.sublime*
 .vscode
+
+.vercel
