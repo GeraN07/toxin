@@ -9,6 +9,7 @@ type DoubleDateDropdownProps = {
   secondTitle?: string;
   onDatesChange?: (days: number) => void;
   availableDates?: string[];
+  selectedDates?: (string | null | undefined)[];
 };
 
 const DoubleDateDropdown = ({
@@ -16,6 +17,7 @@ const DoubleDateDropdown = ({
   secondTitle = '',
   onDatesChange,
   availableDates,
+  selectedDates,
 }: DoubleDateDropdownProps) => {
   const calFirstRef = useRef<HTMLInputElement | null>(null);
   const calLastRef = useRef<HTMLInputElement | null>(null);
@@ -24,7 +26,13 @@ const DoubleDateDropdown = ({
       calFirstRef.current.focus();
     }
   };
-  useCallendar(calFirstRef, calLastRef, onDatesChange, availableDates);
+  useCallendar(
+    calFirstRef,
+    calLastRef,
+    onDatesChange,
+    availableDates,
+    selectedDates
+  );
 
   return (
     <div className="double-date-dropdown-block">

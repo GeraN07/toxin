@@ -2,6 +2,8 @@
 import { useState, useCallback } from 'react';
 import DoubleDateDropdown from '../../double-date-dropdown/double-date-dropdown';
 import Dropdown from '../../dropdown-qty/dropdown-qty';
+import { useSelector } from 'react-redux';
+import { getFilters } from '../../../store/selectors';
 import './booking-card.css';
 type BookingCardProps = {
   price: string;
@@ -23,6 +25,7 @@ const BookingCard = ({
     setTotalDays(days);
   };
   const numPrice = parseInt(price, 10);
+  const { datesRange } = useSelector(getFilters);
   return (
     <div className="booking-card">
       <div className="booking-card__header">
@@ -40,6 +43,7 @@ const BookingCard = ({
         secondTitle="ВЫЕЗД"
         onDatesChange={handleDatesChange}
         availableDates={availableDates}
+        selectedDates={datesRange}
       />
       <Dropdown option={'guest'} roomMaxGuests={maxGuests} />
       <div className="booking-card__first-sum price-line">

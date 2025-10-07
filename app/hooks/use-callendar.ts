@@ -10,12 +10,14 @@ const useCallendar = (
   calFirstRef: MutableRefObject<HTMLInputElement | null>,
   calLastRef?: MutableRefObject<HTMLInputElement | null>,
   onDatesChange?: (days: number) => void,
-  availableDates: string[] = []
+  availableDates: string[] = [],
+  selectedDates?: (string | null | undefined)[]
 ) => {
   const isRenderedRef = useRef(false);
   const dispatch = useAppDispatch();
   const dates = useSelector(getDates);
   const prevDates = useRef<string[]>([]);
+  const datepickerRef = useRef<AirDatepicker | null>(null); // ✅ сохраняем инстанс календаря
 
   const [startAvailableDate, endAvailableDate] = useMemo(() => {
     const dateObjs = availableDates.map((date) => {
@@ -60,7 +62,6 @@ const useCallendar = (
               }
 
               const newDates = selected.map((d) => new Date(d).toISOString());
-
               if (
                 newDates.length === 2 &&
                 (newDates[0] !== prevDates.current[0] ||
@@ -124,6 +125,8 @@ const useCallendar = (
         },
       });
 
+      datepickerRef.current = dp;
+
       if (dates[0] && dates[1] && availableDates.length === 0) {
         const preselect = [new Date(dates[0]), new Date(dates[1])];
         dp.selectDate(preselect);
@@ -143,7 +146,26 @@ const useCallendar = (
     availableDates,
   ]);
 
-  return null;
+  useEffect(() => {
+    if (
+      !datepickerRef.current ||
+      !selectedDates ||
+      !selectedDates[0] ||
+      !selectedDates[1]
+    ) {
+      return;
+    }
+
+    const [start, end] = selectedDates;
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+
+    const prev = prevDates.current;
+    if (prev[0] !== start || prev[1] !== end) {
+      datepickerRef.current.selectDate([startDate, endDate]);
+      prevDates.current = [start, end];
+    }
+  }, [selectedDates]);
 };
 
 export default useCallendar;
