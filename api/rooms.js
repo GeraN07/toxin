@@ -3,8 +3,8 @@ import { faker } from '@faker-js/faker';
 import { Redis } from '@upstash/redis';
 
 const redis = new Redis({
-  url: "https://prime-lamprey-16854.upstash.io",
-  token: "AUHWAAIncDJlNWQyODEzYjNhYTk0OTkzYjQzNDhjMDM4ZDRjZDg5YXAyMTY4NTQ",
+  url: "https://awaited-adder-28819.upstash.io",
+  token: "AXCTAAIncDE5MDE2NzRhMTM0ZWU0ZTk3OWNhZTU5YzQ4OWVhYzU2MXAxMjg4MTk",
 });
 
 const TTL = 60 * 60;
