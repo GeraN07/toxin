@@ -2,10 +2,15 @@ import { faker } from '@faker-js/faker';
 
 import { Redis } from '@upstash/redis';
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-})
+const url = process.env.UPSTASH_REDIS_REST_URL;
+const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+if (!url || !token) {
+  throw new Error("Missing UPSTASH env vars");
+}
+
+const redis = new Redis({ url, token });
+
 
 
 const TTL = 60 * 60;
