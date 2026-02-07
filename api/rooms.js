@@ -3,9 +3,10 @@ import { faker } from '@faker-js/faker';
 import { Redis } from '@upstash/redis';
 
 const redis = new Redis({
-  url: "https://daring-sponge-49441.upstash.io",
-  token: "AcEhAAIncDJiYjdiZWFhYWVmZWQ0Y2RiODJlYTA1ODY0ZDE3MWI2N3AyNDk0NDE",
-});
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+})
+
 
 const TTL = 60 * 60;
 
