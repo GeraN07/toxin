@@ -14,7 +14,7 @@
 - Текущая версия реализована на **Next.js**:
   - Server Components
   - server-side filtering
-  - URL как источник истины для фильтров
+  - Состояние фильтров хранится в URL
   - SSG / ISR
   - деплой на Vercel
 
@@ -127,7 +127,7 @@ Next.js (App Router)
 
 - server-side filtering вместо client-side
 
-- синхронизация фильтров с URL (URL как источник истины)
+- синхронизация фильтров с URL (Состояние фильтров хранится в URL)
 
 - разделение client / server логики
 
