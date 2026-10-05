@@ -32,7 +32,7 @@
     "swiper": "^12.1.2"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.4.1",
+    "@faker-js/faker": "^10.5.0",
     "@jedmao/redux-mock-store": "3.0.5",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
