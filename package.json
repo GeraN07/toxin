@@ -57,7 +57,7 @@
     "faker": "5.5.3",
     "jsdom": "^28.1.0",
     "typescript": "^5.7.2",
-    "vite": "^7.3.2",
+    "vite": "^7.3.6",
     "vitest": "^4.1.11"
   },
   "browserslist": {
