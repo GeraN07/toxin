@@ -41,7 +41,6 @@
     "src",
     "types/**/*.ts",
     "types/**/*.tsx",
-    "vite.config.ts",
     ".next/types/**/*.ts"
   ],
   "references": [
